@@ -34,5 +34,11 @@ namespace acervoMusical
             a.Show();
         }
 
+        private void amigosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form4 a = new Form4();
+            a.Show();
+        }
+
     }
 }
