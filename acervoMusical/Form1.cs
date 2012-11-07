@@ -15,5 +15,24 @@ namespace acervoMusical
         {
             InitializeComponent();
         }
+
+        private void mídiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 a = new Form3();
+            a.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ListViewItem a = new ListViewItem();
+            //a = listViewPesquisa;
+        }
+
+        private void emprestarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Emprestimo a = new Emprestimo();
+            a.Show();
+        }
+
     }
 }
