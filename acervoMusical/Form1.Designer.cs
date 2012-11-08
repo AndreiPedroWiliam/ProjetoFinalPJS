@@ -130,14 +130,14 @@
             // mídiaToolStripMenuItem
             // 
             this.mídiaToolStripMenuItem.Name = "mídiaToolStripMenuItem";
-            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.mídiaToolStripMenuItem.Text = "Mídia";
             this.mídiaToolStripMenuItem.Click += new System.EventHandler(this.mídiaToolStripMenuItem_Click);
             // 
             // amigosToolStripMenuItem
             // 
             this.amigosToolStripMenuItem.Name = "amigosToolStripMenuItem";
-            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.amigosToolStripMenuItem.Text = "Pessoas";
             this.amigosToolStripMenuItem.Click += new System.EventHandler(this.amigosToolStripMenuItem_Click);
             // 
