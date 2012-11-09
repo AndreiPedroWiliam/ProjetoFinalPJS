@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -36,19 +37,27 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dateTimePickerCompra = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxNota = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerAlbum = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxMidia = new System.Windows.Forms.ComboBox();
+            this.textBoxCompra = new System.Windows.Forms.TextBox();
+            this.textBoxAlbum = new System.Windows.Forms.TextBox();
+            this.textBoxAutor = new System.Windows.Forms.TextBox();
+            this.textBoxInterprete = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxObservacao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxMusica = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
             // label21
@@ -123,18 +132,18 @@
             this.label14.TabIndex = 37;
             this.label14.Text = "Intérprete:";
             // 
-            // dateTimePicker2
+            // dateTimePickerCompra
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(327, 166);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(112, 20);
-            this.dateTimePicker2.TabIndex = 35;
+            this.dateTimePickerCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerCompra.Location = new System.Drawing.Point(327, 166);
+            this.dateTimePickerCompra.Name = "dateTimePickerCompra";
+            this.dateTimePickerCompra.Size = new System.Drawing.Size(112, 20);
+            this.dateTimePickerCompra.TabIndex = 35;
             // 
-            // comboBox3
+            // comboBoxNota
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.comboBoxNota.FormattingEnabled = true;
+            this.comboBoxNota.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -145,61 +154,61 @@
             "8",
             "9",
             "10"});
-            this.comboBox3.Location = new System.Drawing.Point(163, 231);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(63, 21);
-            this.comboBox3.TabIndex = 33;
+            this.comboBoxNota.Location = new System.Drawing.Point(163, 231);
+            this.comboBoxNota.Name = "comboBoxNota";
+            this.comboBoxNota.Size = new System.Drawing.Size(63, 21);
+            this.comboBoxNota.TabIndex = 33;
             // 
-            // dateTimePicker1
+            // dateTimePickerAlbum
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(327, 109);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(112, 20);
-            this.dateTimePicker1.TabIndex = 34;
+            this.dateTimePickerAlbum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerAlbum.Location = new System.Drawing.Point(327, 109);
+            this.dateTimePickerAlbum.Name = "dateTimePickerAlbum";
+            this.dateTimePickerAlbum.Size = new System.Drawing.Size(112, 20);
+            this.dateTimePickerAlbum.TabIndex = 34;
             // 
-            // comboBox2
+            // comboBoxMidia
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "digital",
+            this.comboBoxMidia.FormattingEnabled = true;
+            this.comboBoxMidia.Items.AddRange(new object[] {
+            "Digital",
             "DVD",
             "CD",
             "K7",
             "Vinil"});
-            this.comboBox2.Location = new System.Drawing.Point(36, 231);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 32;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBoxMidia.Location = new System.Drawing.Point(36, 231);
+            this.comboBoxMidia.Name = "comboBoxMidia";
+            this.comboBoxMidia.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxMidia.TabIndex = 32;
+            this.comboBoxMidia.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // textBox6
+            // textBoxCompra
             // 
-            this.textBox6.Location = new System.Drawing.Point(36, 168);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(251, 20);
-            this.textBox6.TabIndex = 31;
+            this.textBoxCompra.Location = new System.Drawing.Point(36, 168);
+            this.textBoxCompra.Name = "textBoxCompra";
+            this.textBoxCompra.Size = new System.Drawing.Size(251, 20);
+            this.textBoxCompra.TabIndex = 31;
             // 
-            // textBox5
+            // textBoxAlbum
             // 
-            this.textBox5.Location = new System.Drawing.Point(36, 109);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(251, 20);
-            this.textBox5.TabIndex = 30;
+            this.textBoxAlbum.Location = new System.Drawing.Point(36, 109);
+            this.textBoxAlbum.Name = "textBoxAlbum";
+            this.textBoxAlbum.Size = new System.Drawing.Size(251, 20);
+            this.textBoxAlbum.TabIndex = 30;
             // 
-            // textBox4
+            // textBoxAutor
             // 
-            this.textBox4.Location = new System.Drawing.Point(327, 61);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(251, 20);
-            this.textBox4.TabIndex = 29;
+            this.textBoxAutor.Location = new System.Drawing.Point(327, 61);
+            this.textBoxAutor.Name = "textBoxAutor";
+            this.textBoxAutor.Size = new System.Drawing.Size(251, 20);
+            this.textBoxAutor.TabIndex = 29;
             // 
-            // textBox3
+            // textBoxInterprete
             // 
-            this.textBox3.Location = new System.Drawing.Point(36, 62);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(251, 20);
-            this.textBox3.TabIndex = 28;
+            this.textBoxInterprete.Location = new System.Drawing.Point(36, 62);
+            this.textBoxInterprete.Name = "textBoxInterprete";
+            this.textBoxInterprete.Size = new System.Drawing.Size(251, 20);
+            this.textBoxInterprete.TabIndex = 28;
             // 
             // label1
             // 
@@ -210,13 +219,13 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "Observações:";
             // 
-            // textBox1
+            // textBoxObservacao
             // 
-            this.textBox1.Location = new System.Drawing.Point(327, 231);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(251, 94);
-            this.textBox1.TabIndex = 45;
+            this.textBoxObservacao.Location = new System.Drawing.Point(327, 231);
+            this.textBoxObservacao.Multiline = true;
+            this.textBoxObservacao.Name = "textBoxObservacao";
+            this.textBoxObservacao.Size = new System.Drawing.Size(251, 94);
+            this.textBoxObservacao.TabIndex = 45;
             // 
             // label2
             // 
@@ -228,13 +237,13 @@
             this.label2.Text = "Nome da música:";
             this.label2.Visible = false;
             // 
-            // textBox2
+            // textBoxMusica
             // 
-            this.textBox2.Location = new System.Drawing.Point(36, 288);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(251, 20);
-            this.textBox2.TabIndex = 47;
-            this.textBox2.Visible = false;
+            this.textBoxMusica.Location = new System.Drawing.Point(36, 288);
+            this.textBoxMusica.Name = "textBoxMusica";
+            this.textBoxMusica.Size = new System.Drawing.Size(251, 20);
+            this.textBoxMusica.TabIndex = 47;
+            this.textBoxMusica.Visible = false;
             // 
             // button1
             // 
@@ -246,16 +255,49 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(422, 331);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 50;
+            this.button2.Text = "Limpar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 331);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(10, 13);
+            this.label3.TabIndex = 51;
+            this.label3.Text = " ";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 397);
+            this.ClientSize = new System.Drawing.Size(634, 397);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxMusica);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxObservacao);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
@@ -264,17 +306,20 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.dateTimePickerCompra);
+            this.Controls.Add(this.comboBoxNota);
+            this.Controls.Add(this.dateTimePickerAlbum);
+            this.Controls.Add(this.comboBoxMidia);
+            this.Controls.Add(this.textBoxCompra);
+            this.Controls.Add(this.textBoxAlbum);
+            this.Controls.Add(this.textBoxAutor);
+            this.Controls.Add(this.textBoxInterprete);
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de mídias";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,19 +335,24 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DateTimePicker dateTimePickerCompra;
+        private System.Windows.Forms.ComboBox comboBoxNota;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAlbum;
+        private System.Windows.Forms.ComboBox comboBoxMidia;
+        private System.Windows.Forms.TextBox textBoxCompra;
+        private System.Windows.Forms.TextBox textBoxAlbum;
+        private System.Windows.Forms.TextBox textBoxAutor;
+        private System.Windows.Forms.TextBox textBoxInterprete;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxObservacao;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxMusica;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
 
     }
 }
