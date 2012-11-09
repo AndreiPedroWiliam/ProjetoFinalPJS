@@ -97,7 +97,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonEmprestar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -762,22 +762,22 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Pesquisa:";
             // 
-            // button1
+            // buttonEmprestar
             // 
-            this.button1.Location = new System.Drawing.Point(649, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Emprestar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonEmprestar.Location = new System.Drawing.Point(649, 41);
+            this.buttonEmprestar.Name = "buttonEmprestar";
+            this.buttonEmprestar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEmprestar.TabIndex = 9;
+            this.buttonEmprestar.Text = "Emprestar";
+            this.buttonEmprestar.UseVisualStyleBackColor = true;
+            this.buttonEmprestar.Click += new System.EventHandler(this.buttonEmprestar_Click);
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 483);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonEmprestar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.buttonExcluir);
@@ -866,7 +866,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonEmprestar;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
