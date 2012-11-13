@@ -111,17 +111,20 @@ namespace acervoMusical
 
         private void mídiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form3 a = new Form3();
+            a.Show();
         }
 
         private void emprestarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Emprestimo a = new Emprestimo();
+            a.Show();
         }
 
         private void amigosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form4 a = new Form4();
+            a.Show();
         }
 
         private void buttonEmprestar_Click(object sender, EventArgs e)
