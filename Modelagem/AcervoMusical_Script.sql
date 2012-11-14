@@ -1,5 +1,6 @@
 USE master;
 
+
 CREATE DATABASE AcervoMusical;
 GO
 
@@ -55,8 +56,10 @@ FOREIGN KEY(Id_Status) REFERENCES Status (Id_Status)
 CREATE TABLE Endereco (
 Id_Endereco INT PRIMARY KEY IDENTITY,
 Logradouro VARCHAR(60),
+Numero VARCHAR(5),
 Bairro VARCHAR(60),
-Cidade VARCHAR(60)
+Cidade VARCHAR(60),
+UF VARCHAR(2),
 );
 
 CREATE TABLE Pessoas (
@@ -82,7 +85,7 @@ FOREIGN KEY(Id_Album) REFERENCES Album (Id_Album)
 SET DATEFORMAT dmy
 
 -- INSERT --
-INSERT INTO Compra (Data, Origem)VALUES ('04-11-2012', 'itunes');
+INSERT INTO Compra (Data, Origem)VALUES ('04-11-2012', 'Itunes');
 INSERT INTO Compra (Data, Origem)VALUES ('10-06-2010', 'Submarino');
 
 INSERT INTO Tipo_Midia VALUES ('Vinil');
@@ -120,10 +123,9 @@ VALUES ('João Miguel dos Santos', 'Joao.ms@email.com', '(12)3662-7751',2);
 
 
 
- -- ADICIONA O FILME NA TABELA Emprestimo, E ALTERA O CAMPO STATUS NA TABELA ALBUM PARA Emprestado
-INSERT INTO Emprestimo (Data, Id_Pessoa, Id_Album)
-VALUES ('05-11-2012', 1, 2);
-
+ -- ADICIONA O ALBUM NA TABELA Emprestimo, E ALTERA O CAMPO STATUS NA TABELA ALBUM PARA Emprestado
+INSERT INTO Emprestimo (Data,Id_Pessoa, Id_Album)
+VALUES ('05-11-2012', 1 , 1);
 UPDATE Album SET Id_Status = 2 WHERE Album.Id_Album = 1;
 
 
@@ -140,6 +142,29 @@ SELECT * FROM Compra;
 SELECT * FROM Album;
 
 
+SELECT Album.Nome, Album.Data AS 'Data Album', Album.Nota, Album.Observacao, Compra.Data AS 'Data Compra',
+Compra.Origem, Tipo_Midia.Descricao AS 'Tipo Mídia', Autor.Nome AS 'Autor', Interprete.Nome AS 'Interprete' FROM Album
+INNER JOIN Compra ON
+	Album.Id_Compra = Compra.Id_Compra
+INNER JOIN Tipo_Midia ON
+	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
+INNER JOIN Autor ON
+	Album.Id_Autor = Autor.Id_Autor
+INNER JOIN Interprete ON
+	Album.Id_Interprete = Interprete.Id_Interprete;
+
+		 
+SELECT * FROM Endereco
+
+SELECT * FROM Pessoas
+
+SELECT * FROM Status
+
+SELECT * FROM Emprestimo
+
+
+ -- SELECT LIST VIEW TELA PRINCIPAL --
+ 
  SELECT Interprete.Nome AS 'Interprete', Autor.Nome AS 'Autor', Album.Nome AS 'Album', Album.Data, Compra.Data AS 'Data Compra', 
 Compra.Origem, Tipo_Midia.Descricao AS 'Midia' , Album.Nota, Album.Observacao, Album.Id_Status AS 'Status' FROM Album
 INNER JOIN Compra ON
@@ -150,3 +175,88 @@ INNER JOIN Autor ON
 	Album.Id_Autor = Autor.Id_Autor
 INNER JOIN Interprete ON
 	Album.Id_Interprete = Interprete.Id_Interprete;
+	
+
+ -- MOSTRAS OS ALBUNS DISPONIVEIS
+SELECT Interprete.Nome AS 'Interprete', Autor.Nome AS 'Autor', Album.Nome AS 'Album', Album.Data, Compra.Data AS 'Data Compra', 
+Compra.Origem, Tipo_Midia.Descricao AS 'Midia' , Album.Nota, Album.Observacao, Status.Descricao AS 'Status' FROM Album
+INNER JOIN Compra ON
+	Album.Id_Compra = Compra.Id_Compra
+INNER JOIN Tipo_Midia ON
+	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
+INNER JOIN Autor ON
+	Album.Id_Autor = Autor.Id_Autor
+INNER JOIN Interprete ON
+	Album.Id_Interprete = Interprete.Id_Interprete
+INNER JOIN Status ON
+	Album.Id_Status = Status.Id_Status
+WHERE Status.Id_Status = 1;
+
+ -- MOSTRAS OS ALBUNS EMPRESTADOS
+SELECT Interprete.Nome AS 'Interprete', Autor.Nome AS 'Autor', Album.Nome AS 'Album', Album.Data, Compra.Data AS 'Data Compra', 
+Compra.Origem, Tipo_Midia.Descricao AS 'Midia' , Album.Nota, Album.Observacao, Status.Descricao AS 'Status' FROM Album
+INNER JOIN Compra ON
+	Album.Id_Compra = Compra.Id_Compra
+INNER JOIN Tipo_Midia ON
+	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
+INNER JOIN Autor ON
+	Album.Id_Autor = Autor.Id_Autor
+INNER JOIN Interprete ON
+	Album.Id_Interprete = Interprete.Id_Interprete
+INNER JOIN Status ON
+	Album.Id_Status = Status.Id_Status
+WHERE Status.Id_Status = 2;
+
+
+ -- MOSTRA A QTDE DE ALBUNS DISPONÍVEIS
+SELECT COUNT(*) AS 'QTD' FROM Album 
+INNER JOIN Status ON
+	Album.Id_Status = Status.Id_Status
+WHERE Status.Id_Status = 1;
+
+
+ -- MOSTRA A QTDE DE ALBUNS EMPRESTADO
+SELECT COUNT(*) AS 'QTD' FROM Album 
+INNER JOIN Status ON
+	Album.Id_Status = Status.Id_Status
+WHERE Status.Id_Status = 2;
+
+
+-- MOSTRA A QTDE DE MIDIAS
+SELECT COUNT(*) AS 'QTD' FROM Album
+INNER JOIN Tipo_Midia ON
+	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
+
+
+-- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "Vinil"
+SELECT COUNT(*) AS 'QTD' FROM Album
+INNER JOIN Tipo_Midia ON
+	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
+WHERE Tipo_Midia.Descricao = 'Vinil';
+
+-- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "k7"
+SELECT COUNT(*) AS 'QTD' FROM Album
+INNER JOIN Tipo_Midia ON
+	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
+WHERE Tipo_Midia.Descricao = 'K7';
+
+-- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "CD"
+SELECT COUNT(*) AS 'QTD' FROM Album
+INNER JOIN Tipo_Midia ON
+	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
+WHERE Tipo_Midia.Descricao = 'CD';
+
+-- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "DVD"
+SELECT COUNT(*) AS 'QTD' FROM Album
+INNER JOIN Tipo_Midia ON
+	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
+WHERE Tipo_Midia.Descricao = 'DVD';
+
+-- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "Digital"
+SELECT COUNT(*) AS 'QTD' FROM Album
+INNER JOIN Tipo_Midia ON
+	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
+WHERE Tipo_Midia.Descricao = 'Digital';
+
+SELECT COUNT(*) AS 'QTD' FROM Pessoas;
+

@@ -46,6 +46,15 @@
             this.nota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.observacoes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.qtdeDisponivel = new System.Windows.Forms.Label();
+            this.qtdeEmprestado = new System.Windows.Forms.Label();
+            this.qtdePessoas = new System.Windows.Forms.Label();
+            this.qtdeVinil = new System.Windows.Forms.Label();
+            this.qtdeK7 = new System.Windows.Forms.Label();
+            this.qtdeCD = new System.Windows.Forms.Label();
+            this.qtdeDVD = new System.Windows.Forms.Label();
+            this.qtdeDigital = new System.Windows.Forms.Label();
+            this.qtdeMidia = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -130,14 +139,14 @@
             // mídiaToolStripMenuItem
             // 
             this.mídiaToolStripMenuItem.Name = "mídiaToolStripMenuItem";
-            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.mídiaToolStripMenuItem.Text = "Mídia";
             this.mídiaToolStripMenuItem.Click += new System.EventHandler(this.mídiaToolStripMenuItem_Click);
             // 
             // amigosToolStripMenuItem
             // 
             this.amigosToolStripMenuItem.Name = "amigosToolStripMenuItem";
-            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.amigosToolStripMenuItem.Text = "Pessoas";
             this.amigosToolStripMenuItem.Click += new System.EventHandler(this.amigosToolStripMenuItem_Click);
             // 
@@ -240,6 +249,15 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.qtdeDisponivel);
+            this.groupBox1.Controls.Add(this.qtdeEmprestado);
+            this.groupBox1.Controls.Add(this.qtdePessoas);
+            this.groupBox1.Controls.Add(this.qtdeVinil);
+            this.groupBox1.Controls.Add(this.qtdeK7);
+            this.groupBox1.Controls.Add(this.qtdeCD);
+            this.groupBox1.Controls.Add(this.qtdeDVD);
+            this.groupBox1.Controls.Add(this.qtdeDigital);
+            this.groupBox1.Controls.Add(this.qtdeMidia);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -255,6 +273,88 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações";
+//this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // qtdeDisponivel
+            // 
+            this.qtdeDisponivel.AutoSize = true;
+            this.qtdeDisponivel.Location = new System.Drawing.Point(373, 75);
+            this.qtdeDisponivel.Name = "qtdeDisponivel";
+            this.qtdeDisponivel.Size = new System.Drawing.Size(13, 13);
+            this.qtdeDisponivel.TabIndex = 17;
+            this.qtdeDisponivel.Text = "0";
+            // 
+            // qtdeEmprestado
+            // 
+            this.qtdeEmprestado.AutoSize = true;
+            this.qtdeEmprestado.Location = new System.Drawing.Point(186, 75);
+            this.qtdeEmprestado.Name = "qtdeEmprestado";
+            this.qtdeEmprestado.Size = new System.Drawing.Size(13, 13);
+            this.qtdeEmprestado.TabIndex = 16;
+            this.qtdeEmprestado.Text = "0";
+            // 
+            // qtdePessoas
+            // 
+            this.qtdePessoas.AutoSize = true;
+            this.qtdePessoas.Location = new System.Drawing.Point(66, 75);
+            this.qtdePessoas.Name = "qtdePessoas";
+            this.qtdePessoas.Size = new System.Drawing.Size(13, 13);
+            this.qtdePessoas.TabIndex = 15;
+            this.qtdePessoas.Text = "0";
+            // 
+            // qtdeVinil
+            // 
+            this.qtdeVinil.AutoSize = true;
+            this.qtdeVinil.Location = new System.Drawing.Point(502, 33);
+            this.qtdeVinil.Name = "qtdeVinil";
+            this.qtdeVinil.Size = new System.Drawing.Size(13, 13);
+            this.qtdeVinil.TabIndex = 14;
+            this.qtdeVinil.Text = "0";
+            // 
+            // qtdeK7
+            // 
+            this.qtdeK7.AutoSize = true;
+            this.qtdeK7.Location = new System.Drawing.Point(414, 33);
+            this.qtdeK7.Name = "qtdeK7";
+            this.qtdeK7.Size = new System.Drawing.Size(13, 13);
+            this.qtdeK7.TabIndex = 13;
+            this.qtdeK7.Text = "0";
+            // 
+            // qtdeCD
+            // 
+            this.qtdeCD.AutoSize = true;
+            this.qtdeCD.Location = new System.Drawing.Point(332, 33);
+            this.qtdeCD.Name = "qtdeCD";
+            this.qtdeCD.Size = new System.Drawing.Size(13, 13);
+            this.qtdeCD.TabIndex = 12;
+            this.qtdeCD.Text = "0";
+            // 
+            // qtdeDVD
+            // 
+            this.qtdeDVD.AutoSize = true;
+            this.qtdeDVD.Location = new System.Drawing.Point(248, 33);
+            this.qtdeDVD.Name = "qtdeDVD";
+            this.qtdeDVD.Size = new System.Drawing.Size(13, 13);
+            this.qtdeDVD.TabIndex = 11;
+            this.qtdeDVD.Text = "0";
+            // 
+            // qtdeDigital
+            // 
+            this.qtdeDigital.AutoSize = true;
+            this.qtdeDigital.Location = new System.Drawing.Point(155, 33);
+            this.qtdeDigital.Name = "qtdeDigital";
+            this.qtdeDigital.Size = new System.Drawing.Size(13, 13);
+            this.qtdeDigital.TabIndex = 10;
+            this.qtdeDigital.Text = "0";
+            // 
+            // qtdeMidia
+            // 
+            this.qtdeMidia.AutoSize = true;
+            this.qtdeMidia.Location = new System.Drawing.Point(57, 33);
+            this.qtdeMidia.Name = "qtdeMidia";
+            this.qtdeMidia.Size = new System.Drawing.Size(13, 13);
+            this.qtdeMidia.TabIndex = 9;
+            this.qtdeMidia.Text = "0";
             // 
             // label10
             // 
@@ -770,7 +870,7 @@
             this.buttonEmprestar.TabIndex = 9;
             this.buttonEmprestar.Text = "Emprestar";
             this.buttonEmprestar.UseVisualStyleBackColor = true;
-            this.buttonEmprestar.Click += new System.EventHandler(this.buttonEmprestar_Click);
+            //this.buttonEmprestar.Click += new System.EventHandler(this.buttonEmprestar_Click);
             // 
             // Principal
             // 
@@ -791,6 +891,7 @@
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minha Coleção";
+            this.Load += new System.EventHandler(this.Principal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -879,6 +980,15 @@
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Label qtdeMidia;
+        private System.Windows.Forms.Label qtdeDisponivel;
+        private System.Windows.Forms.Label qtdeEmprestado;
+        private System.Windows.Forms.Label qtdePessoas;
+        private System.Windows.Forms.Label qtdeVinil;
+        private System.Windows.Forms.Label qtdeK7;
+        private System.Windows.Forms.Label qtdeCD;
+        private System.Windows.Forms.Label qtdeDVD;
+        private System.Windows.Forms.Label qtdeDigital;
     }
 }
 
