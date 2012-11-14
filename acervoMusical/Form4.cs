@@ -20,96 +20,138 @@ namespace acervoMusical
         {
             SqlConnection conexao = new SqlConnection();
 
-            conexao.ConnectionString = "Data Source=(local);Initial Catalog=SistemaFinanceiro;Integrated Security=SSPI";
+            conexao.ConnectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=AcervoMusical;Integrated Security=SSPI";
 
             SqlCommand selecaoPessoa = new SqlCommand("select Nome, Telefone, Logradouro, Numero, Bairro, Cidade, Email", conexao);
 
             //Comando para Inserção
-            SqlCommand InsercaoPessoa = new SqlCommand("Insert into Tabela (Nome, Telefone, Logradouro, Numero, Bairro, Cidade, Email) values (@Nome, @Telefone, @Logradouro, @Numero, @Bairro, @Cidade, @Email)", conexao);
+            SqlCommand InsercaoPessoa = new SqlCommand("Insert into Pessoas (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) values (@Nome, @Telefone,@Email, @Logradouro, @Numero, @Bairro, @Cidade, @UF)", conexao);
 
-            SqlParameter Nome = new SqlParameter("@Nome", SqlDbType.VarChar, 40);
+            SqlParameter Nome = new SqlParameter("@Nome", SqlDbType.VarChar, 60);
             Nome.SourceColumn = "Nome";
             InsercaoPessoa.Parameters.Add(Nome);
 
-            SqlParameter Telefone = new SqlParameter("@Telefone", SqlDbType.Decimal);
+            SqlParameter Telefone = new SqlParameter("@Telefone", SqlDbType.VarChar, 13);
             Telefone.SourceColumn = "Telefone";
             Telefone.SourceVersion = DataRowVersion.Current;
             InsercaoPessoa.Parameters.Add(Telefone);
 
-            SqlParameter Logradouro = new SqlParameter("@Logradouro", SqlDbType.VarChar, 40);
-            Logradouro.SourceColumn = "Logradouro";
-            Logradouro.SourceVersion = DataRowVersion.Current;
-            InsercaoPessoa.Parameters.Add(Logradouro);
-
-            SqlParameter Numero = new SqlParameter("@Numero", SqlDbType.Decimal);
-            Numero.SourceColumn = "Numero";
-            Numero.SourceVersion = DataRowVersion.Current;
-            InsercaoPessoa.Parameters.Add(Numero);
-
-            SqlParameter Bairro = new SqlParameter("@Bairro", SqlDbType.VarChar, 40);
-            Bairro.SourceColumn = "Bairro";
-            Bairro.SourceVersion = DataRowVersion.Current;
-            InsercaoPessoa.Parameters.Add(Bairro);
-
-            SqlParameter Cidade = new SqlParameter("@Cidade", SqlDbType.VarChar, 40);
-            Cidade.SourceColumn = "Cidade";
-            Cidade.SourceVersion = DataRowVersion.Current;
-            InsercaoPessoa.Parameters.Add(Cidade);
-
-            SqlParameter Email = new SqlParameter("@Email", SqlDbType.VarChar, 40);
+            SqlParameter Email = new SqlParameter("@Email", SqlDbType.VarChar, 60);
             Email.SourceColumn = "Email";
             Email.SourceVersion = DataRowVersion.Current;
             InsercaoPessoa.Parameters.Add(Email);
 
-            //Comandos para Atualização
-            SqlCommand AtualizacaoPessoa = new SqlCommand("Update Tabela set Nome = @Nome, Telefone = @Telefone, Logradouro = @logradouro, Numero = @Numero, Bairro = @Bairro, Cidade = @Cidade, Email = @Email", conexao);
+            SqlParameter Logradouro = new SqlParameter("@Logradouro", SqlDbType.VarChar, 60);
+            Logradouro.SourceColumn = "Logradouro";
+            Logradouro.SourceVersion = DataRowVersion.Current;
+            InsercaoPessoa.Parameters.Add(Logradouro);
 
-            Nome = new SqlParameter("@Nome", SqlDbType.VarChar, 40);
+            SqlParameter Numero = new SqlParameter("@Numero", SqlDbType.VarChar, 5);
+            Numero.SourceColumn = "Numero";
+            Numero.SourceVersion = DataRowVersion.Current;
+            InsercaoPessoa.Parameters.Add(Numero);
+
+            SqlParameter Bairro = new SqlParameter("@Bairro", SqlDbType.VarChar, 60);
+            Bairro.SourceColumn = "Bairro";
+            Bairro.SourceVersion = DataRowVersion.Current;
+            InsercaoPessoa.Parameters.Add(Bairro);
+
+            SqlParameter Cidade = new SqlParameter("@Cidade", SqlDbType.VarChar, 60);
+            Cidade.SourceColumn = "Cidade";
+            Cidade.SourceVersion = DataRowVersion.Current;
+            InsercaoPessoa.Parameters.Add(Cidade);
+
+            SqlParameter UF = new SqlParameter("@UF", SqlDbType.VarChar, 2);
+            UF.SourceColumn = "UF";
+            UF.SourceVersion = DataRowVersion.Current;
+            InsercaoPessoa.Parameters.Add(UF);
+
+            //Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF
+            //Comandos para Atualização
+            SqlCommand AtualizacaoPessoa = new SqlCommand("Update Tabela set Nome = @Nome, Telefone = @Telefone, Email = @Email, Logradouro = @logradouro, Numero = @Numero, Bairro = @Bairro, Cidade = @Cidade,UF = @UF ", conexao);
+
+            Nome = new SqlParameter("@Nome", SqlDbType.VarChar, 60);
             Nome.SourceColumn = "Nome";
             Nome.SourceVersion = DataRowVersion.Current;
             AtualizacaoPessoa.Parameters.Add(Nome);
 
-            Telefone = new SqlParameter("@Telefone", SqlDbType.Decimal);
+            Telefone = new SqlParameter("@Telefone", SqlDbType.VarChar, 13);
             Telefone.SourceColumn = "Telefone";
             Telefone.SourceVersion = DataRowVersion.Current;
             AtualizacaoPessoa.Parameters.Add(Telefone);
 
-            Logradouro = new SqlParameter("@Logradouro", SqlDbType.VarChar, 40);
-            Logradouro.SourceColumn = "Logradouro";
-            Logradouro.SourceVersion = DataRowVersion.Current;
-            AtualizacaoPessoa.Parameters.Add(Logradouro);
-
-            Numero = new SqlParameter("@Numero", SqlDbType.Decimal);
-            Numero.SourceColumn = "Numero";
-            Numero.SourceVersion = DataRowVersion.Current;
-            AtualizacaoPessoa.Parameters.Add(Numero);
-
-            Bairro = new SqlParameter("@Bairro", SqlDbType.VarChar, 40);
-            Bairro.SourceColumn = "Bairro";
-            Bairro.SourceVersion = DataRowVersion.Current;
-            AtualizacaoPessoa.Parameters.Add(Bairro);
-
-            Cidade = new SqlParameter("@Cidade", SqlDbType.VarChar, 40);
-            Cidade.SourceColumn = "Cidade";
-            Cidade.SourceVersion = DataRowVersion.Current;
-            AtualizacaoPessoa.Parameters.Add(Cidade);
-
-            Email = new SqlParameter("@Email", SqlDbType.VarChar, 40);
+            Email = new SqlParameter("@Email", SqlDbType.VarChar, 60);
             Email.SourceColumn = "Email";
             Email.SourceVersion = DataRowVersion.Current;
             AtualizacaoPessoa.Parameters.Add(Email);
 
+            Logradouro = new SqlParameter("@Logradouro", SqlDbType.VarChar, 60);
+            Logradouro.SourceColumn = "Logradouro";
+            Logradouro.SourceVersion = DataRowVersion.Current;
+            AtualizacaoPessoa.Parameters.Add(Logradouro);
 
+            Numero = new SqlParameter("@Numero", SqlDbType.VarChar, 5);
+            Numero.SourceColumn = "Numero";
+            Numero.SourceVersion = DataRowVersion.Current;
+            AtualizacaoPessoa.Parameters.Add(Numero);
+
+            Bairro = new SqlParameter("@Bairro", SqlDbType.VarChar, 60);
+            Bairro.SourceColumn = "Bairro";
+            Bairro.SourceVersion = DataRowVersion.Current;
+            AtualizacaoPessoa.Parameters.Add(Bairro);
+
+            Cidade = new SqlParameter("@Cidade", SqlDbType.VarChar, 60);
+            Cidade.SourceColumn = "Cidade";
+            Cidade.SourceVersion = DataRowVersion.Current;
+            AtualizacaoPessoa.Parameters.Add(Cidade);
+
+            UF = new SqlParameter("@UF", SqlDbType.VarChar, 2);
+            UF.SourceColumn = "UF";
+            UF.SourceVersion = DataRowVersion.Current;
+            AtualizacaoPessoa.Parameters.Add(UF);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBoxNomeCad.Text == "")
+            {
+                errorProvider1.SetError(label1,"Nome Inválido");
+            }
 
-        }
+            else if (maskedTextBoxTelefoneCad.Text == "")
+            {
+                errorProvider2.SetError(label2, "Telefone Inválido");
+            }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-          
+            else if (textBoxEmailCad.Text == "")
+            {
+                errorProvider3.SetError(label3, "Email Inválido");
+            }
+
+            else if (textBoxLogradouroCad.Text == "")
+            {
+                errorProvider4.SetError(label4, "Logradouro Inválido");
+            }
+
+            else if (textBoxNumeoCad.Text == "")
+            {
+                errorProvider5.SetError(label5, "Numero Inválido");
+            }
+
+            else if (textBoxBairroCad.Text == "")
+            {
+                errorProvider6.SetError(label6, "Bairro Inválido");
+            }
+
+            else if (textBoxCidadeCad.Text == "")
+            {
+                errorProvider7.SetError(label7, "Cidade Inválido");
+            }
+
+            else if (textBoxCadUF.Text == "")
+            {
+                errorProvider8.SetError(label8, "UF Inválido");
+            }
         }
     }
 }

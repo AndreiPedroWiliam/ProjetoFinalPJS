@@ -28,25 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxNomeCad = new System.Windows.Forms.TextBox();
             this.textBoxLogradouroCad = new System.Windows.Forms.TextBox();
             this.maskedTextBoxTelefoneCad = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxCadUF = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxCidadeCad = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxBairroCad = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxNumeoCad = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.textBoxBairroCad = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxNumeoCad = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.textBoxEmailCad = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider7 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider8 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider8)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxNomeCad
@@ -89,27 +106,27 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Telefone:";
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Logradouro:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Logradouro:";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBoxCadUF);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.textBoxCidadeCad);
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.textBoxBairroCad);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textBoxNumeoCad);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBoxLogradouroCad);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(15, 84);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(543, 132);
@@ -117,13 +134,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Endereço";
             // 
-            // textBox1
+            // textBoxCadUF
             // 
-            this.textBox1.Location = new System.Drawing.Point(373, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(47, 20);
-            this.textBox1.TabIndex = 12;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxCadUF.Location = new System.Drawing.Point(373, 74);
+            this.textBoxCadUF.Name = "textBoxCadUF";
+            this.textBoxCadUF.Size = new System.Drawing.Size(47, 20);
+            this.textBoxCadUF.TabIndex = 12;
             // 
             // label8
             // 
@@ -141,14 +157,14 @@
             this.textBoxCidadeCad.Size = new System.Drawing.Size(146, 20);
             this.textBoxCidadeCad.TabIndex = 10;
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(221, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Cidade:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(221, 58);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Cidade:";
             // 
             // textBoxBairroCad
             // 
@@ -157,14 +173,14 @@
             this.textBoxBairroCad.Size = new System.Drawing.Size(209, 20);
             this.textBoxBairroCad.TabIndex = 8;
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 58);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Bairro:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Bairro:";
             // 
             // textBoxNumeoCad
             // 
@@ -173,23 +189,23 @@
             this.textBoxNumeoCad.Size = new System.Drawing.Size(47, 20);
             this.textBoxNumeoCad.TabIndex = 6;
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(370, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Nº";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(370, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Nº";
             // 
-            // label7
+            // label3
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(385, 12);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "E - mail:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(385, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "E - mail:";
             // 
             // textBoxEmailCad
             // 
@@ -208,12 +224,44 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
+            // 
+            // errorProvider6
+            // 
+            this.errorProvider6.ContainerControl = this;
+            // 
+            // errorProvider7
+            // 
+            this.errorProvider7.ContainerControl = this;
+            // 
+            // errorProvider8
+            // 
+            this.errorProvider8.ContainerControl = this;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(574, 263);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxEmailCad);
             this.Controls.Add(this.groupBox1);
@@ -227,6 +275,14 @@
             this.Load += new System.EventHandler(this.Form4_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,18 +295,26 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxTelefoneCad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxCidadeCad;
         private System.Windows.Forms.TextBox textBoxEmailCad;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxBairroCad;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxNumeoCad;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxCadUF;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
+        private System.Windows.Forms.ErrorProvider errorProvider6;
+        private System.Windows.Forms.ErrorProvider errorProvider7;
+        private System.Windows.Forms.ErrorProvider errorProvider8;
     }
 }
