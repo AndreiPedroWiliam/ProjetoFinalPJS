@@ -31,7 +31,7 @@ namespace acervoMusical
                 conexao.Open();
 
                 // Comando que retorna os campos para o carregamento do ListViewPesquisa
-                SqlCommand cmdSelecao = new SqlCommand(" SELECT Interprete.Nome AS 'Interprete', Autor.Nome AS 'Autor', Album.Nome AS 'Album', Album.Data, Compra.Data AS 'Data Compra', Compra.Origem, Tipo_Midia.Descricao AS 'Midia', Album.Nota, Album.Observacao, Album.Id_Status AS 'Status' FROM Album INNER JOIN Compra ON Album.Id_Compra = Compra.Id_Compra INNER JOIN Tipo_Midia ON Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia INNER JOIN Autor ON Album.Id_Autor = Autor.Id_Autor INNER JOIN Interprete ON Album.Id_Interprete = Interprete.Id_Interprete;", conexao);
+                SqlCommand cmdSelecao = new SqlCommand("SELECT Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album;", conexao);
                 leitor = cmdSelecao.ExecuteReader();
 
                 int i = 0;
@@ -58,20 +58,20 @@ namespace acervoMusical
 
                     Data.Text = leitor["Data"].ToString();
                     string data = Data.Text;
-                    data = data.Remove(10); // Remove a Hora da data, assim deixando dd/mm/YY
+                    data = data.Remove(10);
 
                     Interprete.SubItems.Add(data);
 
-                    Compra.Text = leitor["Data Compra"].ToString();
+                    Compra.Text = leitor["DataCompra"].ToString();
                     data = Compra.Text;
-                    data = data.Remove(10); // Remove a Hora da data, assim deixando dd/mm/YY
+                    data = data.Remove(10); 
 
                     Interprete.SubItems.Add(data);
 
-                    Origem.Text = leitor["Origem"].ToString();
+                    Origem.Text = leitor["OrigemCompra"].ToString();
                     Interprete.SubItems.Add(Origem);
 
-                    Midia.Text = leitor["Midia"].ToString();
+                    Midia.Text = leitor["TipoMidia"].ToString();
                     Interprete.SubItems.Add(Midia);
 
                     Nota.Text = leitor["Nota"].ToString();
@@ -84,28 +84,19 @@ namespace acervoMusical
                     string status = leitor["Status"].ToString();
 
                     // Verifica se o filme está ou não disponível
-                    // Caso estaja "status" = 1, caso contrario "status" = 2
-                    if (status == "1")
-                    {
-                        // Como o status = 1, ou seja disponível, coloca a cor da fonte com Verde
-                        listViewPesquisa.Items[i].ForeColor = Color.Green;
-                    }
-                    else
-                    {
-                        // Como o status = 2, ou seja disponível, coloca a cor da fonte com Vermelho
-                        listViewPesquisa.Items[i].ForeColor = Color.Red;
-                    }
+                    if (status == "Emprestado")
+                        listViewPesquisa.Items[i].ForeColor = Color.Gray;
                     i++;
 
                 }
 
-                CountTipoDeMidias(); // Metodo que carrega a quantidad de Midia, Albuns que tem como tipo de midia: Digital, DVD, CD, K7 e Vinil
-                CountLocacao(); // Metodo que carrega a quantidade de Albuns Emprestados e Disponíveis
+                CountTipoDeMidias(); // Metodo que carrega a quantidade de Midias (Digital, DVD, CD, K7 e Vinil)
+                CountStatus(); // Metodo que carrega a quantidade de Albuns Emprestados e Disponíveis
 
                 FechaLeitor(); // Metodo que Fecha o leitor
 
                 // Comando que retorna a quantidade de Pessoas
-                SqlCommand cmdCountPessoas = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Pessoas;", conexao);
+                SqlCommand cmdCountPessoas = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Pessoa;", conexao);
                 leitor = cmdCountPessoas.ExecuteReader();
                 // Passa para o label a quantidade de Pessoas
                 if (leitor.Read())
@@ -127,7 +118,7 @@ namespace acervoMusical
 
         public void FechaLeitor()
         {
-            // Fecha a Leitor, caso se ele foi usado
+            // Fecha o Leitor, se usado.
             if (leitor != null)
                 leitor.Close();
         }
@@ -136,7 +127,7 @@ namespace acervoMusical
         {
             FechaLeitor();
             // Comando que retorna a quantidade de mídias
-            SqlCommand cmdCountMidias = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album INNER JOIN Tipo_Midia ON Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia;", conexao);
+            SqlCommand cmdCountMidias = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album;", conexao);
             leitor = cmdCountMidias.ExecuteReader();
             // Passa para o label a quantidade de mídias
             if (leitor.Read())
@@ -144,7 +135,7 @@ namespace acervoMusical
 
             FechaLeitor();
             // Comando que retorna a quantidade de Albuns do tipo Digital
-            SqlCommand cmdCountDigital = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album INNER JOIN Tipo_Midia ON Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia WHERE Tipo_Midia.Descricao = 'Digital';", conexao);
+            SqlCommand cmdCountDigital = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'Digital';", conexao);
             leitor = cmdCountDigital.ExecuteReader();
             // Passa para o label a quantidade de Albuns do tipo Digital
             if (leitor.Read())
@@ -152,7 +143,7 @@ namespace acervoMusical
 
             FechaLeitor();
             // Comando que retorna a quantidade de Albuns do tipo DVD
-            SqlCommand cmdCountDVD = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album INNER JOIN Tipo_Midia ON Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia WHERE Tipo_Midia.Descricao = 'DVD';", conexao);
+            SqlCommand cmdCountDVD = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'DVD';", conexao);
             leitor = cmdCountDVD.ExecuteReader();
             // Passa para o label a quantidade de Albuns do tipo DVD
             if (leitor.Read())
@@ -160,7 +151,7 @@ namespace acervoMusical
 
             FechaLeitor();
             // Comando que retorna a quantidade de Albuns do tipo CD
-            SqlCommand cmdCountCD = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album INNER JOIN Tipo_Midia ON Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia WHERE Tipo_Midia.Descricao = 'CD';", conexao);
+            SqlCommand cmdCountCD = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'CD';", conexao);
             leitor = cmdCountCD.ExecuteReader();
             // Passa para o label a quantidade de Albuns do tipo CD
             if (leitor.Read())
@@ -168,7 +159,7 @@ namespace acervoMusical
 
             FechaLeitor();
             // Comando que retorna a quantidade de Albuns do tipo K7
-            SqlCommand cmdCountK7 = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album INNER JOIN Tipo_Midia ON Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia WHERE Tipo_Midia.Descricao = 'K7';", conexao);
+            SqlCommand cmdCountK7 = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'K7';", conexao);
             leitor = cmdCountK7.ExecuteReader();
             // Passa para o label a quantidade de Albuns do tipo K7
             if (leitor.Read())
@@ -176,18 +167,18 @@ namespace acervoMusical
 
             FechaLeitor();
             // Comando que retorna a quantidade de Albuns do tipo Vinil
-            SqlCommand cmdCountVinil = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album INNER JOIN Tipo_Midia ON Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia WHERE Tipo_Midia.Descricao = 'Vinil';", conexao);
+            SqlCommand cmdCountVinil = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'Vinil';", conexao);
             leitor = cmdCountVinil.ExecuteReader();
             // Passa para o label a quantidade de Albuns do tipo Vinil
             if (leitor.Read())
                 qtdeVinil.Text = leitor["QTD"].ToString();
         }
 
-        public void CountLocacao()
+        public void CountStatus()
         {
             FechaLeitor();
             // Comando que retorna a quantidade de Albuns Emprestados
-            SqlCommand cmdCountAlbumEmprestado = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album INNER JOIN Status ON Album.Id_Status = Status.Id_Status WHERE Status.Id_Status = 2;", conexao);
+            SqlCommand cmdCountAlbumEmprestado = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Emprestado';", conexao);
             leitor = cmdCountAlbumEmprestado.ExecuteReader();
             // Passa para o label a quantidade de Albuns do tipo Vinil
             if (leitor.Read())
@@ -195,7 +186,7 @@ namespace acervoMusical
 
             FechaLeitor();
             // Comando que retorna a quantidade de Albuns Disponíveis
-            SqlCommand cmdCountAlbumDisponivel = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album INNER JOIN Status ON Album.Id_Status = Status.Id_Status WHERE Status.Id_Status = 1;", conexao);
+            SqlCommand cmdCountAlbumDisponivel = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Disponível';", conexao);
             leitor = cmdCountAlbumDisponivel.ExecuteReader();
             // Passa para o label a quantidade de Albuns do tipo Vinil
             if (leitor.Read())

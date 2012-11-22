@@ -1,262 +1,97 @@
 USE master;
 
-
 CREATE DATABASE AcervoMusical;
 GO
 
 USE AcervoMusical;
 GO
 
-CREATE TABLE Compra (
-Id_Compra INT PRIMARY KEY IDENTITY,
-Data DATE,
-Origem VARCHAR(30)
-);
-
-CREATE TABLE Tipo_Midia (
-Id_Tipo_Midia INT PRIMARY KEY IDENTITY,
-Descricao VARCHAR(15)
-);
-
-CREATE TABLE Interprete (
-Id_Interprete INT PRIMARY KEY IDENTITY,
-Nome VARCHAR(60)
-);
-
-CREATE TABLE Autor (
-Id_Autor INT PRIMARY KEY IDENTITY,
-Nome VARCHAR(60)
-);
-
-CREATE TABLE Status (
-Id_Status INT PRIMARY KEY IDENTITY,
-Descricao VARCHAR(15)
-);
-
-
 CREATE TABLE Album (
 Id_Album INT PRIMARY KEY IDENTITY,
-Nome VARCHAR(60),
+Interprete VARCHAR(60),
+Autor VARCHAR(60),
+Album VARCHAR(60),
 Data DATE,
+DataCompra DATE,
+OrigemCompra VARCHAR(30),
+TipoMidia VARCHAR(20),
 Nota VARCHAR(2),
 Observacao VARCHAR(60),
-Id_Compra INT,
-Id_Tipo_Midia INT,
-Id_Autor INT,
-Id_Interprete INT,
-Id_Status INT
-FOREIGN KEY(Id_Compra) REFERENCES Compra (Id_Compra),
-FOREIGN KEY(Id_Tipo_Midia) REFERENCES Tipo_Midia (Id_Tipo_Midia),
-FOREIGN KEY(Id_Autor) REFERENCES Autor (Id_Autor),
-FOREIGN KEY(Id_Interprete) REFERENCES Interprete (Id_Interprete),
-FOREIGN KEY(Id_Status) REFERENCES Status (Id_Status)
+Status VARCHAR(15)
 );
 
-
-CREATE TABLE Endereco (
-Id_Endereco INT PRIMARY KEY IDENTITY,
+CREATE TABLE Pessoa (
+Id_Pessoa INT PRIMARY KEY IDENTITY,
+Nome VARCHAR(60),
+Telefone VARCHAR(13),
+Email VARCHAR(60),
 Logradouro VARCHAR(60),
 Numero VARCHAR(5),
 Bairro VARCHAR(60),
 Cidade VARCHAR(60),
-UF VARCHAR(2),
+UF VARCHAR(2)
 );
-
-CREATE TABLE Pessoas (
-Id_Pessoa INT PRIMARY KEY IDENTITY,
-Nome VARCHAR(60),
-Email VARCHAR(60),
-Telefone VARCHAR(13),
-Id_Endereco INT,
-FOREIGN KEY(Id_Endereco) REFERENCES Endereco (Id_Endereco)
-);
-
 
 CREATE TABLE Emprestimo (
 Id_Emprestimo INT PRIMARY KEY IDENTITY,
-Data DATE,
+DataEmprestimo DATE,
+DataDevolucao DATE,
 Id_Pessoa INT,
 Id_Album INT,
-FOREIGN KEY(Id_Pessoa) REFERENCES Pessoas (Id_Pessoa),
+FOREIGN KEY(Id_Pessoa) REFERENCES Pessoa (Id_Pessoa),
 FOREIGN KEY(Id_Album) REFERENCES Album (Id_Album)
 );
 
 -- Formata a data do Banco para Dia-Mês-Ano
 SET DATEFORMAT dmy
 
--- INSERT --
-INSERT INTO Compra (Data, Origem)VALUES ('04-11-2012', 'Itunes');
-INSERT INTO Compra (Data, Origem)VALUES ('10-06-2010', 'Submarino');
 
-INSERT INTO Tipo_Midia VALUES ('Vinil');
-INSERT INTO Tipo_Midia VALUES ('K7');
-INSERT INTO Tipo_Midia VALUES ('CD');
-INSERT INTO Tipo_Midia VALUES ('DVD');
-INSERT INTO Tipo_Midia VALUES ('Digital');
+-- INSERT ALBUM --
 
-INSERT INTO Autor VALUES ('Humberto G & Duca L');
-INSERT INTO Autor VALUES ('James Blunt');
-
-INSERT INTO Interprete VALUES ('Pouca Vogal');
-INSERT INTO Interprete VALUES ('James Blunt');
-
-INSERT INTO Status VALUES ('Disponível');
-INSERT INTO Status VALUES ('Emprestado');
-
-INSERT INTO Album (Nome, Data, Nota, Observacao, Id_Compra, Id_Tipo_Midia, Id_Autor, Id_Interprete, Id_Status)
-VALUES ('Pouca Vogal - Ao Vivo em Porto Alegre', '25-05-2011', '8', 'Bem Legal', 1, 5, 1, 1, 1);
-
-INSERT INTO Album (Nome, Data, Nota, Observacao, Id_Compra, Id_Tipo_Midia, Id_Autor, Id_Interprete, Id_Status)
-VALUES ('Some Kind of Trouble', '25-05-2010', '7', '', 2, 3, 2, 2, 1);
-
-INSERT INTO Endereco (Logradouro, Bairro, Cidade)
-VALUES ('R: João Manuel de Siqueira', 'Jardim das Flores', 'Jumiranda');
-
-INSERT INTO Endereco (Logradouro, Bairro, Cidade)
-VALUES ('R: Jair Pereira S.', 'Vila Maria', 'Campos do Jordão');
-
-INSERT INTO Pessoas (Nome, Email, Telefone, Id_Endereco)
-VALUES ('Francisco da Silva', 'chico@email.com', '(12)3667-2244',1);
-
-INSERT INTO Pessoas (Nome, Email, Telefone, Id_Endereco)
-VALUES ('João Miguel dos Santos', 'Joao.ms@email.com', '(12)3662-7751',2);
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Pouca Vogal', 'Humberto G & Duca L', 'Pouca Vogal - Ao Vivo em Porto Alegre', '13-03-2009', '20-09-2009', 'Submarino', 
+'DVD','9', '', 'Disponível');
 
 
-
- -- ADICIONA O ALBUM NA TABELA Emprestimo, E ALTERA O CAMPO STATUS NA TABELA ALBUM PARA Emprestado
-INSERT INTO Emprestimo (Data,Id_Pessoa, Id_Album)
-VALUES ('05-11-2012', 1 , 1);
-UPDATE Album SET Id_Status = 2 WHERE Album.Id_Album = 1;
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES 
+('James Blunt', 'James Blunt', 'Some Kind of Trouble', '11-05-2010', '10-04-2011', 'itunes', 'Digital', '8', '', 'Disponível');
 
 
+-- INSERT PESSOAS --
 
--- SELECT --
+INSERT INTO Pessoa (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES 
+('Francisco da Silva','(12)3667-2244','chico@email.com','R: João Manuel de Siqueira', '55', 
+'Jardim das Flores', 'Jumiranda', 'SP');
 
-SELECT * FROM Autor;
-SELECT * FROM Interprete;
+INSERT INTO Pessoa (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES 
+('João Miguel dos Santos', '(12)3662-7751','Joao.ms@email.com','R: Jair Pereira S.', '74', 
+'Vila Maria', 'Campos do Jordão', 'SP');
 
-SELECT * FROM Tipo_Midia;
+-- EMPRESTANDO UM ALBUM --
 
-SELECT * FROM Compra;
+INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('14-11-2012', null , 1, 1);
+UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = 1; 
 
-SELECT * FROM Album;
+-- DEVOLVENDO UM ALBUM --
 
-
-SELECT Album.Nome, Album.Data AS 'Data Album', Album.Nota, Album.Observacao, Compra.Data AS 'Data Compra',
-Compra.Origem, Tipo_Midia.Descricao AS 'Tipo Mídia', Autor.Nome AS 'Autor', Interprete.Nome AS 'Interprete' FROM Album
-INNER JOIN Compra ON
-	Album.Id_Compra = Compra.Id_Compra
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-INNER JOIN Autor ON
-	Album.Id_Autor = Autor.Id_Autor
-INNER JOIN Interprete ON
-	Album.Id_Interprete = Interprete.Id_Interprete;
-
-		 
-SELECT * FROM Endereco
-
-SELECT * FROM Pessoas
-
-SELECT * FROM Status
-
-SELECT * FROM Emprestimo
-
-
- -- SELECT LIST VIEW TELA PRINCIPAL --
+UPDATE Emprestimo SET DataDevolucao = '22-11-2012' WHERE Id_Emprestimo = 1;
+UPDATE Album SET Status = 'Disponível' WHERE Id_Album = 1; 
  
- SELECT Interprete.Nome AS 'Interprete', Autor.Nome AS 'Autor', Album.Nome AS 'Album', Album.Data, Compra.Data AS 'Data Compra', 
-Compra.Origem, Tipo_Midia.Descricao AS 'Midia' , Album.Nota, Album.Observacao, Album.Id_Status AS 'Status' FROM Album
-INNER JOIN Compra ON
-	Album.Id_Compra = Compra.Id_Compra
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-INNER JOIN Autor ON
-	Album.Id_Autor = Autor.Id_Autor
-INNER JOIN Interprete ON
-	Album.Id_Interprete = Interprete.Id_Interprete;
-	
+-- SELECT TELA INICIAL --
 
- -- MOSTRAS OS ALBUNS DISPONIVEIS
-SELECT Interprete.Nome AS 'Interprete', Autor.Nome AS 'Autor', Album.Nome AS 'Album', Album.Data, Compra.Data AS 'Data Compra', 
-Compra.Origem, Tipo_Midia.Descricao AS 'Midia' , Album.Nota, Album.Observacao, Status.Descricao AS 'Status' FROM Album
-INNER JOIN Compra ON
-	Album.Id_Compra = Compra.Id_Compra
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-INNER JOIN Autor ON
-	Album.Id_Autor = Autor.Id_Autor
-INNER JOIN Interprete ON
-	Album.Id_Interprete = Interprete.Id_Interprete
-INNER JOIN Status ON
-	Album.Id_Status = Status.Id_Status
-WHERE Status.Id_Status = 1;
+SELECT  Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album;
 
- -- MOSTRAS OS ALBUNS EMPRESTADOS
-SELECT Interprete.Nome AS 'Interprete', Autor.Nome AS 'Autor', Album.Nome AS 'Album', Album.Data, Compra.Data AS 'Data Compra', 
-Compra.Origem, Tipo_Midia.Descricao AS 'Midia' , Album.Nota, Album.Observacao, Status.Descricao AS 'Status' FROM Album
-INNER JOIN Compra ON
-	Album.Id_Compra = Compra.Id_Compra
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-INNER JOIN Autor ON
-	Album.Id_Autor = Autor.Id_Autor
-INNER JOIN Interprete ON
-	Album.Id_Interprete = Interprete.Id_Interprete
-INNER JOIN Status ON
-	Album.Id_Status = Status.Id_Status
-WHERE Status.Id_Status = 2;
+-- SELECT COUNT  TIPO DE MIDIAS, STATUS ALBUM, PESSOAS --
 
+SELECT COUNT(*) AS 'QTD' FROM Pessoa;
+SELECT COUNT(*) AS 'QTD' FROM Album;
+SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'Digital';
+SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'DVD';
+SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'CD';
+SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'K7';
+SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'Vinil';
 
- -- MOSTRA A QTDE DE ALBUNS DISPONÍVEIS
-SELECT COUNT(*) AS 'QTD' FROM Album 
-INNER JOIN Status ON
-	Album.Id_Status = Status.Id_Status
-WHERE Status.Id_Status = 1;
+SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Emprestado';
+SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Disponível';
 
-
- -- MOSTRA A QTDE DE ALBUNS EMPRESTADO
-SELECT COUNT(*) AS 'QTD' FROM Album 
-INNER JOIN Status ON
-	Album.Id_Status = Status.Id_Status
-WHERE Status.Id_Status = 2;
-
-
--- MOSTRA A QTDE DE MIDIAS
-SELECT COUNT(*) AS 'QTD' FROM Album
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-
-
--- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "Vinil"
-SELECT COUNT(*) AS 'QTD' FROM Album
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-WHERE Tipo_Midia.Descricao = 'Vinil';
-
--- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "k7"
-SELECT COUNT(*) AS 'QTD' FROM Album
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-WHERE Tipo_Midia.Descricao = 'K7';
-
--- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "CD"
-SELECT COUNT(*) AS 'QTD' FROM Album
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-WHERE Tipo_Midia.Descricao = 'CD';
-
--- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "DVD"
-SELECT COUNT(*) AS 'QTD' FROM Album
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-WHERE Tipo_Midia.Descricao = 'DVD';
-
--- MOSTRA A QTDE DE ALBUNS QUE TEM COMO MÍDIA "Digital"
-SELECT COUNT(*) AS 'QTD' FROM Album
-INNER JOIN Tipo_Midia ON
-	Album.Id_Tipo_Midia = Tipo_Midia.Id_Tipo_Midia
-WHERE Tipo_Midia.Descricao = 'Digital';
-
-SELECT COUNT(*) AS 'QTD' FROM Pessoas;
-
+ -- 
