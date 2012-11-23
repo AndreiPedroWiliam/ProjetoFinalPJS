@@ -211,7 +211,8 @@ namespace acervoMusical
 
         private void amigosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form4 cadPessoa = new Form4();
+            cadPessoa.Show();
         }
 
     }

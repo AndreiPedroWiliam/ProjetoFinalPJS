@@ -11,6 +11,11 @@ namespace acervoMusical
 {
     public partial class Form4 : Form
     {
+        DataRow registro;
+        DataSet dados;
+        SqlDataAdapter adaptadorReg = new SqlDataAdapter();
+        bool atualiza = false;
+
         public Form4()
         {
             InitializeComponent();
@@ -115,7 +120,7 @@ namespace acervoMusical
         {
             if (textBoxNomeCad.Text == "")
             {
-                errorProvider1.SetError(label1,"Nome Inválido");
+                errorProvider1.SetError(label1, "Nome Inválido");
             }
 
             else if (maskedTextBoxTelefoneCad.Text == "")
@@ -133,7 +138,7 @@ namespace acervoMusical
                 errorProvider4.SetError(label4, "Logradouro Inválido");
             }
 
-            else if (textBoxNumeoCad.Text == "")
+            else if (textBoxNumeroCad.Text == "")
             {
                 errorProvider5.SetError(label5, "Numero Inválido");
             }
@@ -148,9 +153,41 @@ namespace acervoMusical
                 errorProvider7.SetError(label7, "Cidade Inválido");
             }
 
-            else if (textBoxCadUF.Text == "")
+            else if (comboBoxCadUF.Text == "")
             {
                 errorProvider8.SetError(label8, "UF Inválido");
+            }
+            else
+            {
+                foreach (DataRow registro in dados.Tables["Pessoa"].Rows)
+                    if (textBoxNomeCad.Text == registro["Nome"].ToString())
+                        //categoria = int.Parse(registro["CodigoCat"].ToString());
+                        if (atualiza)
+                        {
+                            registro["Telefone"] = maskedTextBoxTelefoneCad.Text;
+                            registro["Email"] = textBoxEmailCad.Text;
+                            registro["Logradouro"] = textBoxLogradouroCad.Text;
+                            registro["Numero"] = textBoxNumeroCad.Text;
+                            registro["Bairro"] = textBoxBairroCad.Text;
+                            registro["Cidade"] = textBoxCidadeCad.Text;
+                            registro["UF"] = comboBoxCadUF.Text;
+                            adaptadorReg.Update(dados, "Pessoa");
+                        }
+                        else
+                        {
+                            //labelCampoPreenchimento.Visible = false;
+                            DataRow novoRegistroPessoa = dados.Tables["Pessoa"].NewRow();
+                            novoRegistroPessoa["Telefone"] = maskedTextBoxTelefoneCad.Text;
+                            novoRegistroPessoa["Email"] = textBoxEmailCad.Text;
+                            novoRegistroPessoa["Logradouro"] = textBoxLogradouroCad.Text;
+                            novoRegistroPessoa["Numero"] = textBoxNumeroCad.Text;
+                            novoRegistroPessoa["Bairro"] = textBoxBairroCad.Text;
+                            novoRegistroPessoa["Cidade"] = textBoxCidadeCad.Text;
+                            novoRegistroPessoa["UF"] = comboBoxCadUF.Text;
+                            dados.Tables["Pessoa"].Rows.Add(novoRegistroPessoa);
+                            adaptadorReg.Update(dados, "Pessoa");
+                        }
+                Close();
             }
         }
     }

@@ -36,13 +36,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxCadUF = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxCidadeCad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxBairroCad = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxNumeoCad = new System.Windows.Forms.TextBox();
+            this.textBoxNumeroCad = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxEmailCad = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@
             this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider7 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider8 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.comboBoxCadUF = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
@@ -117,13 +117,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBoxCadUF);
+            this.groupBox1.Controls.Add(this.comboBoxCadUF);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.textBoxCidadeCad);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.textBoxBairroCad);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBoxNumeoCad);
+            this.groupBox1.Controls.Add(this.textBoxNumeroCad);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBoxLogradouroCad);
             this.groupBox1.Controls.Add(this.label4);
@@ -133,13 +133,6 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Endereço";
-            // 
-            // textBoxCadUF
-            // 
-            this.textBoxCadUF.Location = new System.Drawing.Point(373, 74);
-            this.textBoxCadUF.Name = "textBoxCadUF";
-            this.textBoxCadUF.Size = new System.Drawing.Size(47, 20);
-            this.textBoxCadUF.TabIndex = 12;
             // 
             // label8
             // 
@@ -182,12 +175,12 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Bairro:";
             // 
-            // textBoxNumeoCad
+            // textBoxNumeroCad
             // 
-            this.textBoxNumeoCad.Location = new System.Drawing.Point(373, 32);
-            this.textBoxNumeoCad.Name = "textBoxNumeoCad";
-            this.textBoxNumeoCad.Size = new System.Drawing.Size(47, 20);
-            this.textBoxNumeoCad.TabIndex = 6;
+            this.textBoxNumeroCad.Location = new System.Drawing.Point(373, 32);
+            this.textBoxNumeroCad.Name = "textBoxNumeroCad";
+            this.textBoxNumeroCad.Size = new System.Drawing.Size(47, 20);
+            this.textBoxNumeroCad.TabIndex = 6;
             // 
             // label5
             // 
@@ -256,6 +249,42 @@
             // 
             this.errorProvider8.ContainerControl = this;
             // 
+            // comboBoxCadUF
+            // 
+            this.comboBoxCadUF.FormattingEnabled = true;
+            this.comboBoxCadUF.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
+            this.comboBoxCadUF.Location = new System.Drawing.Point(376, 74);
+            this.comboBoxCadUF.Name = "comboBoxCadUF";
+            this.comboBoxCadUF.Size = new System.Drawing.Size(44, 21);
+            this.comboBoxCadUF.TabIndex = 14;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,10 +332,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxBairroCad;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxNumeoCad;
+        private System.Windows.Forms.TextBox textBoxNumeroCad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBoxCadUF;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
@@ -316,5 +344,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider6;
         private System.Windows.Forms.ErrorProvider errorProvider7;
         private System.Windows.Forms.ErrorProvider errorProvider8;
+        private System.Windows.Forms.ComboBox comboBoxCadUF;
     }
 }
