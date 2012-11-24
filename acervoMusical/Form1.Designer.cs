@@ -107,6 +107,10 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonEmprestar = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.ColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -139,14 +143,14 @@
             // mídiaToolStripMenuItem
             // 
             this.mídiaToolStripMenuItem.Name = "mídiaToolStripMenuItem";
-            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mídiaToolStripMenuItem.Text = "Mídia";
             this.mídiaToolStripMenuItem.Click += new System.EventHandler(this.mídiaToolStripMenuItem_Click);
             // 
             // amigosToolStripMenuItem
             // 
             this.amigosToolStripMenuItem.Name = "amigosToolStripMenuItem";
-            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.amigosToolStripMenuItem.Text = "Pessoas";
             this.amigosToolStripMenuItem.Click += new System.EventHandler(this.amigosToolStripMenuItem_Click);
             // 
@@ -201,7 +205,7 @@
             // nomeDoAlbum
             // 
             this.nomeDoAlbum.DisplayIndex = 2;
-            this.nomeDoAlbum.Text = "Álbum";
+            this.nomeDoAlbum.Text = "Álbum/Música";
             this.nomeDoAlbum.Width = 136;
             // 
             // interprete
@@ -269,11 +273,10 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 344);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(874, 107);
+            this.groupBox1.Size = new System.Drawing.Size(554, 107);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações";
-//this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // qtdeDisponivel
             // 
@@ -870,13 +873,41 @@
             this.buttonEmprestar.TabIndex = 9;
             this.buttonEmprestar.Text = "Emprestar";
             this.buttonEmprestar.UseVisualStyleBackColor = true;
-            //this.buttonEmprestar.Click += new System.EventHandler(this.buttonEmprestar_Click);
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ColumnHeader,
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listView1.Location = new System.Drawing.Point(573, 351);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(478, 100);
+            this.listView1.TabIndex = 10;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // ColumnHeader
+            // 
+            this.ColumnHeader.Text = "Pessoa";
+            this.ColumnHeader.Width = 196;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Quantia emprestada";
+            this.columnHeader1.Width = 178;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Tipo da mídia";
+            this.columnHeader2.Width = 81;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 483);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonEmprestar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
@@ -989,6 +1020,10 @@
         private System.Windows.Forms.Label qtdeCD;
         private System.Windows.Forms.Label qtdeDVD;
         private System.Windows.Forms.Label qtdeDigital;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader ColumnHeader;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
 

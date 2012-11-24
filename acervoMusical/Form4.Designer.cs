@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxCadUF = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxCidadeCad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider7 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider8 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.comboBoxCadUF = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
@@ -129,10 +129,46 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(15, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(543, 132);
+            this.groupBox1.Size = new System.Drawing.Size(521, 132);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Endereço";
+            // 
+            // comboBoxCadUF
+            // 
+            this.comboBoxCadUF.FormattingEnabled = true;
+            this.comboBoxCadUF.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PR",
+            "PE",
+            "PI",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
+            this.comboBoxCadUF.Location = new System.Drawing.Point(376, 74);
+            this.comboBoxCadUF.Name = "comboBoxCadUF";
+            this.comboBoxCadUF.Size = new System.Drawing.Size(44, 21);
+            this.comboBoxCadUF.TabIndex = 14;
             // 
             // label8
             // 
@@ -209,7 +245,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(483, 228);
+            this.button1.Location = new System.Drawing.Point(461, 228);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -249,47 +285,11 @@
             // 
             this.errorProvider8.ContainerControl = this;
             // 
-            // comboBoxCadUF
-            // 
-            this.comboBoxCadUF.FormattingEnabled = true;
-            this.comboBoxCadUF.Items.AddRange(new object[] {
-            "AC",
-            "AL",
-            "AP",
-            "AM",
-            "BA",
-            "CE",
-            "DF",
-            "ES",
-            "GO",
-            "MA",
-            "MT",
-            "MS",
-            "MG",
-            "PA",
-            "PB",
-            "PR",
-            "PE",
-            "PI",
-            "RJ",
-            "RN",
-            "RS",
-            "RO",
-            "RR",
-            "SC",
-            "SP",
-            "SE",
-            "TO"});
-            this.comboBoxCadUF.Location = new System.Drawing.Point(376, 74);
-            this.comboBoxCadUF.Name = "comboBoxCadUF";
-            this.comboBoxCadUF.Size = new System.Drawing.Size(44, 21);
-            this.comboBoxCadUF.TabIndex = 14;
-            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 263);
+            this.ClientSize = new System.Drawing.Size(561, 263);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxEmailCad);

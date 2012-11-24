@@ -19,18 +19,7 @@ namespace acervoMusical
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxMidia.Text == "Digital")
-            {
-                //se for midia digital pede o nome da musica
-                label2.Visible = true;
-                textBoxMusica.Visible = true;
-            }
-            else
-            {
-                //se não, não pede
-                label2.Visible = false;
-                textBoxMusica.Visible = false;
-            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,7 +43,7 @@ namespace acervoMusical
                     if (conexao != null && conexao.State == ConnectionState.Open)
                     {
                         //se estiver tudo correto cria o comando e insere no banco
-                        SqlCommand insertMidia = new SqlCommand("insert into midia values (" + textBoxInterprete.Text + "," + textBoxAutor.Text + "," + textBoxAlbum.Text + "," + dateTimePickerAlbum.Text + "," + textBoxCompra.Text + "," + dateTimePickerCompra.Text + "," + comboBoxMidia.Text + "," + comboBoxNota.Text + "," + textBoxMusica.Text + "," + textBoxObservacao.Text + ")");
+                        SqlCommand insertMidia = new SqlCommand("insert into midia values (" + textBoxInterprete.Text + "," + textBoxAutor.Text + "," + textBoxAlbum.Text + "," + dateTimePickerAlbum.Text + "," + textBoxCompra.Text + "," + dateTimePickerCompra.Text + "," + comboBoxMidia.Text + "," + comboBoxNota.Text + "," + textBoxObservacao.Text + ")");
                         insertMidia.ExecuteNonQuery();
                     }
                 }
@@ -82,8 +71,8 @@ namespace acervoMusical
             dateTimePickerCompra.Text = "";
             comboBoxMidia.Text = "";
             comboBoxNota.Text = "";
-            textBoxMusica.Text = "";
             textBoxObservacao.Text = "";
         }
+
     }
 }

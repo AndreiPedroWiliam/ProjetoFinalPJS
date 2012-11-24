@@ -47,8 +47,6 @@
             this.textBoxInterprete = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxObservacao = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxMusica = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,7 +61,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(570, 95);
+            this.label21.Location = new System.Drawing.Point(442, 101);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(33, 13);
             this.label21.TabIndex = 44;
@@ -81,7 +79,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(303, 95);
+            this.label19.Location = new System.Drawing.Point(303, 102);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(92, 13);
             this.label19.TabIndex = 42;
@@ -90,7 +88,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(424, 94);
+            this.label18.Location = new System.Drawing.Point(442, 56);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(79, 13);
             this.label18.TabIndex = 41;
@@ -99,7 +97,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 95);
+            this.label17.Location = new System.Drawing.Point(12, 102);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(96, 13);
             this.label17.TabIndex = 40;
@@ -110,9 +108,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(12, 56);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(39, 13);
+            this.label16.Size = new System.Drawing.Size(78, 13);
             this.label16.TabIndex = 39;
-            this.label16.Text = "Álbum:";
+            this.label16.Text = "Álbum/Música:";
             // 
             // label15
             // 
@@ -135,7 +133,7 @@
             // dateTimePickerCompra
             // 
             this.dateTimePickerCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerCompra.Location = new System.Drawing.Point(306, 110);
+            this.dateTimePickerCompra.Location = new System.Drawing.Point(306, 118);
             this.dateTimePickerCompra.Name = "dateTimePickerCompra";
             this.dateTimePickerCompra.Size = new System.Drawing.Size(112, 20);
             this.dateTimePickerCompra.TabIndex = 35;
@@ -154,7 +152,7 @@
             "8",
             "9",
             "10"});
-            this.comboBoxNota.Location = new System.Drawing.Point(573, 109);
+            this.comboBoxNota.Location = new System.Drawing.Point(445, 117);
             this.comboBoxNota.Name = "comboBoxNota";
             this.comboBoxNota.Size = new System.Drawing.Size(63, 21);
             this.comboBoxNota.TabIndex = 33;
@@ -162,7 +160,7 @@
             // dateTimePickerAlbum
             // 
             this.dateTimePickerAlbum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerAlbum.Location = new System.Drawing.Point(424, 110);
+            this.dateTimePickerAlbum.Location = new System.Drawing.Point(445, 71);
             this.dateTimePickerAlbum.Name = "dateTimePickerAlbum";
             this.dateTimePickerAlbum.Size = new System.Drawing.Size(112, 20);
             this.dateTimePickerAlbum.TabIndex = 34;
@@ -184,7 +182,7 @@
             // 
             // textBoxCompra
             // 
-            this.textBoxCompra.Location = new System.Drawing.Point(15, 112);
+            this.textBoxCompra.Location = new System.Drawing.Point(15, 118);
             this.textBoxCompra.Name = "textBoxCompra";
             this.textBoxCompra.Size = new System.Drawing.Size(251, 20);
             this.textBoxCompra.TabIndex = 31;
@@ -198,9 +196,9 @@
             // 
             // textBoxAutor
             // 
-            this.textBoxAutor.Location = new System.Drawing.Point(306, 24);
+            this.textBoxAutor.Location = new System.Drawing.Point(306, 25);
             this.textBoxAutor.Name = "textBoxAutor";
-            this.textBoxAutor.Size = new System.Drawing.Size(330, 20);
+            this.textBoxAutor.Size = new System.Drawing.Size(251, 20);
             this.textBoxAutor.TabIndex = 29;
             // 
             // textBoxInterprete
@@ -213,7 +211,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 135);
+            this.label1.Location = new System.Drawing.Point(12, 149);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 46;
@@ -221,33 +219,15 @@
             // 
             // textBoxObservacao
             // 
-            this.textBoxObservacao.Location = new System.Drawing.Point(15, 151);
+            this.textBoxObservacao.Location = new System.Drawing.Point(15, 165);
             this.textBoxObservacao.Multiline = true;
             this.textBoxObservacao.Name = "textBoxObservacao";
-            this.textBoxObservacao.Size = new System.Drawing.Size(621, 53);
+            this.textBoxObservacao.Size = new System.Drawing.Size(542, 74);
             this.textBoxObservacao.TabIndex = 45;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(432, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Nome da música:";
-            this.label2.Visible = false;
-            // 
-            // textBoxMusica
-            // 
-            this.textBoxMusica.Location = new System.Drawing.Point(435, 72);
-            this.textBoxMusica.Name = "textBoxMusica";
-            this.textBoxMusica.Size = new System.Drawing.Size(201, 20);
-            this.textBoxMusica.TabIndex = 47;
-            this.textBoxMusica.Visible = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(561, 210);
+            this.button1.Location = new System.Drawing.Point(482, 245);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 49;
@@ -257,7 +237,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(480, 210);
+            this.button2.Location = new System.Drawing.Point(400, 245);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 50;
@@ -290,12 +270,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 254);
+            this.ClientSize = new System.Drawing.Size(580, 283);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxMusica);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxObservacao);
             this.Controls.Add(this.label21);
@@ -345,8 +323,6 @@
         private System.Windows.Forms.TextBox textBoxInterprete;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxObservacao;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxMusica;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
