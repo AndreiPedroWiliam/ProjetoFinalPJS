@@ -178,7 +178,7 @@
             this.comboBoxMidia.Name = "comboBoxMidia";
             this.comboBoxMidia.Size = new System.Drawing.Size(121, 21);
             this.comboBoxMidia.TabIndex = 32;
-            this.comboBoxMidia.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            //this.comboBoxMidia.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // textBoxCompra
             // 
