@@ -45,7 +45,7 @@ namespace acervoMusical
                         else
                         {
                             SqlCommand insertMidia = new SqlCommand();
-                            insertMidia.CommandText = "INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES('" + textBoxInterprete.Text + "','" + textBoxAutor.Text + "','" + textBoxAlbum.Text + "','" + dateTimePickerAlbum.Value.ToString("yyyy-MM-dd") + "','" + dateTimePickerCompra.Text + "','" + textBoxCompra.Text + "','" + comboBoxMidia.Text + "','" + comboBoxNota.Text + "','" + textBoxObservacao.Text + "', 'Disponível')";
+                            insertMidia.CommandText = "INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES('" + textBoxInterprete.Text + "','" + textBoxAutor.Text + "','" + textBoxAlbum.Text + "','" + dateTimePickerAlbum.Value.ToString("yyyy-MM-dd") + "','" + dateTimePickerCompra.Value.ToString("yyyy-MM-dd") + "','" + textBoxCompra.Text + "','" + comboBoxMidia.Text + "','" + comboBoxNota.Text + "','" + textBoxObservacao.Text + "', 'Disponível')";
                             insertMidia.Connection = conexao;
                             insertMidia.ExecuteNonQuery();
                         }
