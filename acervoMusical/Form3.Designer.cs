@@ -140,6 +140,7 @@
             // 
             // comboBoxNota
             // 
+            this.comboBoxNota.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNota.FormattingEnabled = true;
             this.comboBoxNota.Items.AddRange(new object[] {
             "1",
@@ -167,7 +168,7 @@
             // 
             // comboBoxMidia
             // 
-            this.comboBoxMidia.FormattingEnabled = true;
+            this.comboBoxMidia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMidia.Items.AddRange(new object[] {
             "Digital",
             "DVD",
@@ -178,7 +179,6 @@
             this.comboBoxMidia.Name = "comboBoxMidia";
             this.comboBoxMidia.Size = new System.Drawing.Size(121, 21);
             this.comboBoxMidia.TabIndex = 32;
-            this.comboBoxMidia.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // textBoxCompra
             // 
@@ -316,7 +316,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerCompra;
         private System.Windows.Forms.ComboBox comboBoxNota;
         private System.Windows.Forms.DateTimePicker dateTimePickerAlbum;
-        private System.Windows.Forms.ComboBox comboBoxMidia;
         private System.Windows.Forms.TextBox textBoxCompra;
         private System.Windows.Forms.TextBox textBoxAlbum;
         private System.Windows.Forms.TextBox textBoxAutor;
@@ -329,6 +328,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ComboBox comboBoxMidia;
 
     }
 }
