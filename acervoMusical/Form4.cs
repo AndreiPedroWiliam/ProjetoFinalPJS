@@ -118,9 +118,10 @@ namespace acervoMusical
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBoxNomeCad.Text == "")
+             if (textBoxNomeCad.Text == "")
             {
                 errorProvider1.SetError(label1, "Nome Inválido");
+              
             }
 
             else if (maskedTextBoxTelefoneCad.Text == "")

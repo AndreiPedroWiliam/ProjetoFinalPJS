@@ -14,24 +14,26 @@ namespace acervoMusical
     public partial class Principal : Form
     {
 
-        // Cria um Leitor, no qual percorrerá todas as linhas e colunas das tebelas do Banco
-        SqlDataReader leitor = null;
-        SqlConnection conexao = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=AcervoMusical; Integrated Security=SSPI");
-
+        
         public Principal()
         {
             InitializeComponent();
         }
 
+        // Cria um Leitor, no qual percorrerá todas as linhas e colunas das tebelas do Banco
+        SqlDataReader leitor = null;
+        SqlConnection conexao = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=AcervoMusical; Integrated Security=SSPI");
+        List<string> OpcaoPesquisa = new List<string>();
+        
         public void Principal_Load(object sender, EventArgs e)
         {
-
+            comboBoxStatus.SelectedIndex = 0;
             try
             {
                 conexao.Open();
 
                 // Comando que retorna os campos para o carregamento do ListViewPesquisa
-                SqlCommand cmdSelecao = new SqlCommand("SELECT Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album;", conexao);
+                SqlCommand cmdSelecao = new SqlCommand("SELECT Id_Album, Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album;", conexao);
                 leitor = cmdSelecao.ExecuteReader();
 
                 int i = 0;
@@ -47,6 +49,8 @@ namespace acervoMusical
                     ListViewItem.ListViewSubItem Midia = new ListViewItem.ListViewSubItem();
                     ListViewItem.ListViewSubItem Nota = new ListViewItem.ListViewSubItem();
                     ListViewItem.ListViewSubItem Observacao = new ListViewItem.ListViewSubItem();
+                    ListViewItem.ListViewSubItem Status = new ListViewItem.ListViewSubItem();
+                    
 
                     Interprete.Text = leitor["Interprete"].ToString();
 
@@ -79,12 +83,16 @@ namespace acervoMusical
 
                     Observacao.Text = leitor["Observacao"].ToString();
                     Interprete.SubItems.Add(Observacao);
-                    listViewPesquisa.Items.Add(Interprete);
 
-                    string status = leitor["Status"].ToString();
+                    
+                    Status.Text = leitor["Status"].ToString();
+                    Interprete.SubItems.Add(Status);
+                    
+                    listViewPesquisa.Items.Add(Interprete);
+                    
 
                     // Verifica se o filme está ou não disponível
-                    if (status == "Emprestado")
+                    if (Status.Text == "Emprestado")
                         listViewPesquisa.Items[i].ForeColor = Color.Gray;
                     i++;
 
@@ -96,11 +104,11 @@ namespace acervoMusical
                 FechaLeitor(); // Metodo que Fecha o leitor
 
                 // Comando que retorna a quantidade de Pessoas
-                SqlCommand cmdCountPessoas = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Pessoa;", conexao);
-                leitor = cmdCountPessoas.ExecuteReader();
+                SqlCommand cmdCountPessoa = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Pessoa;", conexao);
+                leitor = cmdCountPessoa.ExecuteReader();
                 // Passa para o label a quantidade de Pessoas
                 if (leitor.Read())
-                    qtdePessoas.Text = leitor["QTD"].ToString();
+                    qtdePessoa.Text = leitor["QTD"].ToString();
 
 
             }
@@ -186,7 +194,7 @@ namespace acervoMusical
 
             FechaLeitor();
             // Comando que retorna a quantidade de Albuns Disponíveis
-            SqlCommand cmdCountAlbumDisponivel = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Disponível';", conexao);
+            SqlCommand cmdCountAlbumDisponivel = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Disponível' AND TipoMidia!= 'Digital';", conexao);
             leitor = cmdCountAlbumDisponivel.ExecuteReader();
             // Passa para o label a quantidade de Albuns do tipo Vinil
             if (leitor.Read())
@@ -195,24 +203,50 @@ namespace acervoMusical
 
         private void mídiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form3 cadastroMidia = new Form3();
+            cadastroMidia.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             ListViewItem a = new ListViewItem();
+            
 
         }
 
         private void emprestarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void amigosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form4 cadPessoa = new Form4();
             cadPessoa.Show();
+        }
+
+        private void buttonEmprestar_Click(object sender, EventArgs e)
+        {
+            
+            Form2 Emprestar = new Form2();
+            Emprestar.ShowDialog();
+
+        }
+
+        private void midiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form4 cadastroPessoa = new Form4();
+            cadastroPessoa.ShowDialog();
+        }
+
+        private void PesquisaRapida(object sender, EventArgs e)
+        {
+           
+        }
+		
+        private void PesquisaDetalhada(object sender, EventArgs e)
+        {
+
         }
 
     }
