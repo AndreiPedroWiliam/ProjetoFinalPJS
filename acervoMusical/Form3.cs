@@ -39,7 +39,8 @@ namespace acervoMusical
                         //se estiver tudo correto cria o comando e insere no banco
                         if (comboBoxMidia.Text == "Digital")
                         {
-                            SqlCommand insertMidiaDigital = new SqlCommand("INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES('" + textBoxInterprete.Text + "','" + textBoxAutor.Text + "','" + textBoxAlbum.Text + "','" + dateTimePickerAlbum.Text + "','" + dateTimePickerCompra.Text + "','" + textBoxCompra.Text + "','" + comboBoxMidia.Text + "','" + comboBoxNota.Text + "','" + textBoxObservacao.Text + "','Disponível')");
+                            SqlCommand insertMidiaDigital = new SqlCommand("INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES('" + textBoxInterprete.Text + "','" + textBoxAutor.Text + "','" + textBoxAlbum.Text + "','" + dateTimePickerAlbum.Value.ToString("yyyy-MM-dd") + "','" + dateTimePickerCompra.Value.ToString("yyyy-MM-dd") + "','" + textBoxCompra.Text + "','" + comboBoxMidia.Text + "','" + comboBoxNota.Text + "','" + textBoxObservacao.Text + "','Disponível')");
+                            insertMidiaDigital.Connection = conexao;
                             insertMidiaDigital.ExecuteNonQuery();
                         }
                         else
@@ -49,7 +50,6 @@ namespace acervoMusical
                             insertMidia.Connection = conexao;
                             insertMidia.ExecuteNonQuery();
                         }
-                        MessageBox.Show("insere");
                     }
                 }
                 catch (SqlException excecao)

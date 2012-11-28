@@ -182,20 +182,20 @@
             // midiasToolStripMenuItem
             // 
             this.midiasToolStripMenuItem.Name = "midiasToolStripMenuItem";
-            this.midiasToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.midiasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.midiasToolStripMenuItem.Text = "Adicionar";
             this.midiasToolStripMenuItem.Click += new System.EventHandler(this.midiasToolStripMenuItem_Click);
             // 
             // pessoasToolStripMenuItem
             // 
             this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
-            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pessoasToolStripMenuItem.Text = "Alterar";
             // 
             // excluirToolStripMenuItem2
             // 
             this.excluirToolStripMenuItem2.Name = "excluirToolStripMenuItem2";
-            this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(125, 22);
+            this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.excluirToolStripMenuItem2.Text = "Excluir";
             // 
             // listViewPesquisa
