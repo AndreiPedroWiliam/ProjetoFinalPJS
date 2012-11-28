@@ -195,7 +195,8 @@ namespace acervoMusical
 
         private void mídiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form3 cadPessoaa = new Form3();
+            cadPessoaa.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
