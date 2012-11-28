@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace acervoMusical
 {
-    public partial class Form2 : Form
+    public partial class FormPesquisaMidia : Form
     {
-        public Form2()
+        public FormPesquisaMidia()
         {
             InitializeComponent();
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

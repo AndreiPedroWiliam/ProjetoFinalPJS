@@ -68,17 +68,19 @@ INSERT INTO Pessoa (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, U
 
 -- EMPRESTANDO UM ALBUM --
 
+
 INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('14-11-2012', null , 1, 1);
 UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = 1; 
 
 -- DEVOLVENDO UM ALBUM --
 
 UPDATE Emprestimo SET DataDevolucao = '22-11-2012' WHERE Id_Emprestimo = 1;
+
 UPDATE Album SET Status = 'Disponível' WHERE Id_Album = 1; 
  
 -- SELECT TELA INICIAL --
 
-SELECT  Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album;
+SELECT Id_Album, Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album;
 
 -- SELECT COUNT  TIPO DE MIDIAS, STATUS ALBUM, PESSOAS --
 
@@ -91,6 +93,7 @@ SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'K7';
 SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'Vinil';
 
 SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Emprestado';
-SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Disponível';
 
- -- 
+SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Disponível' AND TipoMidia!= 'Digital';
+
+ --
