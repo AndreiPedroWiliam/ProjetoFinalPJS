@@ -21,7 +21,8 @@ Status VARCHAR(15)
 );
 
 CREATE TABLE Pessoa (
-Nome VARCHAR(60) PRIMARY KEY IDENTITY,
+Id_Pessoa INT PRIMARY KEY IDENTITY,
+Nome VARCHAR(60),
 Telefone VARCHAR(13),
 Email VARCHAR(60),
 Logradouro VARCHAR(60),
@@ -66,10 +67,12 @@ INSERT INTO Pessoa (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, U
 ('João Miguel dos Santos', '(12)3662-7751','Joao.ms@email.com','R: Jair Pereira S.', '74', 
 'Vila Maria', 'Campos do Jordão', 'SP');
 
+
 -- EMPRESTANDO UM ALBUM --
 
 
 INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('14-11-2012', null , 1, 1);
+
 UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = 1; 
 
 -- DEVOLVENDO UM ALBUM --

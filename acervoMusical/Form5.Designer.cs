@@ -223,6 +223,7 @@
             this.buttonSalvar.TabIndex = 71;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // Form5
             // 

@@ -85,46 +85,18 @@
             this.qtdePessoa = new System.Windows.Forms.ToolStripLabel();
             this.groupBoxPesquisaRapida = new System.Windows.Forms.GroupBox();
             this.checkBoxStatus = new System.Windows.Forms.CheckBox();
+            this.checkBoxMidia = new System.Windows.Forms.CheckBox();
             this.checkBoxAlbum = new System.Windows.Forms.CheckBox();
             this.checkBoxInterprete = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxMidia = new System.Windows.Forms.ComboBox();
+            this.checkBoxAutor = new System.Windows.Forms.CheckBox();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.textBoxAlbum = new System.Windows.Forms.TextBox();
             this.textBoxInterprete = new System.Windows.Forms.TextBox();
-            this.groupBoxPesquisaDetalhada = new System.Windows.Forms.GroupBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxAutor = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBoxPesquisaRapida.SuspendLayout();
-            this.groupBoxPesquisaDetalhada.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -182,20 +154,20 @@
             // midiasToolStripMenuItem
             // 
             this.midiasToolStripMenuItem.Name = "midiasToolStripMenuItem";
-            this.midiasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.midiasToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.midiasToolStripMenuItem.Text = "Adicionar";
             this.midiasToolStripMenuItem.Click += new System.EventHandler(this.midiasToolStripMenuItem_Click);
             // 
             // pessoasToolStripMenuItem
             // 
             this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
-            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.pessoasToolStripMenuItem.Text = "Alterar";
             // 
             // excluirToolStripMenuItem2
             // 
             this.excluirToolStripMenuItem2.Name = "excluirToolStripMenuItem2";
-            this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(125, 22);
             this.excluirToolStripMenuItem2.Text = "Excluir";
             // 
             // listViewPesquisa
@@ -218,7 +190,7 @@
             this.listViewPesquisa.Location = new System.Drawing.Point(12, 70);
             this.listViewPesquisa.MultiSelect = false;
             this.listViewPesquisa.Name = "listViewPesquisa";
-            this.listViewPesquisa.Size = new System.Drawing.Size(885, 405);
+            this.listViewPesquisa.Size = new System.Drawing.Size(885, 416);
             this.listViewPesquisa.TabIndex = 2;
             this.listViewPesquisa.UseCompatibleStateImageBehavior = false;
             this.listViewPesquisa.View = System.Windows.Forms.View.Details;
@@ -526,82 +498,97 @@
             this.groupBoxPesquisaRapida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxPesquisaRapida.Controls.Add(this.checkBoxStatus);
+            this.groupBoxPesquisaRapida.Controls.Add(this.checkBoxMidia);
             this.groupBoxPesquisaRapida.Controls.Add(this.checkBoxAlbum);
             this.groupBoxPesquisaRapida.Controls.Add(this.checkBoxInterprete);
-            this.groupBoxPesquisaRapida.Controls.Add(this.label13);
-            this.groupBoxPesquisaRapida.Controls.Add(this.label12);
-            this.groupBoxPesquisaRapida.Controls.Add(this.label11);
+            this.groupBoxPesquisaRapida.Controls.Add(this.comboBoxMidia);
+            this.groupBoxPesquisaRapida.Controls.Add(this.checkBoxAutor);
             this.groupBoxPesquisaRapida.Controls.Add(this.comboBoxStatus);
             this.groupBoxPesquisaRapida.Controls.Add(this.textBoxAlbum);
             this.groupBoxPesquisaRapida.Controls.Add(this.textBoxInterprete);
+            this.groupBoxPesquisaRapida.Controls.Add(this.textBoxAutor);
             this.groupBoxPesquisaRapida.Location = new System.Drawing.Point(903, 63);
             this.groupBoxPesquisaRapida.Name = "groupBoxPesquisaRapida";
-            this.groupBoxPesquisaRapida.Size = new System.Drawing.Size(293, 158);
+            this.groupBoxPesquisaRapida.Size = new System.Drawing.Size(270, 423);
             this.groupBoxPesquisaRapida.TabIndex = 13;
             this.groupBoxPesquisaRapida.TabStop = false;
-            this.groupBoxPesquisaRapida.Tag = "PesquisaRápida";
-            this.groupBoxPesquisaRapida.Text = "Pesquisa rápida:";
+            this.groupBoxPesquisaRapida.Tag = "";
+            this.groupBoxPesquisaRapida.Text = "Pesquisa:";
             // 
             // checkBoxStatus
             // 
             this.checkBoxStatus.AutoSize = true;
-            this.checkBoxStatus.Location = new System.Drawing.Point(6, 111);
+            this.checkBoxStatus.Location = new System.Drawing.Point(114, 165);
             this.checkBoxStatus.Name = "checkBoxStatus";
-            this.checkBoxStatus.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxStatus.Size = new System.Drawing.Size(59, 17);
             this.checkBoxStatus.TabIndex = 73;
-            this.checkBoxStatus.Tag = "Status";
+            this.checkBoxStatus.Tag = "";
+            this.checkBoxStatus.Text = "Status:";
             this.checkBoxStatus.UseVisualStyleBackColor = true;
-            this.checkBoxStatus.Click += new System.EventHandler(this.PesquisaRapida);
+            this.checkBoxStatus.CheckedChanged += new System.EventHandler(this.Pesquisa);
+            // 
+            // checkBoxMidia
+            // 
+            this.checkBoxMidia.AutoSize = true;
+            this.checkBoxMidia.Location = new System.Drawing.Point(6, 165);
+            this.checkBoxMidia.Name = "checkBoxMidia";
+            this.checkBoxMidia.Size = new System.Drawing.Size(56, 17);
+            this.checkBoxMidia.TabIndex = 78;
+            this.checkBoxMidia.Text = "Mídia:";
+            this.checkBoxMidia.UseVisualStyleBackColor = true;
+            this.checkBoxMidia.CheckedChanged += new System.EventHandler(this.Pesquisa);
             // 
             // checkBoxAlbum
             // 
             this.checkBoxAlbum.AutoSize = true;
-            this.checkBoxAlbum.Location = new System.Drawing.Point(6, 65);
+            this.checkBoxAlbum.Location = new System.Drawing.Point(6, 116);
             this.checkBoxAlbum.Name = "checkBoxAlbum";
-            this.checkBoxAlbum.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxAlbum.Size = new System.Drawing.Size(97, 17);
             this.checkBoxAlbum.TabIndex = 72;
-            this.checkBoxAlbum.Tag = "Album";
+            this.checkBoxAlbum.Tag = "";
+            this.checkBoxAlbum.Text = "Álbum/Música:";
             this.checkBoxAlbum.UseVisualStyleBackColor = true;
-            this.checkBoxAlbum.Click += new System.EventHandler(this.PesquisaRapida);
+            this.checkBoxAlbum.CheckedChanged += new System.EventHandler(this.Pesquisa);
             // 
             // checkBoxInterprete
             // 
             this.checkBoxInterprete.AutoSize = true;
             this.checkBoxInterprete.Location = new System.Drawing.Point(6, 19);
             this.checkBoxInterprete.Name = "checkBoxInterprete";
-            this.checkBoxInterprete.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxInterprete.Size = new System.Drawing.Size(74, 17);
             this.checkBoxInterprete.TabIndex = 71;
-            this.checkBoxInterprete.Tag = "interprete";
+            this.checkBoxInterprete.Tag = "";
+            this.checkBoxInterprete.Text = "Intérprete:";
             this.checkBoxInterprete.UseVisualStyleBackColor = true;
-            this.checkBoxInterprete.Click += new System.EventHandler(this.PesquisaRapida);
+            this.checkBoxInterprete.CheckedChanged += new System.EventHandler(this.Pesquisa);
             // 
-            // label13
+            // comboBoxMidia
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(27, 112);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 13);
-            this.label13.TabIndex = 70;
-            this.label13.Text = "Status:";
+            this.comboBoxMidia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMidia.FormattingEnabled = true;
+            this.comboBoxMidia.Items.AddRange(new object[] {
+            "Selecione...",
+            "Digital",
+            "DVD",
+            "CD",
+            "K7",
+            "Vinil"});
+            this.comboBoxMidia.Location = new System.Drawing.Point(6, 187);
+            this.comboBoxMidia.Name = "comboBoxMidia";
+            this.comboBoxMidia.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxMidia.TabIndex = 60;
+            this.comboBoxMidia.SelectedIndexChanged += new System.EventHandler(this.Pesquisa);
             // 
-            // label12
+            // checkBoxAutor
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(27, 66);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(39, 13);
-            this.label12.TabIndex = 69;
-            this.label12.Text = "Álbum:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 13);
-            this.label11.TabIndex = 68;
-            this.label11.Tag = "interprete";
-            this.label11.Text = "Intérprete:";
+            this.checkBoxAutor.AutoSize = true;
+            this.checkBoxAutor.Location = new System.Drawing.Point(6, 67);
+            this.checkBoxAutor.Name = "checkBoxAutor";
+            this.checkBoxAutor.Size = new System.Drawing.Size(54, 17);
+            this.checkBoxAutor.TabIndex = 77;
+            this.checkBoxAutor.Text = "Autor:";
+            this.checkBoxAutor.UseVisualStyleBackColor = true;
+            this.checkBoxAutor.CheckedChanged += new System.EventHandler(this.Pesquisa);
             // 
             // comboBoxStatus
             // 
@@ -611,352 +598,41 @@
             "Selecione...",
             "Disponível",
             "Emprestado"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(6, 131);
+            this.comboBoxStatus.Location = new System.Drawing.Point(114, 187);
             this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Size = new System.Drawing.Size(94, 21);
+            this.comboBoxStatus.Size = new System.Drawing.Size(102, 21);
             this.comboBoxStatus.TabIndex = 67;
-            this.comboBoxStatus.SelectedIndexChanged += new System.EventHandler(this.PesquisaRapida);
+            this.comboBoxStatus.SelectedIndexChanged += new System.EventHandler(this.Pesquisa);
             // 
             // textBoxAlbum
             // 
             this.textBoxAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAlbum.Location = new System.Drawing.Point(6, 85);
+            this.textBoxAlbum.Location = new System.Drawing.Point(6, 139);
             this.textBoxAlbum.Name = "textBoxAlbum";
-            this.textBoxAlbum.Size = new System.Drawing.Size(162, 20);
+            this.textBoxAlbum.Size = new System.Drawing.Size(258, 20);
             this.textBoxAlbum.TabIndex = 66;
-            this.textBoxAlbum.TextChanged += new System.EventHandler(this.PesquisaRapida);
+            this.textBoxAlbum.TextChanged += new System.EventHandler(this.Pesquisa);
             // 
             // textBoxInterprete
             // 
             this.textBoxInterprete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxInterprete.Location = new System.Drawing.Point(6, 39);
+            this.textBoxInterprete.Location = new System.Drawing.Point(5, 41);
             this.textBoxInterprete.Name = "textBoxInterprete";
-            this.textBoxInterprete.Size = new System.Drawing.Size(162, 20);
+            this.textBoxInterprete.Size = new System.Drawing.Size(259, 20);
             this.textBoxInterprete.TabIndex = 65;
-            this.textBoxInterprete.TextChanged += new System.EventHandler(this.PesquisaRapida);
+            this.textBoxInterprete.TextChanged += new System.EventHandler(this.Pesquisa);
             // 
-            // groupBoxPesquisaDetalhada
+            // textBoxAutor
             // 
-            this.groupBoxPesquisaDetalhada.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textBoxAutor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.checkBox12);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.checkBox11);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.checkBox10);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.checkBox9);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.checkBox8);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.checkBox7);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.checkBox6);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.checkBox5);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.checkBox4);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.label22);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.label21);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.label20);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.label19);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.label18);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.label17);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.label16);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.label15);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.label14);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.comboBox5);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.dateTimePicker2);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.comboBox3);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.dateTimePicker1);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.comboBox2);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.textBox6);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.textBox5);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.textBox4);
-            this.groupBoxPesquisaDetalhada.Controls.Add(this.textBox3);
-            this.groupBoxPesquisaDetalhada.Location = new System.Drawing.Point(904, 227);
-            this.groupBoxPesquisaDetalhada.Name = "groupBoxPesquisaDetalhada";
-            this.groupBoxPesquisaDetalhada.Size = new System.Drawing.Size(292, 248);
-            this.groupBoxPesquisaDetalhada.TabIndex = 14;
-            this.groupBoxPesquisaDetalhada.TabStop = false;
-            this.groupBoxPesquisaDetalhada.Text = "Pesquisa detalhada:";
-            // 
-            // checkBox12
-            // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Location = new System.Drawing.Point(6, 200);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(15, 14);
-            this.checkBox12.TabIndex = 82;
-            this.checkBox12.UseVisualStyleBackColor = true;
-            this.checkBox12.Click += new System.EventHandler(this.PesquisaDetalhada);
-            // 
-            // checkBox11
-            // 
-            this.checkBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Location = new System.Drawing.Point(185, 154);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(15, 14);
-            this.checkBox11.TabIndex = 81;
-            this.checkBox11.UseVisualStyleBackColor = true;
-            this.checkBox11.Click += new System.EventHandler(this.PesquisaDetalhada);
-            // 
-            // checkBox10
-            // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Location = new System.Drawing.Point(6, 155);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(15, 14);
-            this.checkBox10.TabIndex = 80;
-            this.checkBox10.UseVisualStyleBackColor = true;
-            this.checkBox10.Click += new System.EventHandler(this.PesquisaDetalhada);
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(6, 110);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(15, 14);
-            this.checkBox9.TabIndex = 79;
-            this.checkBox9.UseVisualStyleBackColor = true;
-            this.checkBox9.Click += new System.EventHandler(this.PesquisaDetalhada);
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(185, 110);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(15, 14);
-            this.checkBox8.TabIndex = 78;
-            this.checkBox8.UseVisualStyleBackColor = true;
-            this.checkBox8.Click += new System.EventHandler(this.PesquisaDetalhada);
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(6, 63);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(15, 14);
-            this.checkBox7.TabIndex = 77;
-            this.checkBox7.UseVisualStyleBackColor = true;
-            this.checkBox7.Click += new System.EventHandler(this.PesquisaDetalhada);
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(185, 63);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(15, 14);
-            this.checkBox6.TabIndex = 76;
-            this.checkBox6.UseVisualStyleBackColor = true;
-            this.checkBox6.Click += new System.EventHandler(this.PesquisaDetalhada);
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(185, 22);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(15, 14);
-            this.checkBox5.TabIndex = 75;
-            this.checkBox5.UseVisualStyleBackColor = true;
-            this.checkBox5.Click += new System.EventHandler(this.PesquisaDetalhada);
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(6, 22);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
-            this.checkBox4.TabIndex = 74;
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.Click += new System.EventHandler(this.PesquisaDetalhada);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(27, 200);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(40, 13);
-            this.label22.TabIndex = 73;
-            this.label22.Text = "Status:";
-            // 
-            // label21
-            // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(206, 154);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(33, 13);
-            this.label21.TabIndex = 72;
-            this.label21.Text = "Nota:";
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(206, 110);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(37, 13);
-            this.label20.TabIndex = 71;
-            this.label20.Text = "Mídia:";
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(206, 63);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(46, 13);
-            this.label19.TabIndex = 70;
-            this.label19.Text = "Compra:";
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(206, 22);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(33, 13);
-            this.label18.TabIndex = 69;
-            this.label18.Text = "Data:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(27, 155);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(96, 13);
-            this.label17.TabIndex = 68;
-            this.label17.Text = "Origem da compra:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(27, 110);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(39, 13);
-            this.label16.TabIndex = 67;
-            this.label16.Text = "Álbum:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(26, 63);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(35, 13);
-            this.label15.TabIndex = 66;
-            this.label15.Text = "Autor:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(26, 23);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 13);
-            this.label14.TabIndex = 65;
-            this.label14.Text = "Intérprete:";
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "Selecione...",
-            "Disponível",
-            "Emprestado"});
-            this.comboBox5.Location = new System.Drawing.Point(6, 216);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(87, 21);
-            this.comboBox5.TabIndex = 64;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(185, 84);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(95, 20);
-            this.dateTimePicker2.TabIndex = 63;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.comboBox3.Location = new System.Drawing.Point(185, 175);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(41, 21);
-            this.comboBox3.TabIndex = 61;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(185, 41);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(95, 20);
-            this.dateTimePicker1.TabIndex = 62;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "digital",
-            "DVD",
-            "CD",
-            "K7",
-            "Vinil"});
-            this.comboBox2.Location = new System.Drawing.Point(185, 130);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(63, 21);
-            this.comboBox2.TabIndex = 60;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(6, 175);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(155, 20);
-            this.textBox6.TabIndex = 59;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(6, 130);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(155, 20);
-            this.textBox5.TabIndex = 58;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.Location = new System.Drawing.Point(6, 84);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(155, 20);
-            this.textBox4.TabIndex = 57;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(6, 40);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(155, 20);
-            this.textBox3.TabIndex = 56;
+            this.textBoxAutor.Location = new System.Drawing.Point(5, 90);
+            this.textBoxAutor.Name = "textBoxAutor";
+            this.textBoxAutor.Size = new System.Drawing.Size(259, 20);
+            this.textBoxAutor.TabIndex = 57;
+            this.textBoxAutor.TextChanged += new System.EventHandler(this.Pesquisa);
             // 
             // Principal
             // 
@@ -964,7 +640,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1206, 572);
-            this.Controls.Add(this.groupBoxPesquisaDetalhada);
             this.Controls.Add(this.groupBoxPesquisaRapida);
             this.Controls.Add(this.buttonEmprestar);
             this.Controls.Add(this.listViewPesquisa);
@@ -982,8 +657,6 @@
             this.toolStrip1.PerformLayout();
             this.groupBoxPesquisaRapida.ResumeLayout(false);
             this.groupBoxPesquisaRapida.PerformLayout();
-            this.groupBoxPesquisaDetalhada.ResumeLayout(false);
-            this.groupBoxPesquisaDetalhada.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1048,40 +721,13 @@
         private System.Windows.Forms.CheckBox checkBoxStatus;
         private System.Windows.Forms.CheckBox checkBoxAlbum;
         private System.Windows.Forms.CheckBox checkBoxInterprete;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxStatus;
         private System.Windows.Forms.TextBox textBoxAlbum;
         private System.Windows.Forms.TextBox textBoxInterprete;
-        private System.Windows.Forms.GroupBox groupBoxPesquisaDetalhada;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.CheckBox checkBoxMidia;
+        private System.Windows.Forms.CheckBox checkBoxAutor;
+        private System.Windows.Forms.ComboBox comboBoxMidia;
+        private System.Windows.Forms.TextBox textBoxAutor;
         private System.Windows.Forms.ToolStripLabel toolStripLabel21;
         private System.Windows.Forms.ColumnHeader status;
     }
