@@ -94,6 +94,11 @@
             this.textBoxAlbum = new System.Windows.Forms.TextBox();
             this.textBoxInterprete = new System.Windows.Forms.TextBox();
             this.textBoxAutor = new System.Windows.Forms.TextBox();
+            this.buttonAdicionarMidia = new System.Windows.Forms.Button();
+            this.buttonAlterararMidia = new System.Windows.Forms.Button();
+            this.buttonExcluirMidia = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.linkLabelRemoverFiltro = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBoxPesquisaRapida.SuspendLayout();
@@ -107,7 +112,7 @@
             this.editaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1206, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1177, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -124,21 +129,21 @@
             // mídiaToolStripMenuItem
             // 
             this.mídiaToolStripMenuItem.Name = "mídiaToolStripMenuItem";
-            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mídiaToolStripMenuItem.Text = "Adicionar";
             this.mídiaToolStripMenuItem.Click += new System.EventHandler(this.mídiaToolStripMenuItem_Click);
             // 
             // amigosToolStripMenuItem
             // 
             this.amigosToolStripMenuItem.Name = "amigosToolStripMenuItem";
-            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.amigosToolStripMenuItem.Text = "Alterar";
             this.amigosToolStripMenuItem.Click += new System.EventHandler(this.amigosToolStripMenuItem_Click);
             // 
             // excluirToolStripMenuItem1
             // 
             this.excluirToolStripMenuItem1.Name = "excluirToolStripMenuItem1";
-            this.excluirToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.excluirToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.excluirToolStripMenuItem1.Text = "Excluir";
             // 
             // editaToolStripMenuItem
@@ -154,20 +159,20 @@
             // midiasToolStripMenuItem
             // 
             this.midiasToolStripMenuItem.Name = "midiasToolStripMenuItem";
-            this.midiasToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.midiasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.midiasToolStripMenuItem.Text = "Adicionar";
             this.midiasToolStripMenuItem.Click += new System.EventHandler(this.midiasToolStripMenuItem_Click);
             // 
             // pessoasToolStripMenuItem
             // 
             this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
-            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pessoasToolStripMenuItem.Text = "Alterar";
             // 
             // excluirToolStripMenuItem2
             // 
             this.excluirToolStripMenuItem2.Name = "excluirToolStripMenuItem2";
-            this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(125, 22);
+            this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.excluirToolStripMenuItem2.Text = "Excluir";
             // 
             // listViewPesquisa
@@ -187,13 +192,14 @@
             this.status});
             this.listViewPesquisa.FullRowSelect = true;
             this.listViewPesquisa.GridLines = true;
-            this.listViewPesquisa.Location = new System.Drawing.Point(12, 70);
+            this.listViewPesquisa.Location = new System.Drawing.Point(12, 40);
             this.listViewPesquisa.MultiSelect = false;
             this.listViewPesquisa.Name = "listViewPesquisa";
             this.listViewPesquisa.Size = new System.Drawing.Size(885, 416);
             this.listViewPesquisa.TabIndex = 2;
             this.listViewPesquisa.UseCompatibleStateImageBehavior = false;
             this.listViewPesquisa.View = System.Windows.Forms.View.Details;
+            this.listViewPesquisa.SelectedIndexChanged += new System.EventHandler(this.listViewPesquisa_SelectedIndexChanged);
             // 
             // interprete
             // 
@@ -213,11 +219,13 @@
             // dataDoAlbum
             // 
             this.dataDoAlbum.Text = "Data";
+            this.dataDoAlbum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dataDoAlbum.Width = 75;
             // 
             // dataDaCompra
             // 
             this.dataDaCompra.Text = "Compra";
+            this.dataDaCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dataDaCompra.Width = 81;
             // 
             // origemDaCompra
@@ -233,6 +241,7 @@
             // nota
             // 
             this.nota.Text = "Nota";
+            this.nota.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nota.Width = 44;
             // 
             // observacoes
@@ -246,9 +255,9 @@
             // 
             // buttonEmprestar
             // 
-            this.buttonEmprestar.Location = new System.Drawing.Point(12, 41);
+            this.buttonEmprestar.Location = new System.Drawing.Point(904, 127);
             this.buttonEmprestar.Name = "buttonEmprestar";
-            this.buttonEmprestar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEmprestar.Size = new System.Drawing.Size(107, 23);
             this.buttonEmprestar.TabIndex = 9;
             this.buttonEmprestar.Text = "Emprestar";
             this.buttonEmprestar.UseVisualStyleBackColor = true;
@@ -294,7 +303,7 @@
             this.qtdePessoa});
             this.toolStrip1.Location = new System.Drawing.Point(0, 547);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1206, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1177, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -497,6 +506,8 @@
             // 
             this.groupBoxPesquisaRapida.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxPesquisaRapida.Controls.Add(this.linkLabelRemoverFiltro);
+            this.groupBoxPesquisaRapida.Controls.Add(this.button1);
             this.groupBoxPesquisaRapida.Controls.Add(this.checkBoxStatus);
             this.groupBoxPesquisaRapida.Controls.Add(this.checkBoxMidia);
             this.groupBoxPesquisaRapida.Controls.Add(this.checkBoxAlbum);
@@ -507,13 +518,14 @@
             this.groupBoxPesquisaRapida.Controls.Add(this.textBoxAlbum);
             this.groupBoxPesquisaRapida.Controls.Add(this.textBoxInterprete);
             this.groupBoxPesquisaRapida.Controls.Add(this.textBoxAutor);
-            this.groupBoxPesquisaRapida.Location = new System.Drawing.Point(903, 63);
+            this.groupBoxPesquisaRapida.Location = new System.Drawing.Point(903, 173);
             this.groupBoxPesquisaRapida.Name = "groupBoxPesquisaRapida";
-            this.groupBoxPesquisaRapida.Size = new System.Drawing.Size(270, 423);
+            this.groupBoxPesquisaRapida.Size = new System.Drawing.Size(222, 283);
             this.groupBoxPesquisaRapida.TabIndex = 13;
             this.groupBoxPesquisaRapida.TabStop = false;
             this.groupBoxPesquisaRapida.Tag = "";
-            this.groupBoxPesquisaRapida.Text = "Pesquisa:";
+            this.groupBoxPesquisaRapida.Text = "Busca rápida:";
+            this.groupBoxPesquisaRapida.Enter += new System.EventHandler(this.groupBoxPesquisaRapida_Enter);
             // 
             // checkBoxStatus
             // 
@@ -610,7 +622,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxAlbum.Location = new System.Drawing.Point(6, 139);
             this.textBoxAlbum.Name = "textBoxAlbum";
-            this.textBoxAlbum.Size = new System.Drawing.Size(258, 20);
+            this.textBoxAlbum.Size = new System.Drawing.Size(210, 20);
             this.textBoxAlbum.TabIndex = 66;
             this.textBoxAlbum.TextChanged += new System.EventHandler(this.Pesquisa);
             // 
@@ -620,7 +632,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxInterprete.Location = new System.Drawing.Point(5, 41);
             this.textBoxInterprete.Name = "textBoxInterprete";
-            this.textBoxInterprete.Size = new System.Drawing.Size(259, 20);
+            this.textBoxInterprete.Size = new System.Drawing.Size(211, 20);
             this.textBoxInterprete.TabIndex = 65;
             this.textBoxInterprete.TextChanged += new System.EventHandler(this.Pesquisa);
             // 
@@ -630,16 +642,67 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxAutor.Location = new System.Drawing.Point(5, 90);
             this.textBoxAutor.Name = "textBoxAutor";
-            this.textBoxAutor.Size = new System.Drawing.Size(259, 20);
+            this.textBoxAutor.Size = new System.Drawing.Size(211, 20);
             this.textBoxAutor.TabIndex = 57;
             this.textBoxAutor.TextChanged += new System.EventHandler(this.Pesquisa);
+            // 
+            // buttonAdicionarMidia
+            // 
+            this.buttonAdicionarMidia.Location = new System.Drawing.Point(904, 40);
+            this.buttonAdicionarMidia.Name = "buttonAdicionarMidia";
+            this.buttonAdicionarMidia.Size = new System.Drawing.Size(107, 23);
+            this.buttonAdicionarMidia.TabIndex = 14;
+            this.buttonAdicionarMidia.Text = "Adicionar";
+            this.buttonAdicionarMidia.UseVisualStyleBackColor = true;
+            this.buttonAdicionarMidia.Click += new System.EventHandler(this.buttonAdicionarMidia_Click);
+            // 
+            // buttonAlterararMidia
+            // 
+            this.buttonAlterararMidia.Location = new System.Drawing.Point(904, 69);
+            this.buttonAlterararMidia.Name = "buttonAlterararMidia";
+            this.buttonAlterararMidia.Size = new System.Drawing.Size(107, 23);
+            this.buttonAlterararMidia.TabIndex = 15;
+            this.buttonAlterararMidia.Text = "Alterar";
+            this.buttonAlterararMidia.UseVisualStyleBackColor = true;
+            this.buttonAlterararMidia.Click += new System.EventHandler(this.buttonAlterararMidia_Click);
+            // 
+            // buttonExcluirMidia
+            // 
+            this.buttonExcluirMidia.Location = new System.Drawing.Point(904, 98);
+            this.buttonExcluirMidia.Name = "buttonExcluirMidia";
+            this.buttonExcluirMidia.Size = new System.Drawing.Size(107, 23);
+            this.buttonExcluirMidia.TabIndex = 16;
+            this.buttonExcluirMidia.Text = "Excluir";
+            this.buttonExcluirMidia.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(65, 224);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 23);
+            this.button1.TabIndex = 79;
+            this.button1.Text = "Procurar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // linkLabelRemoverFiltro
+            // 
+            this.linkLabelRemoverFiltro.AutoSize = true;
+            this.linkLabelRemoverFiltro.Location = new System.Drawing.Point(81, 257);
+            this.linkLabelRemoverFiltro.Name = "linkLabelRemoverFiltro";
+            this.linkLabelRemoverFiltro.Size = new System.Drawing.Size(77, 13);
+            this.linkLabelRemoverFiltro.TabIndex = 81;
+            this.linkLabelRemoverFiltro.TabStop = true;
+            this.linkLabelRemoverFiltro.Text = "Remover filtros";
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1206, 572);
+            this.ClientSize = new System.Drawing.Size(1177, 572);
+            this.Controls.Add(this.buttonExcluirMidia);
+            this.Controls.Add(this.buttonAlterararMidia);
+            this.Controls.Add(this.buttonAdicionarMidia);
             this.Controls.Add(this.groupBoxPesquisaRapida);
             this.Controls.Add(this.buttonEmprestar);
             this.Controls.Add(this.listViewPesquisa);
@@ -730,6 +793,11 @@
         private System.Windows.Forms.TextBox textBoxAutor;
         private System.Windows.Forms.ToolStripLabel toolStripLabel21;
         private System.Windows.Forms.ColumnHeader status;
+        private System.Windows.Forms.Button buttonAdicionarMidia;
+        private System.Windows.Forms.Button buttonAlterararMidia;
+        private System.Windows.Forms.Button buttonExcluirMidia;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel linkLabelRemoverFiltro;
     }
 }
 

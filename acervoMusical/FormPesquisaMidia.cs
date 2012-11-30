@@ -15,5 +15,10 @@ namespace acervoMusical
         {
             InitializeComponent();
         }
+
+        private void FormPesquisaMidia_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

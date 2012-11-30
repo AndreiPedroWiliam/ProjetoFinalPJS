@@ -59,5 +59,12 @@ namespace acervoMusical.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Bitmap icon_search {
+            get {
+                object obj = ResourceManager.GetObject("icon_search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

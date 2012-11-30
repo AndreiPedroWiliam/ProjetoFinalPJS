@@ -217,9 +217,7 @@ namespace acervoMusical
 
         private void mídiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 cadastroMidia = new Form3();
-            cadastroMidia.ShowDialog();
-            CarregarListview();
+
             
         }
 
@@ -740,6 +738,30 @@ namespace acervoMusical
 
 
             }
+        }
+
+        private void listViewPesquisa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBoxPesquisaRapida_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAdicionarMidia_Click(object sender, EventArgs e)
+        {
+            Form3 cadastroMidia = new Form3();
+            cadastroMidia.ShowDialog();
+            CarregarListview();
+        }
+
+        private void buttonAlterararMidia_Click(object sender, EventArgs e)
+        {
+            Form3 cadastroMidia = new Form3();
+            cadastroMidia.ShowDialog();
+            CarregarListview();
         }
          
     }
