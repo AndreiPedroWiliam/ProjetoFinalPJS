@@ -76,11 +76,17 @@
     <Compile Include="Form5.Designer.cs">
       <DependentUpon>Form5.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPesquisaMidia.cs">
+    <Compile Include="FormDevolver.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPesquisaMidia.Designer.cs">
-      <DependentUpon>FormPesquisaMidia.cs</DependentUpon>
+    <Compile Include="FormDevolver.Designer.cs">
+      <DependentUpon>FormDevolver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPesquisaPessoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPesquisaPessoa.Designer.cs">
+      <DependentUpon>FormPesquisaPessoa.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,8 +105,11 @@
     <EmbeddedResource Include="Form5.resx">
       <DependentUpon>Form5.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPesquisaMidia.resx">
-      <DependentUpon>FormPesquisaMidia.cs</DependentUpon>
+    <EmbeddedResource Include="FormDevolver.resx">
+      <DependentUpon>FormDevolver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPesquisaPessoa.resx">
+      <DependentUpon>FormPesquisaPessoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

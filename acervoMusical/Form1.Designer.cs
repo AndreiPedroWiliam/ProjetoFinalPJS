@@ -29,14 +29,8 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mídiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.amigosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.excluirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.midiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pessoasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.excluirToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.listViewPesquisa = new System.Windows.Forms.ListView();
             this.interprete = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.autor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -84,6 +78,8 @@
             this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
             this.qtdePessoa = new System.Windows.Forms.ToolStripLabel();
             this.groupBoxPesquisaRapida = new System.Windows.Forms.GroupBox();
+            this.linkLabelRemoverFiltro = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
             this.checkBoxStatus = new System.Windows.Forms.CheckBox();
             this.checkBoxMidia = new System.Windows.Forms.CheckBox();
             this.checkBoxAlbum = new System.Windows.Forms.CheckBox();
@@ -97,8 +93,6 @@
             this.buttonAdicionarMidia = new System.Windows.Forms.Button();
             this.buttonAlterararMidia = new System.Windows.Forms.Button();
             this.buttonExcluirMidia = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.linkLabelRemoverFiltro = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBoxPesquisaRapida.SuspendLayout();
@@ -108,7 +102,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrosToolStripMenuItem,
+            this.mídiaToolStripMenuItem,
             this.editaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -116,64 +110,18 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // cadastrosToolStripMenuItem
-            // 
-            this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mídiaToolStripMenuItem,
-            this.amigosToolStripMenuItem,
-            this.excluirToolStripMenuItem1});
-            this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.cadastrosToolStripMenuItem.Text = "Mídia";
-            // 
             // mídiaToolStripMenuItem
             // 
             this.mídiaToolStripMenuItem.Name = "mídiaToolStripMenuItem";
-            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mídiaToolStripMenuItem.Text = "Adicionar";
-            this.mídiaToolStripMenuItem.Click += new System.EventHandler(this.mídiaToolStripMenuItem_Click);
-            // 
-            // amigosToolStripMenuItem
-            // 
-            this.amigosToolStripMenuItem.Name = "amigosToolStripMenuItem";
-            this.amigosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.amigosToolStripMenuItem.Text = "Alterar";
-            this.amigosToolStripMenuItem.Click += new System.EventHandler(this.amigosToolStripMenuItem_Click);
-            // 
-            // excluirToolStripMenuItem1
-            // 
-            this.excluirToolStripMenuItem1.Name = "excluirToolStripMenuItem1";
-            this.excluirToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.excluirToolStripMenuItem1.Text = "Excluir";
+            this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.mídiaToolStripMenuItem.Text = "Mídia";
             // 
             // editaToolStripMenuItem
             // 
-            this.editaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.midiasToolStripMenuItem,
-            this.pessoasToolStripMenuItem,
-            this.excluirToolStripMenuItem2});
             this.editaToolStripMenuItem.Name = "editaToolStripMenuItem";
             this.editaToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.editaToolStripMenuItem.Text = "Pessoa";
-            // 
-            // midiasToolStripMenuItem
-            // 
-            this.midiasToolStripMenuItem.Name = "midiasToolStripMenuItem";
-            this.midiasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.midiasToolStripMenuItem.Text = "Adicionar";
-            this.midiasToolStripMenuItem.Click += new System.EventHandler(this.midiasToolStripMenuItem_Click);
-            // 
-            // pessoasToolStripMenuItem
-            // 
-            this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
-            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.pessoasToolStripMenuItem.Text = "Alterar";
-            // 
-            // excluirToolStripMenuItem2
-            // 
-            this.excluirToolStripMenuItem2.Name = "excluirToolStripMenuItem2";
-            this.excluirToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.excluirToolStripMenuItem2.Text = "Excluir";
+            this.editaToolStripMenuItem.Click += new System.EventHandler(this.editaToolStripMenuItem_Click);
             // 
             // listViewPesquisa
             // 
@@ -527,6 +475,25 @@
             this.groupBoxPesquisaRapida.Text = "Busca rápida:";
             this.groupBoxPesquisaRapida.Enter += new System.EventHandler(this.groupBoxPesquisaRapida_Enter);
             // 
+            // linkLabelRemoverFiltro
+            // 
+            this.linkLabelRemoverFiltro.AutoSize = true;
+            this.linkLabelRemoverFiltro.Location = new System.Drawing.Point(81, 257);
+            this.linkLabelRemoverFiltro.Name = "linkLabelRemoverFiltro";
+            this.linkLabelRemoverFiltro.Size = new System.Drawing.Size(77, 13);
+            this.linkLabelRemoverFiltro.TabIndex = 81;
+            this.linkLabelRemoverFiltro.TabStop = true;
+            this.linkLabelRemoverFiltro.Text = "Remover filtros";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(65, 224);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 23);
+            this.button1.TabIndex = 79;
+            this.button1.Text = "Procurar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // checkBoxStatus
             // 
             this.checkBoxStatus.AutoSize = true;
@@ -675,25 +642,6 @@
             this.buttonExcluirMidia.Text = "Excluir";
             this.buttonExcluirMidia.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(65, 224);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 23);
-            this.button1.TabIndex = 79;
-            this.button1.Text = "Procurar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // linkLabelRemoverFiltro
-            // 
-            this.linkLabelRemoverFiltro.AutoSize = true;
-            this.linkLabelRemoverFiltro.Location = new System.Drawing.Point(81, 257);
-            this.linkLabelRemoverFiltro.Name = "linkLabelRemoverFiltro";
-            this.linkLabelRemoverFiltro.Size = new System.Drawing.Size(77, 13);
-            this.linkLabelRemoverFiltro.TabIndex = 81;
-            this.linkLabelRemoverFiltro.TabStop = true;
-            this.linkLabelRemoverFiltro.Text = "Remover filtros";
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -728,9 +676,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mídiaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem amigosToolStripMenuItem;
         private System.Windows.Forms.ListView listViewPesquisa;
         private System.Windows.Forms.ColumnHeader interprete;
         private System.Windows.Forms.ColumnHeader autor;
@@ -742,11 +687,7 @@
         private System.Windows.Forms.ColumnHeader nota;
         private System.Windows.Forms.ColumnHeader observacoes;
         private System.Windows.Forms.Button buttonEmprestar;
-        private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem midiasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pessoasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem excluirToolStripMenuItem2;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel qtdeMidia;
@@ -798,6 +739,7 @@
         private System.Windows.Forms.Button buttonExcluirMidia;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabelRemoverFiltro;
+        private System.Windows.Forms.ToolStripMenuItem mídiaToolStripMenuItem;
     }
 }
 

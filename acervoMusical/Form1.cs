@@ -31,10 +31,12 @@ namespace acervoMusical
             comboBoxStatus.SelectedIndex = 0;
             comboBoxMidia.SelectedIndex = 0;
             CarregarListview();
+
+          
         }
         public void CarregarListview()
         {
-            try
+           try
             {
                 // Verifica se a conexão está aberta
                 if (conexao.State == ConnectionState.Open)
@@ -339,7 +341,7 @@ namespace acervoMusical
                     {
                         for (int i = 0; i < listViewPesquisa.Items.Count; i++)
                         {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
+                            if (listViewPesquisa.Items[i].Text.ToLower().IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.ToUpper().IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
                             {
                                 listViewPesquisa.TopItem = listViewPesquisa.Items[i];
                                 listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
@@ -762,6 +764,12 @@ namespace acervoMusical
             Form3 cadastroMidia = new Form3();
             cadastroMidia.ShowDialog();
             CarregarListview();
+        }
+
+        private void editaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPesquisaPessoa formPessoa = new FormPesquisaPessoa();
+            formPessoa.ShowDialog();
         }
          
     }

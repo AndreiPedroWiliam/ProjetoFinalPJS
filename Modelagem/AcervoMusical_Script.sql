@@ -52,7 +52,6 @@ INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, Tip
 ('Pouca Vogal', 'Humberto G & Duca L', 'Pouca Vogal - Ao Vivo em Porto Alegre', '13-03-2009', '20-09-2009', 'Submarino', 
 'DVD','9', '', 'Disponível');
 
-
 INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES 
 ('James Blunt', 'James Blunt', 'Some Kind of Trouble', '11-05-2010', '10-04-2011', 'itunes', 'Digital', '8', '', 'Disponível');
 
