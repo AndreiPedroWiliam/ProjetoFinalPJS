@@ -55,6 +55,32 @@ INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, Tip
 INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES 
 ('James Blunt', 'James Blunt', 'Some Kind of Trouble', '11-05-2010', '10-04-2011', 'itunes', 'Digital', '8', '', 'Disponível');
 
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Michael Jackson', 'Michael Jackson', 'Thriller', '01-02-1982', '14-10-1994', 'Bolacha Discos', 'Vinil', '10', '', 'Disponível');
+
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('AC/DC', 'AC/DC', 'Back in Black', '09-05-1980', '05-01-1995', 'Locomotiva Discos', 'K7', '10', '', 'Disponível' );
+
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Pink Floyd', 'Pink Floyd', 'The Dark Side of the Moon', '12-07-1973', '07-03-1995', 'Pocket Music', 'Vinil', '10', '', 'Disponível');
+
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Led Zeppelin', 'Led Zeppelin', 'Led Zeppelin IV', '03-04-1971', '10-07-1993', 'Locomotiva Discos', 'K7', '9', '', 'Disponível');
+
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Bruce Springsteen', 'Bruce Springsteen', 'Born in the U.S.A.', '09-08-1984', '18-09-1994', 'Bolacha Discos', 'Vinil', '9','','Disponível');
+
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Dire Straits', 'Dire Straits', 'Brothers in Arms', '12-10-1985', '06-09-1997', 'Bolacha Discos', 'Vinil', '10', '', 'Disponível');
+
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Guns N Roses', 'Guns N Roses', 'Appetite for Destruction', '10-10-1987', '18-09-1992', 'Locomotiva Discos', 'Vinil', '10', '', 'Disponível');
+
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Metallica', 'Metallica', 'Metallica', '17-11-1991', '23-08-1994', 'Bolacha Discos', 'Vinil', '10', '', 'Disponível');
+
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Nirvana', 'Nirvana', 'Nevermind', '16-09-1991', '22-09-1994', 'Bolacha Discos', 'Vinil', '10', '','Disponível');
 
 -- INSERT PESSOAS --
 
