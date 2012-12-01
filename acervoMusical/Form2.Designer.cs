@@ -47,7 +47,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.pesquisaPessoa = new System.Windows.Forms.PictureBox();
             this.pesquisaAlbum = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaPessoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaAlbum)).BeginInit();
@@ -55,7 +55,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(328, 26);
+            this.textBox1.Location = new System.Drawing.Point(15, 26);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(285, 20);
             this.textBox1.TabIndex = 0;
@@ -109,7 +109,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 26);
+            this.textBox2.Location = new System.Drawing.Point(328, 26);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(285, 20);
             this.textBox2.TabIndex = 10;
@@ -121,6 +121,7 @@
             this.album,
             this.interprete,
             this.midia});
+            this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(12, 291);
             this.listView1.Name = "listView1";
@@ -157,6 +158,7 @@
             this.button4.TabIndex = 14;
             this.button4.Text = "Adicionar";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -166,6 +168,7 @@
             this.button5.TabIndex = 15;
             this.button5.Text = "Remover";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // pesquisaPessoa
             // 
@@ -177,36 +180,38 @@
             this.pesquisaPessoa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pesquisaPessoa.TabIndex = 16;
             this.pesquisaPessoa.TabStop = false;
+            this.pesquisaPessoa.Click += new System.EventHandler(this.pesquisaPessoa_Click);
             // 
             // pesquisaAlbum
             // 
             this.pesquisaAlbum.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pesquisaAlbum.Image = ((System.Drawing.Image)(resources.GetObject("pesquisaAlbum.Image")));
-            this.pesquisaAlbum.Location = new System.Drawing.Point(619, 30);
+            this.pesquisaAlbum.Location = new System.Drawing.Point(619, 26);
             this.pesquisaAlbum.Name = "pesquisaAlbum";
             this.pesquisaAlbum.Size = new System.Drawing.Size(16, 16);
             this.pesquisaAlbum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pesquisaAlbum.TabIndex = 16;
             this.pesquisaAlbum.TabStop = false;
+            this.pesquisaAlbum.Click += new System.EventHandler(this.pesquisaAlbum_Click);
             // 
-            // button1
+            // label2
             // 
-            this.button1.Location = new System.Drawing.Point(12, 257);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Adicionar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 258);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "label2";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 434);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pesquisaAlbum);
             this.Controls.Add(this.pesquisaPessoa);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.textBox2);
@@ -247,6 +252,6 @@
         private System.Windows.Forms.ColumnHeader midia;
         private System.Windows.Forms.PictureBox pesquisaPessoa;
         private System.Windows.Forms.PictureBox pesquisaAlbum;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }
