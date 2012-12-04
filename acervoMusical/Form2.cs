@@ -22,36 +22,19 @@ namespace acervoMusical
 
         private void pesquisaPessoa_Click(object sender, EventArgs e)
         {
-            conexao.Open();
-            listBox1.Items.Clear();
-            SqlDataReader leitor = null;
-            SqlCommand cmdSelecao = new SqlCommand("SELECT Nome FROM Pessoa WHERE Nome LIKE '%"+textBox1.Text+"%';", conexao);
-            leitor = cmdSelecao.ExecuteReader();
-            while (leitor.Read())
-            {
-                listBox1.Items.Add(leitor["Nome"].ToString());
-            }
-            conexao.Close();
+            
         }
 
         private void pesquisaAlbum_Click(object sender, EventArgs e)
         {
-            conexao.Open();
-            listBox2.Items.Clear();
-            SqlDataReader leitor = null;
-            SqlCommand cmdSelecao = new SqlCommand("SELECT Album FROM Album WHERE Album LIKE '%"+textBox2.Text+"%' AND TipoMidia!= 'Digital';", conexao);
-            leitor = cmdSelecao.ExecuteReader();
-            while (leitor.Read())
-            {
-                listBox2.Items.Add(leitor["Album"].ToString());
-            }
-            conexao.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem.ToString() != "" && listBox2.SelectedItem.ToString() != "")
+            string menssagem = "*Selecione um";
+            if (listBox1.SelectedItem != null && listBox2.SelectedItem != null)
             {
+                label2.Text = "";
                 conexao.Open();
                 SqlCommand dados = new SqlCommand("SELECT Interprete,TipoMidia FROM Album WHERE Album = '"+listBox2.SelectedItem.ToString()+"';",conexao);
                 SqlDataReader leitor = null;
@@ -65,14 +48,68 @@ namespace acervoMusical
                 listView1.Items.Add(a);
                 conexao.Close();
             }
+            else if (listBox1.SelectedItem == null)
+            {
+                menssagem += " amigo";
+                label2.Text = menssagem;
+                label2.ForeColor = Color.Red;
+            }
+            if (listBox2.SelectedItem == null)
+            {
+                if (listBox1.SelectedItem == null)
+                {
+                    menssagem += " e um álbum";
+                }
+                else
+                {
+                    menssagem = "*Selecione um álbum";
+                    
+                }
+                label2.ForeColor = Color.Red;
+                label2.Text = menssagem;
+            }
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.ToString() != "")
+            if (listView1.SelectedItems != null)
             {
-                listView1.FocusedItem.Remove();
+                listView1.SelectedItems.Clear();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            conexao.Open();
+            listBox1.Items.Clear();
+            SqlDataReader leitor = null;
+            SqlCommand cmdSelecao = new SqlCommand("SELECT Nome FROM Pessoa WHERE Nome LIKE '%" + textBox1.Text + "%';", conexao);
+            leitor = cmdSelecao.ExecuteReader();
+            while (leitor.Read())
+            {
+                listBox1.Items.Add(leitor["Nome"].ToString());
+            }
+            conexao.Close();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            conexao.Open();
+            listBox2.Items.Clear();
+            SqlDataReader leitor = null;
+            SqlCommand cmdSelecao = new SqlCommand("SELECT Album FROM Album WHERE Album LIKE '%" + textBox2.Text + "%' AND TipoMidia!= 'Digital';", conexao);
+            leitor = cmdSelecao.ExecuteReader();
+            while (leitor.Read())
+            {
+                listBox2.Items.Add(leitor["Album"].ToString());
+            }
+            conexao.Close();
         }
     }
 }

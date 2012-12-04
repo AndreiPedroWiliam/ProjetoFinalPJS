@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxObservacaoEdit = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.labelOrigemCompra = new System.Windows.Forms.Label();
+            this.labelAlbum = new System.Windows.Forms.Label();
+            this.labelAutor = new System.Windows.Forms.Label();
+            this.labelInterprete = new System.Windows.Forms.Label();
             this.dateTimePickerCompraEdit = new System.Windows.Forms.DateTimePicker();
             this.comboBoxNotaEdit = new System.Windows.Forms.ComboBox();
             this.dateTimePickerAlbumEdit = new System.Windows.Forms.DateTimePicker();
@@ -47,6 +48,8 @@
             this.textBoxAutorEdit = new System.Windows.Forms.TextBox();
             this.textBoxInterpreteEdit = new System.Windows.Forms.TextBox();
             this.buttonSalvar = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -102,41 +105,41 @@
             this.label18.TabIndex = 63;
             this.label18.Text = "Data do álbum:";
             // 
-            // label17
+            // labelOrigemCompra
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 105);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(96, 13);
-            this.label17.TabIndex = 62;
-            this.label17.Text = "Origem da compra:";
+            this.labelOrigemCompra.AutoSize = true;
+            this.labelOrigemCompra.Location = new System.Drawing.Point(15, 105);
+            this.labelOrigemCompra.Name = "labelOrigemCompra";
+            this.labelOrigemCompra.Size = new System.Drawing.Size(96, 13);
+            this.labelOrigemCompra.TabIndex = 62;
+            this.labelOrigemCompra.Text = "Origem da compra:";
             // 
-            // label16
+            // labelAlbum
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 59);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 13);
-            this.label16.TabIndex = 61;
-            this.label16.Text = "Álbum/Música:";
+            this.labelAlbum.AutoSize = true;
+            this.labelAlbum.Location = new System.Drawing.Point(15, 59);
+            this.labelAlbum.Name = "labelAlbum";
+            this.labelAlbum.Size = new System.Drawing.Size(78, 13);
+            this.labelAlbum.TabIndex = 61;
+            this.labelAlbum.Text = "Álbum/Música:";
             // 
-            // label15
+            // labelAutor
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(306, 12);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(35, 13);
-            this.label15.TabIndex = 60;
-            this.label15.Text = "Autor:";
+            this.labelAutor.AutoSize = true;
+            this.labelAutor.Location = new System.Drawing.Point(306, 12);
+            this.labelAutor.Name = "labelAutor";
+            this.labelAutor.Size = new System.Drawing.Size(35, 13);
+            this.labelAutor.TabIndex = 60;
+            this.labelAutor.Text = "Autor:";
             // 
-            // label14
+            // labelInterprete
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(15, 12);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 13);
-            this.label14.TabIndex = 59;
-            this.label14.Text = "Intérprete:";
+            this.labelInterprete.AutoSize = true;
+            this.labelInterprete.Location = new System.Drawing.Point(15, 12);
+            this.labelInterprete.Name = "labelInterprete";
+            this.labelInterprete.Size = new System.Drawing.Size(55, 13);
+            this.labelInterprete.TabIndex = 59;
+            this.labelInterprete.Text = "Intérprete:";
             // 
             // dateTimePickerCompraEdit
             // 
@@ -225,6 +228,11 @@
             this.buttonSalvar.UseVisualStyleBackColor = true;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,10 +245,10 @@
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.labelOrigemCompra);
+            this.Controls.Add(this.labelAlbum);
+            this.Controls.Add(this.labelAutor);
+            this.Controls.Add(this.labelInterprete);
             this.Controls.Add(this.dateTimePickerCompraEdit);
             this.Controls.Add(this.comboBoxNotaEdit);
             this.Controls.Add(this.dateTimePickerAlbumEdit);
@@ -249,8 +257,12 @@
             this.Controls.Add(this.textBoxAlbumEdit);
             this.Controls.Add(this.textBoxAutorEdit);
             this.Controls.Add(this.textBoxInterpreteEdit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form5";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Mídia";
+            this.Load += new System.EventHandler(this.Form5_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,10 +276,10 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelOrigemCompra;
+        private System.Windows.Forms.Label labelAlbum;
+        private System.Windows.Forms.Label labelAutor;
+        private System.Windows.Forms.Label labelInterprete;
         private System.Windows.Forms.DateTimePicker dateTimePickerCompraEdit;
         private System.Windows.Forms.ComboBox comboBoxNotaEdit;
         private System.Windows.Forms.DateTimePicker dateTimePickerAlbumEdit;
@@ -277,5 +289,6 @@
         private System.Windows.Forms.TextBox textBoxAutorEdit;
         private System.Windows.Forms.TextBox textBoxInterpreteEdit;
         private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
