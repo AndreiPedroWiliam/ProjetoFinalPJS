@@ -39,8 +39,9 @@ namespace acervoMusical
             conexao.Open();
             listBox2.Items.Clear();
             SqlDataReader leitor = null;
-            SqlCommand cmdSelecao = new SqlCommand("SELECT Album FROM Album WHERE Album LIKE '%"+textBox2.Text+"%' AND TipoMidia!= 'Digital';", conexao);
+            SqlCommand cmdSelecao = new SqlCommand("SELECT Album FROM Album WHERE Album LIKE '%" + textBox2.Text + "%' AND TipoMidia!= 'Digital' AND Status= 'Disponível';", conexao);
             leitor = cmdSelecao.ExecuteReader();
+            
             while (leitor.Read())
             {
                 listBox2.Items.Add(leitor["Album"].ToString());

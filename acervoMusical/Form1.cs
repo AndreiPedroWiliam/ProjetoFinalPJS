@@ -14,7 +14,7 @@ namespace acervoMusical
     public partial class Principal : Form
     {
 
-        
+
         public Principal()
         {
             InitializeComponent();
@@ -23,20 +23,19 @@ namespace acervoMusical
         // Cria um Leitor, no qual percorrerá todas as linhas e colunas das tebelas do Banco
         SqlDataReader leitor = null;
         SqlConnection conexao = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=AcervoMusical; Integrated Security=SSPI");
-        List<string> OpcaoPesquisa = new List<string>();
-        int ultimoIndice = 0;
-        
+       
+
         public void Principal_Load(object sender, EventArgs e)
         {
             comboBoxStatus.SelectedIndex = 0;
             comboBoxMidia.SelectedIndex = 0;
+            comboBoxNota.SelectedIndex = 0;
             CarregarListview();
-
-          
         }
+
         public void CarregarListview()
         {
-           try
+            try
             {
                 // Verifica se a conexão está aberta
                 if (conexao.State == ConnectionState.Open)
@@ -53,67 +52,8 @@ namespace acervoMusical
                 SqlCommand cmdSelecao = new SqlCommand("SELECT Id_Album, Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album;", conexao);
                 leitor = cmdSelecao.ExecuteReader();
 
-                int i = 0;
-
-                while (leitor.Read())
-                {
-                    ListViewItem Interprete = new ListViewItem();
-                    ListViewItem.ListViewSubItem Autor = new ListViewItem.ListViewSubItem();
-                    ListViewItem.ListViewSubItem Album = new ListViewItem.ListViewSubItem();
-                    ListViewItem.ListViewSubItem Data = new ListViewItem.ListViewSubItem();
-                    ListViewItem.ListViewSubItem Compra = new ListViewItem.ListViewSubItem();
-                    ListViewItem.ListViewSubItem Origem = new ListViewItem.ListViewSubItem();
-                    ListViewItem.ListViewSubItem Midia = new ListViewItem.ListViewSubItem();
-                    ListViewItem.ListViewSubItem Nota = new ListViewItem.ListViewSubItem();
-                    ListViewItem.ListViewSubItem Observacao = new ListViewItem.ListViewSubItem();
-                    ListViewItem.ListViewSubItem Status = new ListViewItem.ListViewSubItem();
-
-
-                    Interprete.Text = leitor["Interprete"].ToString();
-
-                    Autor.Text = leitor["Autor"].ToString();
-                    Interprete.SubItems.Add(Autor);
-
-                    Album.Text = leitor["Album"].ToString();
-                    Interprete.SubItems.Add(Album);
-
-                    Data.Text = leitor["Data"].ToString();
-                    string data = Data.Text;
-                    data = data.Remove(10);
-
-                    Interprete.SubItems.Add(data);
-
-                    Compra.Text = leitor["DataCompra"].ToString();
-                    data = Compra.Text;
-                    data = data.Remove(10);
-
-                    Interprete.SubItems.Add(data);
-
-                    Origem.Text = leitor["OrigemCompra"].ToString();
-                    Interprete.SubItems.Add(Origem);
-
-                    Midia.Text = leitor["TipoMidia"].ToString();
-                    Interprete.SubItems.Add(Midia);
-
-                    Nota.Text = leitor["Nota"].ToString();
-                    Interprete.SubItems.Add(Nota);
-
-                    Observacao.Text = leitor["Observacao"].ToString();
-                    Interprete.SubItems.Add(Observacao);
-
-
-                    Status.Text = leitor["Status"].ToString();
-                    Interprete.SubItems.Add(Status);
-
-                    listViewPesquisa.Items.Add(Interprete);
-
-
-                    // Verifica se o filme está ou não disponível
-                    if (Status.Text == "Emprestado")
-                        listViewPesquisa.Items[i].ForeColor = Color.Gray;
-                    i++;
-
-                }
+                // Chama a função para preenchimento do ListView
+                PreencheListView();
 
                 CountTipoDeMidias(); // Metodo que carrega a quantidade de Midias (Digital, DVD, CD, K7 e Vinil)
                 CountStatus(); // Metodo que carrega a quantidade de Albuns Emprestados e Disponíveis
@@ -126,8 +66,6 @@ namespace acervoMusical
                 // Passa para o label a quantidade de Pessoas
                 if (leitor.Read())
                     qtdePessoa.Text = leitor["QTD"].ToString();
-
-
             }
             catch (Exception erro)
             {
@@ -138,6 +76,72 @@ namespace acervoMusical
                 FechaLeitor();
             }
 
+        }
+
+        public void PreencheListView()
+        {
+            int i = 0;
+            while (leitor.Read())
+            {
+                ListViewItem idAlbum = new ListViewItem();
+                ListViewItem.ListViewSubItem Interprete = new ListViewItem.ListViewSubItem();
+                ListViewItem.ListViewSubItem Autor = new ListViewItem.ListViewSubItem();
+                ListViewItem.ListViewSubItem Album = new ListViewItem.ListViewSubItem();
+                ListViewItem.ListViewSubItem Data = new ListViewItem.ListViewSubItem();
+                ListViewItem.ListViewSubItem Compra = new ListViewItem.ListViewSubItem();
+                ListViewItem.ListViewSubItem Origem = new ListViewItem.ListViewSubItem();
+                ListViewItem.ListViewSubItem Midia = new ListViewItem.ListViewSubItem();
+                ListViewItem.ListViewSubItem Nota = new ListViewItem.ListViewSubItem();
+                ListViewItem.ListViewSubItem Observacao = new ListViewItem.ListViewSubItem();
+                ListViewItem.ListViewSubItem Status = new ListViewItem.ListViewSubItem();
+
+                idAlbum.Text = leitor["Id_Album"].ToString();
+
+                Interprete.Text = leitor["Interprete"].ToString();
+                idAlbum.SubItems.Add(Interprete);
+
+                Autor.Text = leitor["Autor"].ToString();
+                idAlbum.SubItems.Add(Autor);
+
+                Album.Text = leitor["Album"].ToString();
+                idAlbum.SubItems.Add(Album);
+
+                Data.Text = leitor["Data"].ToString();
+                string data = Data.Text;
+                data = data.Remove(10);
+
+                idAlbum.SubItems.Add(data);
+
+                Compra.Text = leitor["DataCompra"].ToString();
+                data = Compra.Text;
+                data = data.Remove(10);
+
+                idAlbum.SubItems.Add(data);
+
+                Origem.Text = leitor["OrigemCompra"].ToString();
+                idAlbum.SubItems.Add(Origem);
+
+                Midia.Text = leitor["TipoMidia"].ToString();
+                idAlbum.SubItems.Add(Midia);
+
+                Nota.Text = leitor["Nota"].ToString();
+                idAlbum.SubItems.Add(Nota);
+
+                Observacao.Text = leitor["Observacao"].ToString();
+                idAlbum.SubItems.Add(Observacao);
+
+
+                Status.Text = leitor["Status"].ToString();
+                idAlbum.SubItems.Add(Status);
+
+                listViewPesquisa.Items.Add(idAlbum);
+
+
+                // Verifica se o filme está ou não disponível
+                if (Status.Text == "Emprestado")
+                    listViewPesquisa.Items[i].ForeColor = Color.Gray;
+                i++;
+            }
         }
 
         public void FechaLeitor()
@@ -217,24 +221,6 @@ namespace acervoMusical
                 qtdeDisponivel.Text = leitor["QTD"].ToString();
         }
 
-        private void mídiaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ListViewItem a = new ListViewItem();
-            
-
-        }
-
-        private void emprestarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void amigosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form4 cadPessoa = new Form4();
@@ -243,7 +229,7 @@ namespace acervoMusical
 
         private void buttonEmprestar_Click(object sender, EventArgs e)
         {
-            
+
             Form2 Emprestar = new Form2();
             Emprestar.ShowDialog();
 
@@ -255,511 +241,26 @@ namespace acervoMusical
             cadastroPessoa.ShowDialog();
         }
 
-        private bool Validacao()
-        {
-            // Limpa a lista para uma nova pesquisa
-            OpcaoPesquisa.Clear();
-            int erro = 0;
-
-            if (checkBoxInterprete.Checked == true)
-            {
-                if (textBoxInterprete.Text.Trim() != "")
-                    OpcaoPesquisa.Add("Interprete");
-                else
-                    erro++;
-            }
-            else
-                textBoxInterprete.Text = "";
-
-            if (checkBoxAutor.Checked == true)
-            {
-                if (textBoxAutor.Text.Trim() != "")
-                    OpcaoPesquisa.Add("Autor");
-                else
-                    erro++;
-            }
-            else
-                textBoxAutor.Text = "";
-
-            if (checkBoxAlbum.Checked == true)
-            {
-                if (textBoxAlbum.Text.Trim() != "")
-                    OpcaoPesquisa.Add("Album");
-                else
-                    erro++;
-            }
-            else
-                textBoxAlbum.Text = "";
-
-            if (checkBoxMidia.Checked == true)
-            {
-                if (comboBoxMidia.Text.Trim() != "")
-                    OpcaoPesquisa.Add("Midia");
-                else
-                    erro++;
-            }
-            else
-                comboBoxMidia.SelectedIndex = 0;
-
-
-
-            if (checkBoxStatus.Checked == true)
-            {
-                if (comboBoxStatus.Text.Trim() != "")
-                    OpcaoPesquisa.Add("Status");
-                else
-                    erro++;
-            }
-            else
-                comboBoxStatus.SelectedIndex = 0;
-
-            // Caso não houver nenhum erro no preenchimento do campo para pesquisa,
-            // retorna true, caso contrario false
-            if (erro == 0)
-                return true;
-            else
-                return false;
-        }
-        private void Pesquisa(object sender, EventArgs e)
-        {
-            // Limpa o fundo das pesquisas efetuadas
-            foreach (ListViewItem item in listViewPesquisa.Items)
-                item.BackColor = Color.Empty;
-
-            if (listViewPesquisa.Items.Count > 0)
-                listViewPesquisa.TopItem = listViewPesquisa.Items[0];
-            else
-                listViewPesquisa.TopItem = null;
-
-            bool validacao = Validacao();
-
-            if (validacao == true)
-            {
-                if (OpcaoPesquisa.Count() == 1)
-                {
-                    if (OpcaoPesquisa[0] == "Interprete")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.ToLower().IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.ToUpper().IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Autor")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                            {
-                                listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Album")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                            {
-                                listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Midia")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                            {
-                                listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                            {
-                                listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                            }
-                        }
-                    }
-                }
-                if (OpcaoPesquisa.Count() == 2)
-                {
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Autor")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Album")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Midia")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Autor" && OpcaoPesquisa[1] == "Album")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Autor" && OpcaoPesquisa[1] == "Midia")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-
-                    if (OpcaoPesquisa[0] == "Autor" && OpcaoPesquisa[1] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Album" && OpcaoPesquisa[1] == "Midia")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Album" && OpcaoPesquisa[1] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Midia" && OpcaoPesquisa[1] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-
-                            if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                {
-                                    listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                    listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                }
-                            }
-                        }
-                    }
-
-                }
-                if (OpcaoPesquisa.Count() == 3)
-                {
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Autor" && OpcaoPesquisa[2] == "Album")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                                    {
-                                        listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                        listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Album" && OpcaoPesquisa[2] == "Midia")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                    {
-                                        listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                        listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Midia" && OpcaoPesquisa[2] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                    {
-                                        listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                        listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Autor" && OpcaoPesquisa[1] == "Album" && OpcaoPesquisa[2] == "Midia")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                    {
-                                        listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                        listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Autor" && OpcaoPesquisa[1] == "Midia" && OpcaoPesquisa[2] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                    {
-                                        listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                        listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Album" && OpcaoPesquisa[1] == "Midia" && OpcaoPesquisa[2] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                    {
-                                        listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                        listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-
-                }
-                if (OpcaoPesquisa.Count() == 4)
-                {
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Autor" && OpcaoPesquisa[2] == "Album" && OpcaoPesquisa[3] == "Midia")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                                    {
-                                        if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                        {
-                                            listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                            listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Autor" && OpcaoPesquisa[2] == "Album" && OpcaoPesquisa[3] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                                    {
-                                        if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                        {
-                                            listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                            listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (OpcaoPesquisa[0] == "Autor" && OpcaoPesquisa[1] == "Album" && OpcaoPesquisa[2] == "Midia" && OpcaoPesquisa[3] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                    {
-                                        if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                        {
-                                            listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                            listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                if (OpcaoPesquisa.Count() == 5)
-                {
-                    if (OpcaoPesquisa[0] == "Interprete" && OpcaoPesquisa[1] == "Autor" && OpcaoPesquisa[2] == "Album" && OpcaoPesquisa[3] == "Midia" && OpcaoPesquisa[4] == "Status")
-                    {
-                        for (int i = 0; i < listViewPesquisa.Items.Count; i++)
-                        {
-                            if (listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToLower()) > -1 || listViewPesquisa.Items[i].Text.IndexOf(textBoxInterprete.Text.ToUpper()) > -1)
-                            {
-                                if (listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[1].Text.IndexOf(textBoxAutor.Text.ToUpper()) > -1)
-                                {
-                                    if (listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToLower()) > -1 || listViewPesquisa.Items[i].SubItems[2].Text.IndexOf(textBoxAlbum.Text.ToUpper()) > -1)
-                                    {
-                                        if (listViewPesquisa.Items[i].SubItems[6].Text.IndexOf(comboBoxMidia.SelectedItem.ToString()) > -1)
-                                        {
-                                            if (listViewPesquisa.Items[i].SubItems[9].Text.IndexOf(comboBoxStatus.SelectedItem.ToString()) > -1)
-                                            {
-                                                listViewPesquisa.TopItem = listViewPesquisa.Items[i];
-                                                listViewPesquisa.Items[i].BackColor = Color.AntiqueWhite;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                }
-
-
-
-            }
-        }
-
         private void listViewPesquisa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Verifica se algum item foi selecionado
+            // de acordo com o status do filme, muda o botão para 'emprestar' ou 'devolver'
+            if (listViewPesquisa.SelectedItems.Count == 1)
+            {
+                if (listViewPesquisa.SelectedItems[0].ForeColor == Color.Gray)
+                {
+                    buttonEmprestar.Text = "Devolver";
+                    labelErroRemover.Visible = false;
+                }
+                else
+                {
+                    buttonEmprestar.Text = "Emprestar"; 
+                    labelErroRemover.Visible = false; 
+                }
 
+            }
         }
-
-        private void groupBoxPesquisaRapida_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonAdicionarMidia_Click(object sender, EventArgs e)
-        {
-            Form3 cadastroMidia = new Form3();
-            cadastroMidia.ShowDialog();
-            CarregarListview();
-        }
-
-        private void buttonAlterararMidia_Click(object sender, EventArgs e)
         {
             Form3 cadastroMidia = new Form3();
             cadastroMidia.ShowDialog();
@@ -771,6 +272,140 @@ namespace acervoMusical
             FormPesquisaPessoa formPessoa = new FormPesquisaPessoa();
             formPessoa.ShowDialog();
         }
-         
+
+        private void buttonEmprestar_Click_1(object sender, EventArgs e)
+        {
+            // Verifica se algum item foi selecionado
+            if (listViewPesquisa.SelectedItems.Count == 1)
+            {
+                // Verifica se o item é para devolver ou emprestar
+                // Se for para devolver, chama o form de devolução 
+                // senão chama o form de emprestimo
+                if (buttonEmprestar.Text == "Devolver")
+                {
+                    string idMidia = listViewPesquisa.SelectedItems[0].ToString();
+
+                    FormDevolver Devolver = new FormDevolver();
+                    Devolver.ShowDialog();
+                    CarregarListview();
+                }
+                else
+                {
+                    string idMidia = listViewPesquisa.SelectedItems[0].ToString();
+
+                    Form2 Emprestar = new Form2();
+                    Emprestar.ShowDialog();
+                    CarregarListview();
+                }
+            }
+
+        }
+
+        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Verifica se algum item foi selecionado
+            if (listViewPesquisa.SelectedItems.Count == 1)
+            {
+                // Verifica se a conexão está aberta, caso esteja fecha-a
+                if (conexao.State == ConnectionState.Open)
+                    conexao.Close();
+
+                conexao.Open();
+                
+                // Verifica se o item está emprestado
+                // Se tiver mostra um aviso, no label
+                // Caso o album não estiver emprestado, perguanta ao usuário se deseja realmente remover o album,
+                // Se a resposta for sim, remove o item selecionado
+                if (buttonEmprestar.Text == "Devolver")
+                    labelErroRemover.Visible = true;
+                else
+                {
+                    DialogResult resposta = MessageBox.Show("Deseja realmente remover esse album?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (resposta == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        // Pega o id do album selecionado e o remove 
+                        SqlCommand cmdDeleteAlbum = new SqlCommand("DELETE FROM Album WHERE Id_Album = @ID_ALBUM", conexao);
+                        SqlParameter idAlbum = new SqlParameter("@ID_ALBUM", int.Parse(listViewPesquisa.SelectedItems[0].Text));
+
+                        cmdDeleteAlbum.Parameters.Add(idAlbum);
+                        cmdDeleteAlbum.ExecuteNonQuery();
+
+                        // Fecha a conexão, limpa o ListView, e o atualiza
+                        conexao.Close();
+                        listViewPesquisa.Items.Clear();
+                        CarregarListview();
+                    }
+                }
+            }
+        }
+
+        private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AlterarAlbum();
+        }
+
+        private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 cadastroMidia = new Form3();
+            cadastroMidia.ShowDialog();
+            //Após adicionar um Album, atualiza o ListView principal, com a função CarregarListView()
+            CarregarListview();
+        }
+
+       
+
+        private void linkLabelRemoverFiltro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Limpa os último resultado da pesquisa
+            // Carrega novamente o listview com todos os albuns
+            listViewPesquisa.Items.Clear();
+            CarregarListview();
+
+            // Percorre os componentes do GroupBoxPesquisa
+            // Verificando o tipo de cada um e assim limpando
+            foreach (Object campo in groupBoxPesquisa.Controls)
+            {
+                if (campo is CheckBox)
+                    ((CheckBox)campo).Checked = false;
+                if (campo is TextBox)
+                    ((TextBox)campo).Text = "";
+                if (campo is ComboBox)
+                    ((ComboBox)campo).SelectedIndex = 0;
+            }
+        }
+
+        private void listViewPesquisa_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            AlterarAlbum();
+        }
+
+        public void AlterarAlbum()
+        {
+            // Verifica se foi selecionado algum item do ListViewPesquisa
+            // Caso um item foi selecionado, passa para o formulario de Alteração de Mídia o Id do Album
+            if (listViewPesquisa.SelectedItems.Count == 1)
+            {
+                int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
+                Form5 alterarMidia = new Form5(idAlbum);
+
+                alterarMidia.ShowDialog();
+                //Após alterar um album, atualiza o ListView principal com a função CarregarListView()
+                CarregarListview();
+                // Volta o botão de Emprestimo/Devolução para a configuração inicial
+                buttonEmprestar.Text = "Emprestar";
+            }
+        }
+
+
+
+
+        // Pesquisa
+        private void Pesquisa(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

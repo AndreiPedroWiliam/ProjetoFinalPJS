@@ -46,6 +46,7 @@ FOREIGN KEY(Id_Album) REFERENCES Album (Id_Album)
 SET DATEFORMAT dmy
 
 
+
 -- INSERT ALBUM --
 
 INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
@@ -124,4 +125,6 @@ SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Emprestado';
 
 SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Disponível' AND TipoMidia!= 'Digital';
 
- --
+
+ 
+SELECT * FROM Album WHERE Nota = '10';
