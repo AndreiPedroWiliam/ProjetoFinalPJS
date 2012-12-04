@@ -13,8 +13,10 @@ namespace acervoMusical
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        int id = 0;
+        public Form2(int idMidia)
         {
+            id = idMidia;
             InitializeComponent();
         }
 
@@ -109,6 +111,20 @@ namespace acervoMusical
             {
                 listBox2.Items.Add(leitor["Album"].ToString());
             }
+            conexao.Close();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            conexao.Open();
+            SqlDataReader leitor = null;
+            SqlCommand leitorlist = new SqlCommand("SELECT Album FROM Album WHERE Id_Album = '" + id + "';", conexao);
+            leitor = leitorlist.ExecuteReader();
+            while (leitor.Read())
+            {
+                listBox2.Items.Add(leitor["Album"].ToString());
+            }
+            listBox2.SelectedItem = listBox2.Items[0];
             conexao.Close();
         }
     }
