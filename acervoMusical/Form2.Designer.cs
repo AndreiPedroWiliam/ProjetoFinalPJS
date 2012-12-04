@@ -59,6 +59,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(285, 20);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // listBox1
             // 
@@ -106,6 +107,7 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Emprestar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox2
             // 
@@ -113,6 +115,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(285, 20);
             this.textBox2.TabIndex = 10;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // listView1
             // 
@@ -199,9 +202,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(15, 258);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(159, 13);
             this.label2.TabIndex = 17;
-            this.label2.Text = "label2";
+            this.label2.Text = "Selecione um amigo e um álbum";
             // 
             // Form2
             // 
