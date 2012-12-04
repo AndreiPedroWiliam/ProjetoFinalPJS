@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPesquisaPessoa));
             this.listViewPesquisaPessoa = new System.Windows.Forms.ListView();
+            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,7 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pesquisaPessoa = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaPessoa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,13 +54,19 @@
             this.listViewPesquisaPessoa.FullRowSelect = true;
             this.listViewPesquisaPessoa.GridLines = true;
             this.listViewPesquisaPessoa.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listViewPesquisaPessoa.Location = new System.Drawing.Point(12, 51);
             this.listViewPesquisaPessoa.Name = "listViewPesquisaPessoa";
             this.listViewPesquisaPessoa.Size = new System.Drawing.Size(430, 288);
             this.listViewPesquisaPessoa.TabIndex = 0;
             this.listViewPesquisaPessoa.UseCompatibleStateImageBehavior = false;
             this.listViewPesquisaPessoa.View = System.Windows.Forms.View.Details;
+            this.listViewPesquisaPessoa.SelectedIndexChanged += new System.EventHandler(this.listViewPesquisaPessoa_SelectedIndexChanged);
+            // 
+            // Id
+            // 
+            this.Id.Text = "Id";
+            this.Id.Width = 0;
             // 
             // columnHeader1
             // 
@@ -85,6 +91,7 @@
             this.buttonAlterar.TabIndex = 1;
             this.buttonAlterar.Text = "Alterar";
             this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
             // 
             // buttonExcluir
             // 
@@ -101,6 +108,7 @@
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(404, 20);
             this.textBoxNome.TabIndex = 2;
+            this.textBoxNome.TextChanged += new System.EventHandler(this.textBoxNome_TextChanged);
             // 
             // label1
             // 
@@ -121,7 +129,6 @@
             this.pesquisaPessoa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pesquisaPessoa.TabIndex = 17;
             this.pesquisaPessoa.TabStop = false;
-            this.pesquisaPessoa.Click += new System.EventHandler(this.pesquisaPessoa_Click);
             // 
             // button1
             // 
@@ -131,11 +138,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // Id
-            // 
-            this.Id.Text = "Id";
-            this.Id.Width = 0;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormPesquisaPessoa
             // 
