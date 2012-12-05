@@ -229,10 +229,13 @@ namespace acervoMusical
 
         private void buttonEmprestar_Click(object sender, EventArgs e)
         {
+            if (listViewPesquisa.SelectedItems.Count == 1)
+            {
+                int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
+                Form2 Emprestar = new Form2(idAlbum);
+                Emprestar.ShowDialog();
 
-            Form2 Emprestar = new Form2();
-            Emprestar.ShowDialog();
-
+            }
         }
 
         private void midiasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -291,11 +294,17 @@ namespace acervoMusical
                 }
                 else
                 {
-                    string idMidia = listViewPesquisa.SelectedItems[0].ToString();
+                    if (listViewPesquisa.SelectedItems.Count == 1)
+                    {
+                        int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
+                        Form2 alterarMidia = new Form2(idAlbum);
 
-                    Form2 Emprestar = new Form2();
-                    Emprestar.ShowDialog();
-                    CarregarListview();
+                        alterarMidia.ShowDialog();
+                        //Após alterar um album, atualiza o ListView principal com a função CarregarListView()
+                        CarregarListview();
+                        // Volta o botão de Emprestimo/Devolução para a configuração inicial
+                        buttonEmprestar.Text = "Emprestar";
+                    }
                 }
             }
 
