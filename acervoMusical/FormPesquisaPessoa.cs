@@ -92,8 +92,12 @@ namespace acervoMusical
 
         private void buttonAlterar_Click(object sender, EventArgs e)
         {
-            AlteracaoPessoa alteracaoPessoa = new AlteracaoPessoa();
-            alteracaoPessoa.ShowDialog();
+            if (listViewPesquisaPessoa.SelectedItems.Count == 1)
+            {
+                int idPessoa = int.Parse(listViewPesquisaPessoa.SelectedItems[0].Text);
+                AlteracaoPessoa alteracaoPessoa = new AlteracaoPessoa(idPessoa);
+                alteracaoPessoa.ShowDialog();
+            }
         }
 
         private void listViewPesquisaPessoa_SelectedIndexChanged(object sender, EventArgs e)
