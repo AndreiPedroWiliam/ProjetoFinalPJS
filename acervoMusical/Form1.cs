@@ -20,7 +20,7 @@ namespace acervoMusical
             InitializeComponent();
         }
 
-        // Cria um Leitor, no qual percorrerá todas as linhas e colunas das tebelas do Banco
+        // Cria um Leitor o qual percorrerá todas as linhas e colunas das tabelas do Banco
         SqlDataReader leitor = null;
         SqlConnection conexao = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=AcervoMusical; Integrated Security=SSPI");
        
@@ -404,6 +404,116 @@ namespace acervoMusical
         private void Pesquisa(object sender, EventArgs e)
         {
 
+            int i = 0;
+            string pesquisa = "";
+
+            // Verifica qual checkBox foi selecionado, verifica se o campo foi preenchido, desta forma realiza a pesquisa
+
+            if (checkBoxInterprete.Checked == true && textBoxInterprete.Text != "")
+            {
+                if (i > 0)
+                    pesquisa += " AND Interprete like '%" + textBoxInterprete.Text + "%'";
+                else
+                    pesquisa = "Interprete like '%" + textBoxInterprete.Text + "%'";
+                i++;
+            }
+            if (checkBoxAutor.Checked == true && textBoxAutor.Text != "")
+            {
+                if (i > 0)
+                    pesquisa += "AND Autor like  '%" + textBoxAutor.Text + "%'";
+                else
+                    pesquisa = "Autor like '%" + textBoxAutor.Text + "%'";
+                i++;
+            }
+            if (checkBoxAlbum.Checked == true && textBoxAlbum.Text != "")
+            {
+                if (i > 0)
+                    pesquisa += " AND Album like '%" + textBoxAlbum.Text + "%'";
+                else
+                    pesquisa = "Album like '%" + textBoxAlbum.Text + "%'";
+                i++;
+            }
+            if (checkBoxDataAlbum.Checked == true)
+            {
+                string DataInicio = dtDataAlbumInicio.Value.ToString().Remove(10);
+                string DataFim = dtDataAlbumFim.Value.ToString().Remove(10);
+
+                if (i > 0)
+                    pesquisa += " AND Data >= '" + DataInicio + "' AND Data <= '" + DataFim + "'";
+                else
+                    pesquisa = " Data >= '" + DataInicio + "' AND Data <= '" + DataFim + "'";
+                i++;
+            }
+            if (checkBoxDataCompra.Checked == true)
+            {
+                string DataInicio = dtDataCompraInicio.Value.ToString().Remove(10);
+                string DataFim = dtDataCompraFim.Value.ToString().Remove(10);
+
+                if (i > 0)
+                    pesquisa += " AND DataCompra >= '" + DataInicio + "' AND DataCompra <= '" + DataFim + "'";
+                else
+                    pesquisa = " DataCompra >= '" + DataInicio + "' AND DataCompra <= '" + DataFim + "'";
+                i++;
+            }
+            if (checkBoxOrigemCompra.Checked == true && textBoxOrigemCompra.Text != "")
+            {
+                if (i > 0)
+                    pesquisa += " AND OrigemCompra like '%" + textBoxOrigemCompra.Text + "%'";
+                else
+                    pesquisa = " OrigemCompra like '%" + textBoxOrigemCompra.Text + "%'";
+                i++;
+            }
+
+            if (checkBoxMidia.Checked == true && comboBoxMidia.SelectedIndex != 0)
+            {
+                if (i > 0)
+                    pesquisa += " AND TipoMidia = '" + comboBoxMidia.SelectedItem.ToString() + "'";
+                else
+                    pesquisa = " TipoMidia = '" + comboBoxMidia.SelectedItem.ToString() + "'";
+                i++;
+            }
+            if (checkBoxStatus.Checked == true && comboBoxStatus.SelectedIndex != 0)
+            {
+                if (i > 0)
+                    pesquisa += " AND Status = '" + comboBoxStatus.SelectedItem.ToString() + "'";
+                else
+                    pesquisa = " Status ='" + comboBoxStatus.SelectedItem.ToString() + "'";
+                i++;
+            }
+            if (checkBoxNota.Checked == true && comboBoxNota.SelectedIndex != 0)
+            {
+                if (i > 0)
+                    pesquisa += " AND Nota = '" + comboBoxNota.SelectedItem.ToString() + "'";
+                else
+                    pesquisa = " Nota ='" + comboBoxNota.SelectedItem.ToString() + "'";
+                i++;
+            }
+            if (i > 0)
+            {
+                if (conexao.State == ConnectionState.Open)
+                    conexao.Close();
+
+                conexao.Open();
+
+                try
+                {
+                    // Realiza a pesquisa seja com combinações ou não
+                    SqlCommand cmdPesquisa = new SqlCommand("SELECT Id_Album, Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album WHERE " + pesquisa + " ;", conexao);
+                    leitor = cmdPesquisa.ExecuteReader();
+
+                    //Limpa o ListView para o novo resultado
+                    listViewPesquisa.Items.Clear();
+                    // Chama a função para carregar o resultado da pesquisa no ListView
+                    PreencheListView();
+                }
+                finally
+                {
+                    i = 0;
+                    conexao.Close();
+                    leitor = null;
+                }
+            }
+      
         }
 
 

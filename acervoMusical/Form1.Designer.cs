@@ -229,6 +229,7 @@
             // midia
             // 
             this.midia.Text = "Mídia";
+            this.midia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.midia.Width = 62;
             // 
             // nota
@@ -525,7 +526,7 @@
             // 
             this.linkLabelRemoverFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelRemoverFiltro.AutoSize = true;
-            this.linkLabelRemoverFiltro.Location = new System.Drawing.Point(38, 443);
+            this.linkLabelRemoverFiltro.Location = new System.Drawing.Point(27, 443);
             this.linkLabelRemoverFiltro.Name = "linkLabelRemoverFiltro";
             this.linkLabelRemoverFiltro.Size = new System.Drawing.Size(77, 13);
             this.linkLabelRemoverFiltro.TabIndex = 22;
@@ -554,9 +555,9 @@
             // buttonPesquisar
             // 
             this.buttonPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPesquisar.Location = new System.Drawing.Point(121, 438);
+            this.buttonPesquisar.Location = new System.Drawing.Point(128, 438);
             this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(108, 23);
+            this.buttonPesquisar.Size = new System.Drawing.Size(97, 23);
             this.buttonPesquisar.TabIndex = 23;
             this.buttonPesquisar.Text = "Procurar";
             this.buttonPesquisar.UseVisualStyleBackColor = true;
@@ -573,7 +574,7 @@
             // dtDataAlbumFim
             // 
             this.dtDataAlbumFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDataAlbumFim.Location = new System.Drawing.Point(132, 188);
+            this.dtDataAlbumFim.Location = new System.Drawing.Point(128, 188);
             this.dtDataAlbumFim.Name = "dtDataAlbumFim";
             this.dtDataAlbumFim.Size = new System.Drawing.Size(97, 20);
             this.dtDataAlbumFim.TabIndex = 8;
@@ -581,7 +582,7 @@
             // checkBoxStatus
             // 
             this.checkBoxStatus.AutoSize = true;
-            this.checkBoxStatus.Location = new System.Drawing.Point(115, 312);
+            this.checkBoxStatus.Location = new System.Drawing.Point(128, 312);
             this.checkBoxStatus.Name = "checkBoxStatus";
             this.checkBoxStatus.Size = new System.Drawing.Size(59, 17);
             this.checkBoxStatus.TabIndex = 16;
@@ -602,10 +603,10 @@
             this.checkBoxDataCompra.AutoSize = true;
             this.checkBoxDataCompra.Location = new System.Drawing.Point(6, 214);
             this.checkBoxDataCompra.Name = "checkBoxDataCompra";
-            this.checkBoxDataCompra.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxDataCompra.Size = new System.Drawing.Size(105, 17);
             this.checkBoxDataCompra.TabIndex = 9;
             this.checkBoxDataCompra.Tag = "";
-            this.checkBoxDataCompra.Text = "Data dacompra:";
+            this.checkBoxDataCompra.Text = "Data da compra:";
             this.checkBoxDataCompra.UseVisualStyleBackColor = true;
             // 
             // checkBoxNota
@@ -676,7 +677,7 @@
             "10"});
             this.comboBoxNota.Location = new System.Drawing.Point(6, 385);
             this.comboBoxNota.Name = "comboBoxNota";
-            this.comboBoxNota.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxNota.Size = new System.Drawing.Size(98, 21);
             this.comboBoxNota.TabIndex = 19;
             // 
             // checkBoxAlbum
@@ -704,7 +705,7 @@
             "Vinil"});
             this.comboBoxMidia.Location = new System.Drawing.Point(6, 335);
             this.comboBoxMidia.Name = "comboBoxMidia";
-            this.comboBoxMidia.Size = new System.Drawing.Size(102, 21);
+            this.comboBoxMidia.Size = new System.Drawing.Size(97, 21);
             this.comboBoxMidia.TabIndex = 15;
             // 
             // checkBoxInterprete
@@ -726,9 +727,9 @@
             "Selecione...",
             "Disponível",
             "Emprestado"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(114, 335);
+            this.comboBoxStatus.Location = new System.Drawing.Point(128, 335);
             this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Size = new System.Drawing.Size(115, 21);
+            this.comboBoxStatus.Size = new System.Drawing.Size(97, 21);
             this.comboBoxStatus.TabIndex = 17;
             // 
             // checkBoxAutor
@@ -756,7 +757,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxAlbum.Location = new System.Drawing.Point(6, 139);
             this.textBoxAlbum.Name = "textBoxAlbum";
-            this.textBoxAlbum.Size = new System.Drawing.Size(223, 20);
+            this.textBoxAlbum.Size = new System.Drawing.Size(219, 20);
             this.textBoxAlbum.TabIndex = 5;
             // 
             // textBoxInterprete
@@ -765,7 +766,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxInterprete.Location = new System.Drawing.Point(6, 41);
             this.textBoxInterprete.Name = "textBoxInterprete";
-            this.textBoxInterprete.Size = new System.Drawing.Size(221, 20);
+            this.textBoxInterprete.Size = new System.Drawing.Size(219, 20);
             this.textBoxInterprete.TabIndex = 1;
             // 
             // textBoxAutor
@@ -774,7 +775,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxAutor.Location = new System.Drawing.Point(6, 90);
             this.textBoxAutor.Name = "textBoxAutor";
-            this.textBoxAutor.Size = new System.Drawing.Size(223, 20);
+            this.textBoxAutor.Size = new System.Drawing.Size(219, 20);
             this.textBoxAutor.TabIndex = 3;
             // 
             // buttonEmprestar
