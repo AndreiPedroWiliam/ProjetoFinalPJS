@@ -33,6 +33,7 @@ namespace acervoMusical
 
         private void button4_Click(object sender, EventArgs e)
         {
+            
             string menssagem = "*Selecione um";
             if (listBox1.SelectedItem != null && listBox2.SelectedItem != null)
             {
@@ -48,6 +49,11 @@ namespace acervoMusical
                 a.SubItems.Add(leitor["Interprete"].ToString());
                 a.SubItems.Add(leitor["TipoMidia"].ToString());
                 listView1.Items.Add(a);
+                listBox1.Enabled = false;
+                listBox2.Enabled = false;
+                button4.Enabled = false;
+                button3.Visible = true;
+                button5.Visible = true;
                 conexao.Close();
             }
             else if (listBox1.SelectedItem == null)
@@ -75,15 +81,41 @@ namespace acervoMusical
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems != null)
-            {
-                listView1.SelectedItems.Clear();
-            }
+            listView1.Items.Clear();
+            listBox1.Enabled = true;
+            listBox2.Enabled = true;
+            button3.Visible = false;
+            button5.Visible = false;
+            button4.Enabled = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            conexao.Open();
+            string idamigo;
+            string idalbum;
+            SqlDataReader leitor = null;
+            if (conexao != null && conexao.State == ConnectionState.Open)
+            {
+                //pesquisa amigo
+                SqlCommand idpessoa = new SqlCommand("SELECT Id_Pessoa FROM Pessoa where Nome = '" + listBox1.SelectedItem + "';", conexao);
+                leitor = idpessoa.ExecuteReader();
+                leitor.Read();
+                idamigo = leitor["Id_Pessoa"].ToString();
+                leitor.Close();
+                //pesquisa album
+                SqlCommand idmusica = new SqlCommand("SELECT * FROM Album where Album = '" + listBox2.SelectedItem + "';", conexao);
+                leitor = idmusica.ExecuteReader();
+                leitor.Read();
+                idalbum = leitor["Id_Album"].ToString();
+                leitor.Close();
 
+
+                SqlCommand empresta = new SqlCommand("INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('"+DateTime.Now+"', null , '"+idamigo+"', '"+idalbum+"');",conexao);
+                empresta.Connection = conexao;
+                empresta.ExecuteNonQuery();
+            }
+            Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
