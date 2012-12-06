@@ -109,6 +109,9 @@ namespace acervoMusical
                 leitor.Read();
                 idalbum = leitor["Id_Album"].ToString();
                 leitor.Close();
+                SqlCommand muda = new SqlCommand("UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = '" + idalbum + "';",conexao);
+                muda.ExecuteNonQuery();
+                
 
 
                 SqlCommand empresta = new SqlCommand("INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('"+DateTime.Now+"', null , '"+idamigo+"', '"+idalbum+"');",conexao);
@@ -158,6 +161,12 @@ namespace acervoMusical
             }
             listBox2.SelectedItem = listBox2.Items[0];
             conexao.Close();
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Principal a = new Principal();
+            
         }
     }
 }

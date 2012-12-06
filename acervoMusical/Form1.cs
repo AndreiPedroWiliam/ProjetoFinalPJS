@@ -139,7 +139,7 @@ namespace acervoMusical
 
                 // Verifica se o filme está ou não disponível
                 if (Status.Text == "Emprestado")
-                    listViewPesquisa.Items[i].ForeColor = Color.Gray;
+                    listViewPesquisa.Items[i].ForeColor = Color.Red;
                 i++;
             }
         }
@@ -523,6 +523,14 @@ namespace acervoMusical
                 }
             }
       
+        }
+
+        private void Principal_Enter(object sender, EventArgs e)
+        {
+            comboBoxStatus.SelectedIndex = 0;
+            comboBoxMidia.SelectedIndex = 0;
+            comboBoxNota.SelectedIndex = 0;
+            CarregarListview();
         }
 
 
