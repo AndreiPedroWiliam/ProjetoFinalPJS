@@ -286,11 +286,38 @@ namespace acervoMusical
                 // senão chama o form de emprestimo
                 if (buttonEmprestar.Text == "Devolver")
                 {
-                    string idMidia = listViewPesquisa.SelectedItems[0].ToString();
+                    string idMidia = listViewPesquisa.SelectedItems[0].Text;
 
-                    FormDevolver Devolver = new FormDevolver();
-                    Devolver.ShowDialog();
-                    CarregarListview();
+                    if (conexao.State == ConnectionState.Open)
+                        conexao.Close();
+                    conexao.Open();
+
+                    try
+                    {
+                        // Pega a data atual do sistema, no formato dia-mês-ano
+                        string dataDevolucao = DateTime.Now.ToString("dd-MM-yyyy");
+
+                        // Altera a data de devolução para data atual
+                        SqlCommand cmdUpdateEmprestimo = new SqlCommand("UPDATE Emprestimo SET DataDevolucao ='"+dataDevolucao+"' WHERE Id_Emprestimo = @ID_ALBUM;",conexao);
+                        SqlParameter idAlbum = new SqlParameter("@ID_ALBUM", idMidia);
+                        cmdUpdateEmprestimo.Parameters.Add(idAlbum);
+                        cmdUpdateEmprestimo.ExecuteNonQuery();
+
+                        // Altera o status do album para disponível
+                        SqlCommand cmdUpdateAlbum = new SqlCommand("UPDATE Album SET Status = 'Disponível' WHERE Id_Album = @ID_ALBUM;", conexao);
+                        SqlParameter idAlbum2 = new SqlParameter("@ID_ALBUM", idMidia);
+                        cmdUpdateAlbum.Parameters.Add(idAlbum2);
+                        cmdUpdateAlbum.ExecuteNonQuery();
+                        // Atualiza o listView principal
+                        
+                    }
+                    finally
+                    {
+                        conexao.Close();
+
+                        listViewPesquisa.Items.Clear();
+                        CarregarListview();
+                    }
                 }
                 else
                 {
