@@ -1,6 +1,6 @@
 USE master;
 
-CREATE DATABASE AcervoMusical;
+create DATABASE AcervoMusical;
 GO
 
 USE AcervoMusical;
@@ -96,10 +96,14 @@ INSERT INTO Pessoa (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, U
 
 -- EMPRESTANDO UM ALBUM --
 
+set dateformat dmy
+ 
+select * from Emprestimo
 
-INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('14-11-2012', null , 1, 1);
 
-UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = 1; 
+INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('14-11-2012', NULL , 1, 5);
+
+UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = 5; 
 
 -- DEVOLVENDO UM ALBUM --
 
@@ -128,3 +132,13 @@ SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Disponível' AND TipoMidia!= 
 
  
 SELECT * FROM Album WHERE Nota = '10';
+
+SELECT Emprestimo.Id_Album, Pessoa.Nome, Album.Album, Emprestimo.DataEmprestimo, Emprestimo.DataDevolucao 
+FROM Emprestimo INNER JOIN Pessoa ON
+	Emprestimo.Id_Pessoa = Pessoa.Id_Pessoa
+INNER JOIN Album ON
+	Emprestimo.Id_Album = Album.Id_Album
+
+
+
+

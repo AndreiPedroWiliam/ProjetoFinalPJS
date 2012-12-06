@@ -95,8 +95,8 @@ namespace acervoMusical
             if (listViewPesquisaPessoa.SelectedItems.Count == 1)
             {
                 int idPessoa = int.Parse(listViewPesquisaPessoa.SelectedItems[0].Text);
-                AlteracaoPessoa alteracaoPessoa = new AlteracaoPessoa(idPessoa);
-                alteracaoPessoa.ShowDialog();
+                //AlteracaoPessoa alteracaoPessoa = new AlteracaoPessoa(idPessoa);
+                //alteracaoPessoa.ShowDialog();
             }
         }
 

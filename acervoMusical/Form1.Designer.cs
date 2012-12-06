@@ -107,6 +107,7 @@
             this.textBoxAutor = new System.Windows.Forms.TextBox();
             this.buttonEmprestar = new System.Windows.Forms.Button();
             this.labelErroRemover = new System.Windows.Forms.Label();
+            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBoxPesquisa.SuspendLayout();
@@ -117,7 +118,8 @@
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mídiaToolStripMenuItem,
-            this.editaToolStripMenuItem});
+            this.editaToolStripMenuItem,
+            this.históricoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1177, 24);
@@ -137,21 +139,21 @@
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // alterarToolStripMenuItem
             // 
             this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
-            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alterarToolStripMenuItem.Text = "Alterar";
             this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
             // 
             // excluirToolStripMenuItem
             // 
             this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
-            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.excluirToolStripMenuItem.Text = "Excluir";
             this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
             // 
@@ -798,6 +800,12 @@
             this.labelErroRemover.Text = "Impossível remover, album emprestado!";
             this.labelErroRemover.Visible = false;
             // 
+            // históricoToolStripMenuItem
+            // 
+            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.históricoToolStripMenuItem.Text = "Histórico";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -908,6 +916,7 @@
         private System.Windows.Forms.Button buttonEmprestar;
         private System.Windows.Forms.ColumnHeader idAlbum;
         private System.Windows.Forms.Label labelErroRemover;
+        private System.Windows.Forms.ToolStripMenuItem históricoToolStripMenuItem;
     }
 }
 

@@ -18,8 +18,8 @@ namespace acervoMusical
         {
             id = idMidia;
             InitializeComponent();
-        }
-
+        }  
+        
         SqlDataReader leitor = null;
         SqlConnection conexao = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=AcervoMusical; Integrated Security=SSPI");
 
@@ -31,22 +31,22 @@ namespace acervoMusical
             if (textBoxInterpreteEdit.Text.Trim() == "")
             {
                 erro = true;
-                errorProvider.SetError(labelInterprete, "Favor preemcher o campo Interprete corretamente");
+                errorProvider.SetError(labelInterprete, "Favor preencher o campo Interprete corretamente");
             }
             if (textBoxAutorEdit.Text.Trim() == "")
             {
                 erro = true;
-                errorProvider.SetError(labelAutor, "Favor preemcher o campo Autor corretamente");
+                errorProvider.SetError(labelAutor, "Favor preencher o campo Autor corretamente");
             }
             if (textBoxAlbumEdit.Text.Trim() == "")
             {
                 erro = true;
-                errorProvider.SetError(labelAlbum, "Favor preemcher o campo Interprete corretamente");
+                errorProvider.SetError(labelAlbum, "Favor preencher o campo Album corretamente");
             }
             if (textBoxCompraEdit.Text.Trim() == "")
             {
                 erro = true;
-                errorProvider.SetError(labelOrigemCompra, "Favor preemcher o campo Interprete corretamente");
+                errorProvider.SetError(labelOrigemCompra, "Favor preemcher o campo Origem da Compra corretamente");
             }
 
             if (erro == false)
