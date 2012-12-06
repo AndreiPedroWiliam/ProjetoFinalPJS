@@ -54,7 +54,8 @@ namespace acervoMusical
                 }
                 catch (SqlException excecao)
                 {
-                    MessageBox.Show("Falha na conexao" + excecao);
+
+                    MessageBox.Show("Falha na conexao "+excecao);
                 }
                 finally
                 {

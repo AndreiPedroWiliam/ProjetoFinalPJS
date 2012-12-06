@@ -107,6 +107,7 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Emprestar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox2
@@ -128,7 +129,7 @@
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(12, 291);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(632, 102);
+            this.listView1.Size = new System.Drawing.Size(632, 46);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -169,8 +170,9 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 15;
-            this.button5.Text = "Remover";
+            this.button5.Text = "Cancelar";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // pesquisaPessoa
