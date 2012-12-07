@@ -82,6 +82,12 @@
     <Compile Include="FormDevolver.Designer.cs">
       <DependentUpon>FormDevolver.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHistorico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistorico.Designer.cs">
+      <DependentUpon>FormHistorico.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPesquisaPessoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDevolver.resx">
       <DependentUpon>FormDevolver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHistorico.resx">
+      <DependentUpon>FormHistorico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPesquisaPessoa.resx">
       <DependentUpon>FormPesquisaPessoa.cs</DependentUpon>
