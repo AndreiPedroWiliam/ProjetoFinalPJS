@@ -199,7 +199,7 @@
             // interprete
             // 
             this.interprete.Text = "Intérprete";
-            this.interprete.Width = 106;
+            this.interprete.Width = 123;
             // 
             // autor
             // 
@@ -824,6 +824,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minha Coleção";
             this.Load += new System.EventHandler(this.Principal_Load);
+            this.Enter += new System.EventHandler(this.Principal_Enter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
