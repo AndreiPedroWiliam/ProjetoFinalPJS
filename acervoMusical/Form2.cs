@@ -54,6 +54,8 @@ namespace acervoMusical
                 button4.Enabled = false;
                 button3.Visible = true;
                 button5.Visible = true;
+                textBox1.Enabled = false;
+                textBox2.Enabled = false;
                 conexao.Close();
             }
             else if (listBox1.SelectedItem == null)
@@ -81,6 +83,8 @@ namespace acervoMusical
 
         private void button5_Click(object sender, EventArgs e)
         {
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
             listView1.Items.Clear();
             listBox1.Enabled = true;
             listBox2.Enabled = true;
@@ -111,8 +115,6 @@ namespace acervoMusical
                 leitor.Close();
                 SqlCommand muda = new SqlCommand("UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = '" + idalbum + "';",conexao);
                 muda.ExecuteNonQuery();
-                
-
 
                 SqlCommand empresta = new SqlCommand("INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('"+DateTime.Now+"', null , '"+idamigo+"', '"+idalbum+"');",conexao);
                 empresta.Connection = conexao;

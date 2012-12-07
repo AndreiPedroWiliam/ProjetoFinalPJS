@@ -64,7 +64,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(15, 52);
+            this.listBox1.Location = new System.Drawing.Point(12, 52);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(307, 199);
             this.listBox1.TabIndex = 1;
@@ -129,7 +129,7 @@
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(12, 291);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(632, 46);
+            this.listView1.Size = new System.Drawing.Size(632, 48);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;

@@ -250,7 +250,7 @@ namespace acervoMusical
             // de acordo com o status do filme, muda o botão para 'emprestar' ou 'devolver'
             if (listViewPesquisa.SelectedItems.Count == 1)
             {
-                if (listViewPesquisa.SelectedItems[0].ForeColor == Color.Gray)
+                if (listViewPesquisa.SelectedItems[0].ForeColor == Color.Red)
                 {
                     buttonEmprestar.Text = "Devolver";
                     labelErroRemover.Visible = false;
@@ -272,8 +272,7 @@ namespace acervoMusical
 
         private void editaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormPesquisaPessoa formPessoa = new FormPesquisaPessoa();
-            formPessoa.ShowDialog();
+            
         }
 
         private void buttonEmprestar_Click_1(object sender, EventArgs e)
@@ -360,9 +359,12 @@ namespace acervoMusical
 
                     if (resposta == System.Windows.Forms.DialogResult.Yes)
                     {
-                        // Pega o id do album selecionado e o remove 
-                        SqlCommand cmdDeleteAlbum = new SqlCommand("DELETE FROM Album WHERE Id_Album = @ID_ALBUM", conexao);
+
                         SqlParameter idAlbum = new SqlParameter("@ID_ALBUM", int.Parse(listViewPesquisa.SelectedItems[0].Text));
+                        // Pega o id do album selecionado e o remove
+                        
+                        SqlCommand cmdDeleteAlbum = new SqlCommand("DELETE FROM Album WHERE Id_Album = @ID_ALBUM", conexao);
+                        
 
                         cmdDeleteAlbum.Parameters.Add(idAlbum);
                         cmdDeleteAlbum.ExecuteNonQuery();
@@ -560,6 +562,68 @@ namespace acervoMusical
             CarregarListview();
         }
 
+        private void checkBoxInterprete_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxInterprete.Enabled = checkBoxInterprete.Checked;
+        }
 
+        private void checkBoxAutor_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxAutor.Enabled = checkBoxAutor.Checked;
+        }
+
+        private void checkBoxAlbum_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxAlbum.Enabled = checkBoxAlbum.Checked;
+        }
+
+        private void checkBoxDataAlbum_CheckedChanged(object sender, EventArgs e)
+        {
+            dtDataAlbumInicio.Enabled = checkBoxDataAlbum.Checked;
+            dtDataAlbumFim.Enabled = checkBoxDataAlbum.Checked;
+        }
+
+        private void checkBoxDataCompra_CheckedChanged(object sender, EventArgs e)
+        {
+            dtDataCompraInicio.Enabled = checkBoxDataCompra.Checked;
+            dtDataCompraFim.Enabled = checkBoxDataCompra.Checked;
+        }
+
+        private void checkBoxOrigemCompra_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxOrigemCompra.Enabled = checkBoxOrigemCompra.Checked;
+        }
+
+        private void checkBoxMidia_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxMidia.Enabled = checkBoxMidia.Checked;
+        }
+
+        private void checkBoxStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxStatus.Enabled = checkBoxStatus.Checked;
+        }
+
+        private void checkBoxNota_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxNota.Enabled = checkBoxNota.Checked;
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPesquisaPessoa formPessoa = new FormPesquisaPessoa();
+            formPessoa.ShowDialog();
+        }
+
+        private void editaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form4 a = new Form4();
+            a.Show();
+        }
+
+        private void históricoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

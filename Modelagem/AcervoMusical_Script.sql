@@ -1,7 +1,9 @@
 USE master;
+drop database AcervoMusical;
 
 create DATABASE AcervoMusical;
 GO
+
 
 USE AcervoMusical;
 GO
@@ -83,6 +85,8 @@ INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, Tip
 INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
 ('Nirvana', 'Nirvana', 'Nevermind', '16-09-1991', '22-09-1994', 'Bolacha Discos', 'Vinil', '10', '','Disponível');
 
+INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
+('Guns N Roses', 'Guns N Roses', 'Nevermind', '16-09-1991', '22-09-1994', 'Bolacha Discos', 'Vinil', '10', '','Disponível');
 -- INSERT PESSOAS --
 
 INSERT INTO Pessoa (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES 
@@ -92,6 +96,22 @@ INSERT INTO Pessoa (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, U
 INSERT INTO Pessoa (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES 
 ('João Miguel dos Santos', '(12)3662-7751','Joao.ms@email.com','R: Jair Pereira S.', '74', 
 'Vila Maria', 'Campos do Jordão', 'SP');
+
+INSERT INTO Pessoa(Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES
+('Andrei Agdo da Rosa','(12)9605-1283','andrei.ifsp@hotmail.com','Rua Benedito Vasconcelos de Oliveira','269','Vila Eliza','Campos do Jordão','SP');
+
+INSERT INTO Pessoa(Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES 
+('Wiliam Alexandre Costa','(12)9711-5208','wiliam_costa@yahoo.com.br','Rua Augusto Pagliacci','400','Jardim California','Campos do Jordão','SP');
+
+INSERT INTO Pessoa(Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES 
+('Pedro Hugo Makito Sakurai de Lemos','(12)9733-6351', 'pedro.tanaka@hotmail.com','Rua Felicio Raimundo','198','Abernessia','Campos do Jordão','SP');
+
+INSERT INTO Pessoa(Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES 
+('Alvaro Costa Neto','(12)0000-0000', 'alvaro.ifsp@hotmail.com','Rua Inacio Caetano','228','Ferraz','Campos do Jordão','SP');
+
+INSERT INTO Pessoa(Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES 
+('Fernado J. S. Melllo','(12)3668-9090', 'fernandojmellllo@live.com','Rua da fortuna','39','jaguaribe','Campos do Jordão','SP');
+
 
 
 -- EMPRESTANDO UM ALBUM --
@@ -117,7 +137,7 @@ SELECT Id_Album, Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoM
 
 -- SELECT COUNT  TIPO DE MIDIAS, STATUS ALBUM, PESSOAS --
 
-SELECT COUNT(*) AS 'QTD' FROM Pessoa;
+SELECT * FROM Pessoa;
 SELECT COUNT(*) AS 'QTD' FROM Album;
 SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'Digital';
 SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'DVD';
@@ -142,3 +162,4 @@ INNER JOIN Album ON
 
 
 
+SELECT *FROM Album;

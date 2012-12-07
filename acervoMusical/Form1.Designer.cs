@@ -34,6 +34,9 @@
             this.alterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listViewPesquisa = new System.Windows.Forms.ListView();
             this.idAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.interprete = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -107,7 +110,6 @@
             this.textBoxAutor = new System.Windows.Forms.TextBox();
             this.buttonEmprestar = new System.Windows.Forms.Button();
             this.labelErroRemover = new System.Windows.Forms.Label();
-            this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBoxPesquisa.SuspendLayout();
@@ -122,7 +124,7 @@
             this.históricoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1177, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1444, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -139,30 +141,54 @@
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // alterarToolStripMenuItem
             // 
             this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
-            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.alterarToolStripMenuItem.Text = "Alterar";
             this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
             // 
             // excluirToolStripMenuItem
             // 
             this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
-            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.excluirToolStripMenuItem.Text = "Excluir";
             this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
             // 
             // editaToolStripMenuItem
             // 
+            this.editaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editaToolStripMenuItem1,
+            this.editarToolStripMenuItem});
             this.editaToolStripMenuItem.Name = "editaToolStripMenuItem";
             this.editaToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.editaToolStripMenuItem.Text = "Pessoa";
             this.editaToolStripMenuItem.Click += new System.EventHandler(this.editaToolStripMenuItem_Click);
+            // 
+            // editaToolStripMenuItem1
+            // 
+            this.editaToolStripMenuItem1.Name = "editaToolStripMenuItem1";
+            this.editaToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.editaToolStripMenuItem1.Text = "Cadastrar";
+            this.editaToolStripMenuItem1.Click += new System.EventHandler(this.editaToolStripMenuItem1_Click);
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
+            // 
+            // históricoToolStripMenuItem
+            // 
+            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
+            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.históricoToolStripMenuItem.Text = "Histórico";
+            this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // listViewPesquisa
             // 
@@ -185,7 +211,7 @@
             this.listViewPesquisa.Location = new System.Drawing.Point(12, 40);
             this.listViewPesquisa.MultiSelect = false;
             this.listViewPesquisa.Name = "listViewPesquisa";
-            this.listViewPesquisa.Size = new System.Drawing.Size(885, 466);
+            this.listViewPesquisa.Size = new System.Drawing.Size(1179, 454);
             this.listViewPesquisa.TabIndex = 2;
             this.listViewPesquisa.UseCompatibleStateImageBehavior = false;
             this.listViewPesquisa.View = System.Windows.Forms.View.Details;
@@ -287,9 +313,9 @@
             this.toolStripLabel19,
             this.toolStripLabel9,
             this.qtdePessoa});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 547);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 535);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1177, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1444, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -516,7 +542,7 @@
             this.groupBoxPesquisa.Controls.Add(this.textBoxAlbum);
             this.groupBoxPesquisa.Controls.Add(this.textBoxInterprete);
             this.groupBoxPesquisa.Controls.Add(this.textBoxAutor);
-            this.groupBoxPesquisa.Location = new System.Drawing.Point(903, 33);
+            this.groupBoxPesquisa.Location = new System.Drawing.Point(1197, 40);
             this.groupBoxPesquisa.Name = "groupBoxPesquisa";
             this.groupBoxPesquisa.Size = new System.Drawing.Size(235, 473);
             this.groupBoxPesquisa.TabIndex = 13;
@@ -567,6 +593,7 @@
             // 
             // dtDataCompraFim
             // 
+            this.dtDataCompraFim.Enabled = false;
             this.dtDataCompraFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDataCompraFim.Location = new System.Drawing.Point(128, 237);
             this.dtDataCompraFim.Name = "dtDataCompraFim";
@@ -575,6 +602,7 @@
             // 
             // dtDataAlbumFim
             // 
+            this.dtDataAlbumFim.Enabled = false;
             this.dtDataAlbumFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDataAlbumFim.Location = new System.Drawing.Point(128, 188);
             this.dtDataAlbumFim.Name = "dtDataAlbumFim";
@@ -591,9 +619,11 @@
             this.checkBoxStatus.Tag = "";
             this.checkBoxStatus.Text = "Status:";
             this.checkBoxStatus.UseVisualStyleBackColor = true;
+            this.checkBoxStatus.CheckedChanged += new System.EventHandler(this.checkBoxStatus_CheckedChanged);
             // 
             // dtDataCompraInicio
             // 
+            this.dtDataCompraInicio.Enabled = false;
             this.dtDataCompraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDataCompraInicio.Location = new System.Drawing.Point(6, 237);
             this.dtDataCompraInicio.Name = "dtDataCompraInicio";
@@ -610,6 +640,7 @@
             this.checkBoxDataCompra.Tag = "";
             this.checkBoxDataCompra.Text = "Data da compra:";
             this.checkBoxDataCompra.UseVisualStyleBackColor = true;
+            this.checkBoxDataCompra.CheckedChanged += new System.EventHandler(this.checkBoxDataCompra_CheckedChanged);
             // 
             // checkBoxNota
             // 
@@ -620,6 +651,7 @@
             this.checkBoxNota.TabIndex = 18;
             this.checkBoxNota.Text = "Nota:";
             this.checkBoxNota.UseVisualStyleBackColor = true;
+            this.checkBoxNota.CheckedChanged += new System.EventHandler(this.checkBoxNota_CheckedChanged);
             // 
             // checkBoxMidia
             // 
@@ -630,9 +662,11 @@
             this.checkBoxMidia.TabIndex = 14;
             this.checkBoxMidia.Text = "Mídia:";
             this.checkBoxMidia.UseVisualStyleBackColor = true;
+            this.checkBoxMidia.CheckedChanged += new System.EventHandler(this.checkBoxMidia_CheckedChanged);
             // 
             // dtDataAlbumInicio
             // 
+            this.dtDataAlbumInicio.Enabled = false;
             this.dtDataAlbumInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDataAlbumInicio.Location = new System.Drawing.Point(6, 188);
             this.dtDataAlbumInicio.Name = "dtDataAlbumInicio";
@@ -649,6 +683,7 @@
             this.checkBoxDataAlbum.Tag = "";
             this.checkBoxDataAlbum.Text = "Data do album:";
             this.checkBoxDataAlbum.UseVisualStyleBackColor = true;
+            this.checkBoxDataAlbum.CheckedChanged += new System.EventHandler(this.checkBoxDataAlbum_CheckedChanged);
             // 
             // checkBoxOrigemCompra
             // 
@@ -660,10 +695,12 @@
             this.checkBoxOrigemCompra.Tag = "";
             this.checkBoxOrigemCompra.Text = "Origem da compra:";
             this.checkBoxOrigemCompra.UseVisualStyleBackColor = true;
+            this.checkBoxOrigemCompra.CheckedChanged += new System.EventHandler(this.checkBoxOrigemCompra_CheckedChanged);
             // 
             // comboBoxNota
             // 
             this.comboBoxNota.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNota.Enabled = false;
             this.comboBoxNota.FormattingEnabled = true;
             this.comboBoxNota.Items.AddRange(new object[] {
             "Selecione...",
@@ -692,10 +729,12 @@
             this.checkBoxAlbum.Tag = "";
             this.checkBoxAlbum.Text = "Álbum/Música:";
             this.checkBoxAlbum.UseVisualStyleBackColor = true;
+            this.checkBoxAlbum.CheckedChanged += new System.EventHandler(this.checkBoxAlbum_CheckedChanged);
             // 
             // comboBoxMidia
             // 
             this.comboBoxMidia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMidia.Enabled = false;
             this.comboBoxMidia.FormattingEnabled = true;
             this.comboBoxMidia.ItemHeight = 13;
             this.comboBoxMidia.Items.AddRange(new object[] {
@@ -720,10 +759,12 @@
             this.checkBoxInterprete.Tag = "";
             this.checkBoxInterprete.Text = "Intérprete:";
             this.checkBoxInterprete.UseVisualStyleBackColor = true;
+            this.checkBoxInterprete.CheckedChanged += new System.EventHandler(this.checkBoxInterprete_CheckedChanged);
             // 
             // comboBoxStatus
             // 
             this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxStatus.Enabled = false;
             this.comboBoxStatus.FormattingEnabled = true;
             this.comboBoxStatus.Items.AddRange(new object[] {
             "Selecione...",
@@ -743,11 +784,13 @@
             this.checkBoxAutor.TabIndex = 2;
             this.checkBoxAutor.Text = "Autor:";
             this.checkBoxAutor.UseVisualStyleBackColor = true;
+            this.checkBoxAutor.CheckedChanged += new System.EventHandler(this.checkBoxAutor_CheckedChanged);
             // 
             // textBoxOrigemCompra
             // 
             this.textBoxOrigemCompra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxOrigemCompra.Enabled = false;
             this.textBoxOrigemCompra.Location = new System.Drawing.Point(6, 286);
             this.textBoxOrigemCompra.Name = "textBoxOrigemCompra";
             this.textBoxOrigemCompra.Size = new System.Drawing.Size(219, 20);
@@ -757,6 +800,7 @@
             // 
             this.textBoxAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxAlbum.Enabled = false;
             this.textBoxAlbum.Location = new System.Drawing.Point(6, 139);
             this.textBoxAlbum.Name = "textBoxAlbum";
             this.textBoxAlbum.Size = new System.Drawing.Size(219, 20);
@@ -766,6 +810,7 @@
             // 
             this.textBoxInterprete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxInterprete.Enabled = false;
             this.textBoxInterprete.Location = new System.Drawing.Point(6, 41);
             this.textBoxInterprete.Name = "textBoxInterprete";
             this.textBoxInterprete.Size = new System.Drawing.Size(219, 20);
@@ -775,6 +820,7 @@
             // 
             this.textBoxAutor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxAutor.Enabled = false;
             this.textBoxAutor.Location = new System.Drawing.Point(6, 90);
             this.textBoxAutor.Name = "textBoxAutor";
             this.textBoxAutor.Size = new System.Drawing.Size(219, 20);
@@ -782,7 +828,7 @@
             // 
             // buttonEmprestar
             // 
-            this.buttonEmprestar.Location = new System.Drawing.Point(822, 12);
+            this.buttonEmprestar.Location = new System.Drawing.Point(1116, 11);
             this.buttonEmprestar.Name = "buttonEmprestar";
             this.buttonEmprestar.Size = new System.Drawing.Size(75, 23);
             this.buttonEmprestar.TabIndex = 14;
@@ -800,18 +846,12 @@
             this.labelErroRemover.Text = "Impossível remover, album emprestado!";
             this.labelErroRemover.Visible = false;
             // 
-            // históricoToolStripMenuItem
-            // 
-            this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
-            this.históricoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.históricoToolStripMenuItem.Text = "Histórico";
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1177, 572);
+            this.ClientSize = new System.Drawing.Size(1444, 560);
             this.Controls.Add(this.labelErroRemover);
             this.Controls.Add(this.buttonEmprestar);
             this.Controls.Add(this.groupBoxPesquisa);
@@ -819,10 +859,11 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.toolStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(1193, 521);
+            this.MinimumSize = new System.Drawing.Size(1022, 521);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minha Coleção";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Principal_Load);
             this.Enter += new System.EventHandler(this.Principal_Enter);
             this.menuStrip1.ResumeLayout(false);
@@ -918,6 +959,8 @@
         private System.Windows.Forms.ColumnHeader idAlbum;
         private System.Windows.Forms.Label labelErroRemover;
         private System.Windows.Forms.ToolStripMenuItem históricoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
     }
 }
 
