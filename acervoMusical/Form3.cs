@@ -19,15 +19,11 @@ namespace acervoMusical
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBoxNota.Text == "")
-                errorProvider1.SetError(label21, "Nota inválida");
-            else if (comboBoxNota.Text != "")
-                errorProvider1.Clear();
-            else if (comboBoxMidia.Text == "")
+            if (comboBoxMidia.Text == "")
                 errorProvider2.SetError(label20, "Mídia inválida");
             else if (comboBoxMidia.Text != "")
                 errorProvider2.Clear();
-            if (comboBoxNota.Text != "" && comboBoxMidia.Text != "")
+            if (comboBoxMidia.Text != "")
             {
                 SqlConnection conexao = new SqlConnection();
                 conexao.ConnectionString = "Data Source=.\\SQLEXPRESS;initial Catalog=acervoMusical;Integrated Security=SSPI";
@@ -39,14 +35,14 @@ namespace acervoMusical
                         //se estiver tudo correto cria o comando e insere no banco
                         if (comboBoxMidia.Text == "Digital")
                         {
-                            SqlCommand insertMidiaDigital = new SqlCommand("INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES('" + textBoxInterprete.Text + "','" + textBoxAutor.Text + "','" + textBoxAlbum.Text + "','" + dateTimePickerAlbum.Value.ToString("yyyy-MM-dd") + "','" + dateTimePickerCompra.Value.ToString("yyyy-MM-dd") + "','" + textBoxCompra.Text + "','" + comboBoxMidia.Text + "','" + comboBoxNota.Text + "','" + textBoxObservacao.Text + "','Disponível')");
+                            SqlCommand insertMidiaDigital = new SqlCommand("INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Observacao, Status) VALUES('" + textBoxInterprete.Text + "','" + textBoxAutor.Text + "','" + textBoxAlbum.Text + "','" + dateTimePickerAlbum.Value.ToString("yyyy-MM-dd") + "','" + dateTimePickerCompra.Value.ToString("yyyy-MM-dd") + "','" + textBoxCompra.Text + "','" + comboBoxMidia.Text + "','" + textBoxObservacao.Text + "','Disponível')");
                             insertMidiaDigital.Connection = conexao;
                             insertMidiaDigital.ExecuteNonQuery();
                         }
                         else
                         {
                             SqlCommand insertMidia = new SqlCommand();
-                            insertMidia.CommandText = "INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES('" + textBoxInterprete.Text + "','" + textBoxAutor.Text + "','" + textBoxAlbum.Text + "','" + dateTimePickerAlbum.Value.ToString("yyyy-MM-dd") + "','" + dateTimePickerCompra.Value.ToString("yyyy-MM-dd") + "','" + textBoxCompra.Text + "','" + comboBoxMidia.Text + "','" + comboBoxNota.Text + "','" + textBoxObservacao.Text + "', 'Disponível')";
+                            insertMidia.CommandText = "INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Observacao, Status) VALUES('" + textBoxInterprete.Text + "','" + textBoxAutor.Text + "','" + textBoxAlbum.Text + "','" + dateTimePickerAlbum.Value.ToString("yyyy-MM-dd") + "','" + dateTimePickerCompra.Value.ToString("yyyy-MM-dd") + "','" + textBoxCompra.Text + "','" + comboBoxMidia.Text + "','" + textBoxObservacao.Text + "', 'Disponível')";
                             insertMidia.Connection = conexao;
                             insertMidia.ExecuteNonQuery();
                         }
@@ -75,8 +71,6 @@ namespace acervoMusical
             textBoxCompra.Text = "";
             dateTimePickerCompra.Text = "";
             comboBoxMidia.Text = "";
-            comboBoxNota.Text = "";
-            //textBoxMusica.Text = "";
             textBoxObservacao.Text = "";
         }
     }

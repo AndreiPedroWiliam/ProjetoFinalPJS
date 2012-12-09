@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -38,7 +37,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePickerCompra = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxNota = new System.Windows.Forms.ComboBox();
             this.dateTimePickerAlbum = new System.Windows.Forms.DateTimePicker();
             this.comboBoxMidia = new System.Windows.Forms.ComboBox();
             this.textBoxCompra = new System.Windows.Forms.TextBox();
@@ -57,15 +55,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(442, 101);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(33, 13);
-            this.label21.TabIndex = 44;
-            this.label21.Text = "Nota:";
             // 
             // label20
             // 
@@ -136,35 +125,15 @@
             this.dateTimePickerCompra.Location = new System.Drawing.Point(306, 118);
             this.dateTimePickerCompra.Name = "dateTimePickerCompra";
             this.dateTimePickerCompra.Size = new System.Drawing.Size(112, 20);
-            this.dateTimePickerCompra.TabIndex = 35;
-            // 
-            // comboBoxNota
-            // 
-            this.comboBoxNota.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxNota.FormattingEnabled = true;
-            this.comboBoxNota.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.comboBoxNota.Location = new System.Drawing.Point(445, 117);
-            this.comboBoxNota.Name = "comboBoxNota";
-            this.comboBoxNota.Size = new System.Drawing.Size(63, 21);
-            this.comboBoxNota.TabIndex = 33;
+            this.dateTimePickerCompra.TabIndex = 6;
             // 
             // dateTimePickerAlbum
             // 
             this.dateTimePickerAlbum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerAlbum.Location = new System.Drawing.Point(445, 71);
             this.dateTimePickerAlbum.Name = "dateTimePickerAlbum";
-            this.dateTimePickerAlbum.Size = new System.Drawing.Size(112, 20);
-            this.dateTimePickerAlbum.TabIndex = 34;
+            this.dateTimePickerAlbum.Size = new System.Drawing.Size(116, 20);
+            this.dateTimePickerAlbum.TabIndex = 4;
             // 
             // comboBoxMidia
             // 
@@ -178,35 +147,35 @@
             this.comboBoxMidia.Location = new System.Drawing.Point(306, 71);
             this.comboBoxMidia.Name = "comboBoxMidia";
             this.comboBoxMidia.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxMidia.TabIndex = 32;
+            this.comboBoxMidia.TabIndex = 3;
             // 
             // textBoxCompra
             // 
             this.textBoxCompra.Location = new System.Drawing.Point(15, 118);
             this.textBoxCompra.Name = "textBoxCompra";
             this.textBoxCompra.Size = new System.Drawing.Size(251, 20);
-            this.textBoxCompra.TabIndex = 31;
+            this.textBoxCompra.TabIndex = 5;
             // 
             // textBoxAlbum
             // 
             this.textBoxAlbum.Location = new System.Drawing.Point(15, 72);
             this.textBoxAlbum.Name = "textBoxAlbum";
             this.textBoxAlbum.Size = new System.Drawing.Size(251, 20);
-            this.textBoxAlbum.TabIndex = 30;
+            this.textBoxAlbum.TabIndex = 2;
             // 
             // textBoxAutor
             // 
             this.textBoxAutor.Location = new System.Drawing.Point(306, 25);
             this.textBoxAutor.Name = "textBoxAutor";
-            this.textBoxAutor.Size = new System.Drawing.Size(251, 20);
-            this.textBoxAutor.TabIndex = 29;
+            this.textBoxAutor.Size = new System.Drawing.Size(255, 20);
+            this.textBoxAutor.TabIndex = 1;
             // 
             // textBoxInterprete
             // 
             this.textBoxInterprete.Location = new System.Drawing.Point(15, 25);
             this.textBoxInterprete.Name = "textBoxInterprete";
             this.textBoxInterprete.Size = new System.Drawing.Size(251, 20);
-            this.textBoxInterprete.TabIndex = 28;
+            this.textBoxInterprete.TabIndex = 0;
             // 
             // label1
             // 
@@ -222,25 +191,25 @@
             this.textBoxObservacao.Location = new System.Drawing.Point(15, 165);
             this.textBoxObservacao.Multiline = true;
             this.textBoxObservacao.Name = "textBoxObservacao";
-            this.textBoxObservacao.Size = new System.Drawing.Size(542, 74);
-            this.textBoxObservacao.TabIndex = 45;
+            this.textBoxObservacao.Size = new System.Drawing.Size(546, 74);
+            this.textBoxObservacao.TabIndex = 8;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(482, 245);
+            this.button1.Location = new System.Drawing.Point(486, 245);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 49;
+            this.button1.TabIndex = 10;
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(400, 245);
+            this.button2.Location = new System.Drawing.Point(405, 245);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 50;
+            this.button2.TabIndex = 9;
             this.button2.Text = "Limpar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -270,13 +239,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 283);
+            this.ClientSize = new System.Drawing.Size(573, 280);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxObservacao);
-            this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
@@ -285,13 +253,13 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.dateTimePickerCompra);
-            this.Controls.Add(this.comboBoxNota);
             this.Controls.Add(this.dateTimePickerAlbum);
             this.Controls.Add(this.comboBoxMidia);
             this.Controls.Add(this.textBoxCompra);
             this.Controls.Add(this.textBoxAlbum);
             this.Controls.Add(this.textBoxAutor);
             this.Controls.Add(this.textBoxInterprete);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de mídias";
@@ -305,7 +273,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
@@ -314,7 +281,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dateTimePickerCompra;
-        private System.Windows.Forms.ComboBox comboBoxNota;
         private System.Windows.Forms.DateTimePicker dateTimePickerAlbum;
         private System.Windows.Forms.TextBox textBoxCompra;
         private System.Windows.Forms.TextBox textBoxAlbum;

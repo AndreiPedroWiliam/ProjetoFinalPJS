@@ -13,10 +13,12 @@ namespace acervoMusical
     public partial class Form5 : Form
     {
         int id = 0;
+        int alterar = 0;
 
-        public Form5(int idMidia)
+        public Form5(int idMidia, int alterarMidia)
         {
             id = idMidia;
+            alterar = alterarMidia;
             InitializeComponent();
         }  
         
@@ -88,6 +90,7 @@ namespace acervoMusical
 
         private void Form5_Load(object sender, EventArgs e)
         {
+
             try
             {
                 conexao.Open();
@@ -118,6 +121,25 @@ namespace acervoMusical
             {
                 conexao.Close();
                 leitor = null;
+            }
+
+            if (alterar == 1)
+            {
+                foreach (object componente in this.Controls)
+                {
+                    if (componente is TextBox)
+                        ((TextBox)componente).Enabled = false;
+
+                    if (componente is ComboBox)
+                    {
+                        ((ComboBox)componente).Enabled = false;
+                    }
+                    if (componente is DateTimePicker)
+                        ((DateTimePicker)componente).Enabled = false;
+
+                }
+
+                comboBoxNotaEdit.Enabled = true;
             }
         }
 

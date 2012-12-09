@@ -64,7 +64,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 52);
+            this.listBox1.Location = new System.Drawing.Point(15, 52);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(307, 199);
             this.listBox1.TabIndex = 1;
@@ -101,10 +101,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(569, 399);
+            this.button3.Location = new System.Drawing.Point(569, 340);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
+            this.button3.TabIndex = 3;
             this.button3.Text = "Emprestar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Visible = false;
@@ -112,10 +112,10 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(328, 26);
+            this.textBox2.Location = new System.Drawing.Point(328, 25);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(285, 20);
-            this.textBox2.TabIndex = 10;
+            this.textBox2.TabIndex = 1;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // listView1
@@ -127,7 +127,7 @@
             this.midia});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(12, 291);
+            this.listView1.Location = new System.Drawing.Point(12, 286);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(632, 48);
             this.listView1.TabIndex = 13;
@@ -142,7 +142,7 @@
             // album
             // 
             this.album.Text = "Álbum";
-            this.album.Width = 166;
+            this.album.Width = 178;
             // 
             // interprete
             // 
@@ -159,17 +159,17 @@
             this.button4.Location = new System.Drawing.Point(569, 257);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 14;
+            this.button4.TabIndex = 2;
             this.button4.Text = "Adicionar";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 399);
+            this.button5.Location = new System.Drawing.Point(12, 340);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 15;
+            this.button5.TabIndex = 4;
             this.button5.Text = "Cancelar";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Visible = false;
@@ -202,7 +202,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 258);
+            this.label2.Location = new System.Drawing.Point(12, 254);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 13);
             this.label2.TabIndex = 17;
@@ -212,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 434);
+            this.ClientSize = new System.Drawing.Size(656, 375);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pesquisaAlbum);
             this.Controls.Add(this.pesquisaPessoa);

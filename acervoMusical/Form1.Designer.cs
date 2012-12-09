@@ -34,8 +34,6 @@
             this.alterarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.excluirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.históricoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listViewPesquisa = new System.Windows.Forms.ListView();
             this.idAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -110,6 +108,9 @@
             this.textBoxAutor = new System.Windows.Forms.TextBox();
             this.buttonEmprestar = new System.Windows.Forms.Button();
             this.labelErroRemover = new System.Windows.Forms.Label();
+            this.buttonAtribuirNota = new System.Windows.Forms.Button();
+            this.labelErroEmprestimo = new System.Windows.Forms.Label();
+            this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBoxPesquisa.SuspendLayout();
@@ -121,12 +122,14 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mídiaToolStripMenuItem,
             this.editaToolStripMenuItem,
-            this.históricoToolStripMenuItem});
+            this.históricoToolStripMenuItem,
+            this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1444, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1247, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // mídiaToolStripMenuItem
             // 
@@ -141,47 +144,30 @@
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // alterarToolStripMenuItem
             // 
             this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
-            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alterarToolStripMenuItem.Text = "Alterar";
             this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
             // 
             // excluirToolStripMenuItem
             // 
             this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
-            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.excluirToolStripMenuItem.Text = "Excluir";
             this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
             // 
             // editaToolStripMenuItem
             // 
-            this.editaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editaToolStripMenuItem1,
-            this.editarToolStripMenuItem});
             this.editaToolStripMenuItem.Name = "editaToolStripMenuItem";
             this.editaToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.editaToolStripMenuItem.Text = "Pessoa";
             this.editaToolStripMenuItem.Click += new System.EventHandler(this.editaToolStripMenuItem_Click);
-            // 
-            // editaToolStripMenuItem1
-            // 
-            this.editaToolStripMenuItem1.Name = "editaToolStripMenuItem1";
-            this.editaToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.editaToolStripMenuItem1.Text = "Cadastrar";
-            this.editaToolStripMenuItem1.Click += new System.EventHandler(this.editaToolStripMenuItem1_Click);
-            // 
-            // editarToolStripMenuItem
-            // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.editarToolStripMenuItem.Text = "Editar";
-            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // históricoToolStripMenuItem
             // 
@@ -211,7 +197,7 @@
             this.listViewPesquisa.Location = new System.Drawing.Point(12, 40);
             this.listViewPesquisa.MultiSelect = false;
             this.listViewPesquisa.Name = "listViewPesquisa";
-            this.listViewPesquisa.Size = new System.Drawing.Size(1179, 454);
+            this.listViewPesquisa.Size = new System.Drawing.Size(962, 454);
             this.listViewPesquisa.TabIndex = 2;
             this.listViewPesquisa.UseCompatibleStateImageBehavior = false;
             this.listViewPesquisa.View = System.Windows.Forms.View.Details;
@@ -235,7 +221,7 @@
             // nomeDoAlbum
             // 
             this.nomeDoAlbum.Text = "Álbum/Música";
-            this.nomeDoAlbum.Width = 160;
+            this.nomeDoAlbum.Width = 223;
             // 
             // dataDoAlbum
             // 
@@ -269,7 +255,7 @@
             // observacoes
             // 
             this.observacoes.Text = "Observações";
-            this.observacoes.Width = 111;
+            this.observacoes.Width = 106;
             // 
             // status
             // 
@@ -315,7 +301,7 @@
             this.qtdePessoa});
             this.toolStrip1.Location = new System.Drawing.Point(0, 535);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1444, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1247, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -516,7 +502,8 @@
             // 
             // groupBoxPesquisa
             // 
-            this.groupBoxPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBoxPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxPesquisa.Controls.Add(this.linkLabelRemoverFiltro);
             this.groupBoxPesquisa.Controls.Add(this.label2);
@@ -542,9 +529,9 @@
             this.groupBoxPesquisa.Controls.Add(this.textBoxAlbum);
             this.groupBoxPesquisa.Controls.Add(this.textBoxInterprete);
             this.groupBoxPesquisa.Controls.Add(this.textBoxAutor);
-            this.groupBoxPesquisa.Location = new System.Drawing.Point(1197, 40);
+            this.groupBoxPesquisa.Location = new System.Drawing.Point(980, 31);
             this.groupBoxPesquisa.Name = "groupBoxPesquisa";
-            this.groupBoxPesquisa.Size = new System.Drawing.Size(235, 473);
+            this.groupBoxPesquisa.Size = new System.Drawing.Size(255, 463);
             this.groupBoxPesquisa.TabIndex = 13;
             this.groupBoxPesquisa.TabStop = false;
             this.groupBoxPesquisa.Tag = "";
@@ -554,7 +541,7 @@
             // 
             this.linkLabelRemoverFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelRemoverFiltro.AutoSize = true;
-            this.linkLabelRemoverFiltro.Location = new System.Drawing.Point(27, 443);
+            this.linkLabelRemoverFiltro.Location = new System.Drawing.Point(87, 419);
             this.linkLabelRemoverFiltro.Name = "linkLabelRemoverFiltro";
             this.linkLabelRemoverFiltro.Size = new System.Drawing.Size(77, 13);
             this.linkLabelRemoverFiltro.TabIndex = 22;
@@ -583,9 +570,9 @@
             // buttonPesquisar
             // 
             this.buttonPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPesquisar.Location = new System.Drawing.Point(128, 438);
+            this.buttonPesquisar.Location = new System.Drawing.Point(170, 414);
             this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(97, 23);
+            this.buttonPesquisar.Size = new System.Drawing.Size(75, 23);
             this.buttonPesquisar.TabIndex = 23;
             this.buttonPesquisar.Text = "Procurar";
             this.buttonPesquisar.UseVisualStyleBackColor = true;
@@ -793,7 +780,7 @@
             this.textBoxOrigemCompra.Enabled = false;
             this.textBoxOrigemCompra.Location = new System.Drawing.Point(6, 286);
             this.textBoxOrigemCompra.Name = "textBoxOrigemCompra";
-            this.textBoxOrigemCompra.Size = new System.Drawing.Size(219, 20);
+            this.textBoxOrigemCompra.Size = new System.Drawing.Size(239, 20);
             this.textBoxOrigemCompra.TabIndex = 13;
             // 
             // textBoxAlbum
@@ -803,7 +790,7 @@
             this.textBoxAlbum.Enabled = false;
             this.textBoxAlbum.Location = new System.Drawing.Point(6, 139);
             this.textBoxAlbum.Name = "textBoxAlbum";
-            this.textBoxAlbum.Size = new System.Drawing.Size(219, 20);
+            this.textBoxAlbum.Size = new System.Drawing.Size(239, 20);
             this.textBoxAlbum.TabIndex = 5;
             // 
             // textBoxInterprete
@@ -813,7 +800,7 @@
             this.textBoxInterprete.Enabled = false;
             this.textBoxInterprete.Location = new System.Drawing.Point(6, 41);
             this.textBoxInterprete.Name = "textBoxInterprete";
-            this.textBoxInterprete.Size = new System.Drawing.Size(219, 20);
+            this.textBoxInterprete.Size = new System.Drawing.Size(239, 20);
             this.textBoxInterprete.TabIndex = 1;
             // 
             // textBoxAutor
@@ -823,12 +810,12 @@
             this.textBoxAutor.Enabled = false;
             this.textBoxAutor.Location = new System.Drawing.Point(6, 90);
             this.textBoxAutor.Name = "textBoxAutor";
-            this.textBoxAutor.Size = new System.Drawing.Size(219, 20);
+            this.textBoxAutor.Size = new System.Drawing.Size(239, 20);
             this.textBoxAutor.TabIndex = 3;
             // 
             // buttonEmprestar
             // 
-            this.buttonEmprestar.Location = new System.Drawing.Point(1116, 11);
+            this.buttonEmprestar.Location = new System.Drawing.Point(899, 12);
             this.buttonEmprestar.Name = "buttonEmprestar";
             this.buttonEmprestar.Size = new System.Drawing.Size(75, 23);
             this.buttonEmprestar.TabIndex = 14;
@@ -839,19 +826,51 @@
             // labelErroRemover
             // 
             this.labelErroRemover.AutoSize = true;
-            this.labelErroRemover.Location = new System.Drawing.Point(12, 509);
+            this.labelErroRemover.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelErroRemover.Location = new System.Drawing.Point(12, 24);
             this.labelErroRemover.Name = "labelErroRemover";
             this.labelErroRemover.Size = new System.Drawing.Size(194, 13);
             this.labelErroRemover.TabIndex = 15;
             this.labelErroRemover.Text = "Impossível remover, album emprestado!";
             this.labelErroRemover.Visible = false;
             // 
+            // buttonAtribuirNota
+            // 
+            this.buttonAtribuirNota.Location = new System.Drawing.Point(818, 12);
+            this.buttonAtribuirNota.Name = "buttonAtribuirNota";
+            this.buttonAtribuirNota.Size = new System.Drawing.Size(75, 23);
+            this.buttonAtribuirNota.TabIndex = 16;
+            this.buttonAtribuirNota.Text = "Atribuir nota";
+            this.buttonAtribuirNota.UseVisualStyleBackColor = true;
+            this.buttonAtribuirNota.Visible = false;
+            this.buttonAtribuirNota.Click += new System.EventHandler(this.buttonAtribuirNota_Click);
+            // 
+            // labelErroEmprestimo
+            // 
+            this.labelErroEmprestimo.AutoSize = true;
+            this.labelErroEmprestimo.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelErroEmprestimo.Location = new System.Drawing.Point(701, 17);
+            this.labelErroEmprestimo.Name = "labelErroEmprestimo";
+            this.labelErroEmprestimo.Size = new System.Drawing.Size(192, 13);
+            this.labelErroEmprestimo.TabIndex = 15;
+            this.labelErroEmprestimo.Text = "Só é possível emprestar mídias físicas.";
+            this.labelErroEmprestimo.Visible = false;
+            // 
+            // sobreToolStripMenuItem
+            // 
+            this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.sobreToolStripMenuItem.Text = "Sobre";
+            this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1444, 560);
+            this.ClientSize = new System.Drawing.Size(1247, 560);
+            this.Controls.Add(this.buttonAtribuirNota);
+            this.Controls.Add(this.labelErroEmprestimo);
             this.Controls.Add(this.labelErroRemover);
             this.Controls.Add(this.buttonEmprestar);
             this.Controls.Add(this.groupBoxPesquisa);
@@ -863,7 +882,6 @@
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minha Coleção";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Principal_Load);
             this.Enter += new System.EventHandler(this.Principal_Enter);
             this.menuStrip1.ResumeLayout(false);
@@ -959,8 +977,9 @@
         private System.Windows.Forms.ColumnHeader idAlbum;
         private System.Windows.Forms.Label labelErroRemover;
         private System.Windows.Forms.ToolStripMenuItem históricoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editaToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
+        private System.Windows.Forms.Button buttonAtribuirNota;
+        private System.Windows.Forms.Label labelErroEmprestimo;
+        private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
     }
 }
 

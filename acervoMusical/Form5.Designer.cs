@@ -151,6 +151,7 @@
             // 
             // comboBoxNotaEdit
             // 
+            this.comboBoxNotaEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNotaEdit.FormattingEnabled = true;
             this.comboBoxNotaEdit.Items.AddRange(new object[] {
             "1",
@@ -167,6 +168,7 @@
             this.comboBoxNotaEdit.Name = "comboBoxNotaEdit";
             this.comboBoxNotaEdit.Size = new System.Drawing.Size(63, 21);
             this.comboBoxNotaEdit.TabIndex = 56;
+            this.comboBoxNotaEdit.Tag = "nota";
             // 
             // dateTimePickerAlbumEdit
             // 
@@ -178,6 +180,7 @@
             // 
             // comboBoxMidiaEdit
             // 
+            this.comboBoxMidiaEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMidiaEdit.FormattingEnabled = true;
             this.comboBoxMidiaEdit.Items.AddRange(new object[] {
             "Digital",

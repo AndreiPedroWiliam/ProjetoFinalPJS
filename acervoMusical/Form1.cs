@@ -139,7 +139,7 @@ namespace acervoMusical
 
                 // Verifica se o filme está ou não disponível
                 if (Status.Text == "Emprestado")
-                    listViewPesquisa.Items[i].ForeColor = Color.Red;
+                    listViewPesquisa.Items[i].ForeColor = Color.Gray;
                 i++;
             }
         }
@@ -250,16 +250,24 @@ namespace acervoMusical
             // de acordo com o status do filme, muda o botão para 'emprestar' ou 'devolver'
             if (listViewPesquisa.SelectedItems.Count == 1)
             {
-                if (listViewPesquisa.SelectedItems[0].ForeColor == Color.Red)
+                
+                if (listViewPesquisa.SelectedItems[0].ForeColor == Color.Gray)
                 {
                     buttonEmprestar.Text = "Devolver";
                     labelErroRemover.Visible = false;
+                    labelErroEmprestimo.Visible = false;
                 }
                 else
                 {
                     buttonEmprestar.Text = "Emprestar"; 
-                    labelErroRemover.Visible = false; 
+                    labelErroRemover.Visible = false;
+                    labelErroEmprestimo.Visible = false;
                 }
+
+                if (listViewPesquisa.SelectedItems[0].SubItems[8].Text == "")
+                    buttonAtribuirNota.Visible = true;
+                else
+                    buttonAtribuirNota.Visible = false;
 
             }
         }
@@ -272,7 +280,8 @@ namespace acervoMusical
 
         private void editaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            FormPesquisaPessoa Pessoa = new FormPesquisaPessoa();
+            Pessoa.ShowDialog();
         }
 
         private void buttonEmprestar_Click_1(object sender, EventArgs e)
@@ -293,13 +302,24 @@ namespace acervoMusical
 
                     try
                     {
+                        // Executa o comando para obter o id do Emprestimo
+                        SqlCommand selectIdEmprestimo = new SqlCommand("SELECT Id_Emprestimo from Emprestimo where Id_Album = @ID_ALBUM AND DataDevolucao is null", conexao);
+                        SqlParameter idAlbum = new SqlParameter("@ID_ALBUM", idMidia);
+                        selectIdEmprestimo.Parameters.Add(idAlbum);
+                        leitor = selectIdEmprestimo.ExecuteReader();
+
+                        leitor.Read();
+                        // Pega o id do emprestimo
+                        int idEmprestimo = int.Parse(leitor["Id_Emprestimo"].ToString());
+                        leitor.Close();
+
                         // Pega a data atual do sistema, no formato dia-mês-ano
                         string dataDevolucao = DateTime.Now.ToString("dd-MM-yyyy");
 
                         // Altera a data de devolução para data atual
-                        SqlCommand cmdUpdateEmprestimo = new SqlCommand("UPDATE Emprestimo SET DataDevolucao ='"+dataDevolucao+"' WHERE Id_Emprestimo = @ID_ALBUM;",conexao);
-                        SqlParameter idAlbum = new SqlParameter("@ID_ALBUM", idMidia);
-                        cmdUpdateEmprestimo.Parameters.Add(idAlbum);
+                        SqlCommand cmdUpdateEmprestimo = new SqlCommand("UPDATE Emprestimo SET DataDevolucao ='" + dataDevolucao + "' WHERE Id_Emprestimo = @ID_EMPRESTIMO", conexao);
+                        SqlParameter IdEmprestimo = new SqlParameter("@ID_EMPRESTIMO", idEmprestimo);
+                        cmdUpdateEmprestimo.Parameters.Add(IdEmprestimo);
                         cmdUpdateEmprestimo.ExecuteNonQuery();
 
                         // Altera o status do album para disponível
@@ -308,7 +328,7 @@ namespace acervoMusical
                         cmdUpdateAlbum.Parameters.Add(idAlbum2);
                         cmdUpdateAlbum.ExecuteNonQuery();
                         // Atualiza o listView principal
-                        
+
                     }
                     finally
                     {
@@ -316,20 +336,29 @@ namespace acervoMusical
 
                         listViewPesquisa.Items.Clear();
                         CarregarListview();
+                        buttonEmprestar.Text = "Emprestar";
                     }
                 }
                 else
                 {
                     if (listViewPesquisa.SelectedItems.Count == 1)
                     {
-                        int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
-                        Form2 alterarMidia = new Form2(idAlbum);
 
-                        alterarMidia.ShowDialog();
-                        //Após alterar um album, atualiza o ListView principal com a função CarregarListView()
-                        CarregarListview();
-                        // Volta o botão de Emprestimo/Devolução para a configuração inicial
-                        buttonEmprestar.Text = "Emprestar";
+                        int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
+
+                        if (listViewPesquisa.SelectedItems[0].SubItems[7].Text != "Digital")
+                        {
+                            Form2 emprestarMidia = new Form2(idAlbum);
+
+                            emprestarMidia.ShowDialog();
+                            //Após alterar um album, atualiza o ListView principal com a função CarregarListView()
+                            CarregarListview();
+                            // Volta o botão de Emprestimo/Devolução para a configuração inicial
+                            buttonEmprestar.Text = "Emprestar";
+                        }
+                        else
+                            labelErroEmprestimo.Visible = true;
+
                     }
                 }
             }
@@ -346,7 +375,7 @@ namespace acervoMusical
                     conexao.Close();
 
                 conexao.Open();
-                
+
                 // Verifica se o item está emprestado
                 // Se tiver mostra um aviso, no label
                 // Caso o album não estiver emprestado, perguanta ao usuário se deseja realmente remover o album,
@@ -355,24 +384,63 @@ namespace acervoMusical
                     labelErroRemover.Visible = true;
                 else
                 {
-                    DialogResult resposta = MessageBox.Show("Deseja realmente remover esse album?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    int idALBUM = int.Parse(listViewPesquisa.SelectedItems[0].Text);
 
-                    if (resposta == System.Windows.Forms.DialogResult.Yes)
+                    // Executa o comando verificando se o album está presente no histórico
+                    SqlCommand cmdSelectAlbumFromEmprestimo = new SqlCommand("SELECT Id_Album FROM Emprestimo WHERE Id_Album = @ID_ALBUM", conexao);
+                    SqlParameter IDAlbum = new SqlParameter("@ID_ALBUM", idALBUM);
+                    cmdSelectAlbumFromEmprestimo.Parameters.Add(IDAlbum);
+                    leitor = cmdSelectAlbumFromEmprestimo.ExecuteReader();
+
+                    // Verifica se o comando resultou em algum valor
+                    if (leitor.Read())
                     {
+                        DialogResult resposta = MessageBox.Show("Esse album está no histórico, deseja realmente remove-lo?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        // Caso o album estiver no histórico mostra a mensagem perguntado se deseja realmente excluir
+                        if (resposta == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            // Se a resposta for sim, remove o album do histórico e depois remove o album
+                            conexao.Close();
+                            conexao.Open();
+                            // Removendo o album do histórico
+                            SqlCommand cmdDeleteAlbumEmprestimo = new SqlCommand("DELETE FROM Emprestimo WHERE Id_Album = @ID_ALBUM", conexao);
+                            SqlParameter id = new SqlParameter("@ID_ALBUM", idALBUM);
+                            cmdDeleteAlbumEmprestimo.Parameters.Add(id);
+                            cmdDeleteAlbumEmprestimo.ExecuteNonQuery();
 
-                        SqlParameter idAlbum = new SqlParameter("@ID_ALBUM", int.Parse(listViewPesquisa.SelectedItems[0].Text));
-                        // Pega o id do album selecionado e o remove
-                        
-                        SqlCommand cmdDeleteAlbum = new SqlCommand("DELETE FROM Album WHERE Id_Album = @ID_ALBUM", conexao);
-                        
+                            // Removendo o album
+                            SqlCommand cmdDeleteAlbum = new SqlCommand("DELETE FROM Album WHERE Id_Album = @ID_ALBUM", conexao);
+                            SqlParameter ID = new SqlParameter("@ID_ALBUM", idALBUM);
+                            cmdDeleteAlbum.Parameters.Add(ID);
+                            cmdDeleteAlbum.ExecuteNonQuery();
+                            // fecha a conexão e atualiza o listView
+                            conexao.Close();
+                            leitor = null;
+                            listViewPesquisa.Items.Clear();
+                            CarregarListview();
+                        }
+                    }
+                    else
+                    {
+                        DialogResult resposta = MessageBox.Show("Deseja realmente remover esse album?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        cmdDeleteAlbum.Parameters.Add(idAlbum);
-                        cmdDeleteAlbum.ExecuteNonQuery();
+                        if (resposta == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            conexao.Close();
+                            conexao.Open();
+                            int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
 
-                        // Fecha a conexão, limpa o ListView, e o atualiza
-                        conexao.Close();
-                        listViewPesquisa.Items.Clear();
-                        CarregarListview();
+                            // Pega o id do album selecionado e o remove 
+                            SqlCommand cmdDeleteAlbum = new SqlCommand("DELETE FROM Album WHERE Id_Album = @ID_ALBUM", conexao);
+                            SqlParameter id_Album = new SqlParameter("@ID_ALBUM", idAlbum);
+                            cmdDeleteAlbum.Parameters.Add(id_Album);
+                            cmdDeleteAlbum.ExecuteNonQuery();
+
+                            // Fecha a conexão, limpa o ListView, e o atualiza
+                            conexao.Close();
+                            listViewPesquisa.Items.Clear();
+                            CarregarListview();
+                        }
                     }
                 }
             }
@@ -380,7 +448,7 @@ namespace acervoMusical
 
         private void alterarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AlterarAlbum();
+            AlterarAlbum(0);
         }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -415,23 +483,42 @@ namespace acervoMusical
 
         private void listViewPesquisa_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            AlterarAlbum();
+            AlterarAlbum(0);
         }
 
-        public void AlterarAlbum()
+        public void AlterarAlbum(int alterar)
         {
-            // Verifica se foi selecionado algum item do ListViewPesquisa
-            // Caso um item foi selecionado, passa para o formulario de Alteração de Mídia o Id do Album
-            if (listViewPesquisa.SelectedItems.Count == 1)
+            // se alterar for 0, altera o todos os dados do album, caso contrario altera somente a nota
+            if (alterar == 0)
             {
-                int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
-                Form5 alterarMidia = new Form5(idAlbum);
+                // Verifica se foi selecionado algum item do ListViewPesquisa
+                // Caso um item foi selecionado, passa para o formulario de Alteração de Mídia o Id do Album
+                if (listViewPesquisa.SelectedItems.Count == 1)
+                {
+                    int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
+                    Form5 alterarMidia = new Form5(idAlbum, 0);
 
-                alterarMidia.ShowDialog();
-                //Após alterar um album, atualiza o ListView principal com a função CarregarListView()
-                CarregarListview();
-                // Volta o botão de Emprestimo/Devolução para a configuração inicial
-                buttonEmprestar.Text = "Emprestar";
+                    alterarMidia.ShowDialog();
+                    //Após alterar um album, atualiza o ListView principal com a função CarregarListView()
+                    CarregarListview();
+                    // Volta o botão de Emprestimo/Devolução para a configuração inicial
+                    buttonEmprestar.Text = "Emprestar";
+                }
+            }
+            else
+            {
+                if (listViewPesquisa.SelectedItems.Count == 1)
+                {
+                    int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
+                    Form5 alterarMidia = new Form5(idAlbum, 1);
+
+                    alterarMidia.ShowDialog();
+                    //Após alterar um album, atualiza o ListView principal com a função CarregarListView()
+                    CarregarListview();
+                    // Volta o botão de Emprestimo/Devolução para a configuração inicial
+                    buttonEmprestar.Text = "Emprestar";
+                    buttonAtribuirNota.Visible = false;
+                }
             }
         }
 
@@ -565,65 +652,100 @@ namespace acervoMusical
         private void checkBoxInterprete_CheckedChanged(object sender, EventArgs e)
         {
             textBoxInterprete.Enabled = checkBoxInterprete.Checked;
+
+            
+            if(!checkBoxInterprete.Checked)
+                textBoxInterprete.Text= "";
         }
 
         private void checkBoxAutor_CheckedChanged(object sender, EventArgs e)
         {
             textBoxAutor.Enabled = checkBoxAutor.Checked;
+            if (!checkBoxAutor.Checked)
+                textBoxAutor.Text = "";
         }
 
         private void checkBoxAlbum_CheckedChanged(object sender, EventArgs e)
         {
             textBoxAlbum.Enabled = checkBoxAlbum.Checked;
+            if (!checkBoxAlbum.Checked)
+                textBoxAlbum.Text = "";
         }
 
         private void checkBoxDataAlbum_CheckedChanged(object sender, EventArgs e)
         {
             dtDataAlbumInicio.Enabled = checkBoxDataAlbum.Checked;
             dtDataAlbumFim.Enabled = checkBoxDataAlbum.Checked;
+
+            if (!checkBoxDataAlbum.Checked)
+            {
+                dtDataAlbumInicio.Value = DateTime.Now;
+                dtDataAlbumFim.Value = DateTime.Now;
+            }
         }
 
         private void checkBoxDataCompra_CheckedChanged(object sender, EventArgs e)
         {
             dtDataCompraInicio.Enabled = checkBoxDataCompra.Checked;
             dtDataCompraFim.Enabled = checkBoxDataCompra.Checked;
+
+            if (!checkBoxDataCompra.Checked)
+            {
+                dtDataCompraInicio.Value = DateTime.Now;
+                dtDataCompraFim.Value = DateTime.Now;
+            }
         }
 
         private void checkBoxOrigemCompra_CheckedChanged(object sender, EventArgs e)
         {
             textBoxOrigemCompra.Enabled = checkBoxOrigemCompra.Checked;
+            if (!checkBoxOrigemCompra.Checked)
+                textBoxOrigemCompra.Text = "";
         }
 
         private void checkBoxMidia_CheckedChanged(object sender, EventArgs e)
         {
             comboBoxMidia.Enabled = checkBoxMidia.Checked;
+            if (!checkBoxMidia.Checked)
+                comboBoxMidia.SelectedIndex = 0;
         }
 
         private void checkBoxStatus_CheckedChanged(object sender, EventArgs e)
         {
             comboBoxStatus.Enabled = checkBoxStatus.Checked;
+            if (!checkBoxStatus.Checked)
+                comboBoxStatus.SelectedIndex = 0;
         }
 
         private void checkBoxNota_CheckedChanged(object sender, EventArgs e)
         {
             comboBoxNota.Enabled = checkBoxNota.Checked;
-        }
-
-        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormPesquisaPessoa formPessoa = new FormPesquisaPessoa();
-            formPessoa.ShowDialog();
-        }
-
-        private void editaToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Form4 a = new Form4();
-            a.Show();
+            if (!checkBoxNota.Checked)
+                comboBoxNota.SelectedIndex = 0;
         }
 
         private void históricoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FormHistorico Historico = new FormHistorico();
+            Historico.ShowDialog();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
         }
+
+        private void buttonAtribuirNota_Click(object sender, EventArgs e)
+        {
+            AlterarAlbum(1);
+        }
+
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSobre sobre = new FormSobre();
+            sobre.ShowDialog();
+        }
+
+ 
     }
 }

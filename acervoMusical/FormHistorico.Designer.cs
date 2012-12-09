@@ -33,6 +33,7 @@
             this.Pessoa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Album = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DataDevolucao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Interprete = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // DataEmprestimo
@@ -44,13 +45,15 @@
             // 
             this.listViewHistorico.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Pessoa,
+            this.Interprete,
             this.Album,
             this.DataEmprestimo,
             this.DataDevolucao});
+            this.listViewHistorico.FullRowSelect = true;
             this.listViewHistorico.GridLines = true;
             this.listViewHistorico.Location = new System.Drawing.Point(13, 12);
             this.listViewHistorico.Name = "listViewHistorico";
-            this.listViewHistorico.Size = new System.Drawing.Size(699, 455);
+            this.listViewHistorico.Size = new System.Drawing.Size(841, 498);
             this.listViewHistorico.TabIndex = 1;
             this.listViewHistorico.UseCompatibleStateImageBehavior = false;
             this.listViewHistorico.View = System.Windows.Forms.View.Details;
@@ -68,16 +71,24 @@
             // DataDevolucao
             // 
             this.DataDevolucao.Text = "Data de devolução";
-            this.DataDevolucao.Width = 105;
+            this.DataDevolucao.Width = 114;
+            // 
+            // Interprete
+            // 
+            this.Interprete.Text = "Interprete";
+            this.Interprete.Width = 134;
             // 
             // FormHistorico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 479);
+            this.ClientSize = new System.Drawing.Size(866, 522);
             this.Controls.Add(this.listViewHistorico);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormHistorico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Historico";
+            this.Load += new System.EventHandler(this.FormHistorico_Load);
             this.ResumeLayout(false);
 
         }
@@ -89,5 +100,6 @@
         private System.Windows.Forms.ColumnHeader Pessoa;
         private System.Windows.Forms.ColumnHeader Album;
         private System.Windows.Forms.ColumnHeader DataDevolucao;
+        private System.Windows.Forms.ColumnHeader Interprete;
     }
 }

@@ -136,6 +136,7 @@
             // 
             // comboBoxCadUFCad
             // 
+            this.comboBoxCadUFCad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCadUFCad.FormattingEnabled = true;
             this.comboBoxCadUFCad.Items.AddRange(new object[] {
             "AC",
@@ -245,7 +246,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(461, 228);
+            this.button1.Location = new System.Drawing.Point(462, 222);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -289,7 +290,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 263);
+            this.ClientSize = new System.Drawing.Size(549, 263);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxEmailCad);
@@ -298,6 +299,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.maskedTextBoxTelefoneCad);
             this.Controls.Add(this.textBoxNomeCad);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de pessoas";

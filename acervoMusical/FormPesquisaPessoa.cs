@@ -20,6 +20,32 @@ namespace acervoMusical
 
         private void FormPesquisaMidia_Load(object sender, EventArgs e)
         {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form4 cadastroPessoa = new Form4();
+            cadastroPessoa.ShowDialog();
+        }
+
+        private void buttonAlterar_Click(object sender, EventArgs e)
+        {
+            if (listViewPesquisaPessoa.SelectedItems.Count == 1)
+            {
+                int idPessoa = int.Parse(listViewPesquisaPessoa.SelectedItems[0].Text);
+                //AlteracaoPessoa alteracaoPessoa = new AlteracaoPessoa(idPessoa);
+                //alteracaoPessoa.ShowDialog();
+            }
+        }
+
+        private void listViewPesquisaPessoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxNome_TextChanged(object sender, EventArgs e)
+        {
             SqlDataReader leitor = null;
             SqlConnection conexao = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=AcervoMusical; Integrated Security=SSPI");
 
@@ -84,28 +110,7 @@ namespace acervoMusical
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form4 cadastroPessoa = new Form4();
-            cadastroPessoa.ShowDialog();
-        }
-
-        private void buttonAlterar_Click(object sender, EventArgs e)
-        {
-            if (listViewPesquisaPessoa.SelectedItems.Count == 1)
-            {
-                int idPessoa = int.Parse(listViewPesquisaPessoa.SelectedItems[0].Text);
-                //AlteracaoPessoa alteracaoPessoa = new AlteracaoPessoa(idPessoa);
-                //alteracaoPessoa.ShowDialog();
-            }
-        }
-
-        private void listViewPesquisaPessoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxNome_TextChanged(object sender, EventArgs e)
+        private void pesquisaPessoa_Click(object sender, EventArgs e)
         {
             SqlDataReader leitor = null;
             SqlConnection conexao = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=AcervoMusical; Integrated Security=SSPI");

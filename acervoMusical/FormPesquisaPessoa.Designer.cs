@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPesquisaPessoa));
             this.listViewPesquisaPessoa = new System.Windows.Forms.ListView();
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,7 +54,7 @@
             this.listViewPesquisaPessoa.FullRowSelect = true;
             this.listViewPesquisaPessoa.GridLines = true;
             this.listViewPesquisaPessoa.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listViewPesquisaPessoa.Location = new System.Drawing.Point(12, 51);
             this.listViewPesquisaPessoa.Name = "listViewPesquisaPessoa";
             this.listViewPesquisaPessoa.Size = new System.Drawing.Size(430, 288);
@@ -129,6 +129,7 @@
             this.pesquisaPessoa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pesquisaPessoa.TabIndex = 17;
             this.pesquisaPessoa.TabStop = false;
+            this.pesquisaPessoa.Click += new System.EventHandler(this.pesquisaPessoa_Click);
             // 
             // button1
             // 
@@ -152,8 +153,9 @@
             this.Controls.Add(this.buttonExcluir);
             this.Controls.Add(this.buttonAlterar);
             this.Controls.Add(this.listViewPesquisaPessoa);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormPesquisaPessoa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pessoa";
             this.Load += new System.EventHandler(this.FormPesquisaMidia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaPessoa)).EndInit();
