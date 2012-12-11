@@ -518,7 +518,7 @@ namespace acervoMusical
 
 
 
-        // trecho para efetuar a pesquisa por filtros
+        // trecho para efetuar a pesquisa
         private void Pesquisa(object sender, EventArgs e)
         {
 

@@ -24,17 +24,17 @@ namespace acervoMusical
         {
             try
             {
-                // Verifica se a conexão está aberta, caso esteja fecha-a
+                // Verifica se a conexão está aberta e fecha se necessário
                 if (conexao.State == ConnectionState.Open)
                     conexao.Close();
 
 
                 conexao.Open();
-                // Executa o comado de listagem dos historicos da movimentação (emprestimos)
+                // Executa o comando de listagem dos históricos da movimentação empréstimos
                 SqlCommand cmdSelecao = new SqlCommand("SELECT Pessoa.Nome,Album.Interprete ,Album.Album, Emprestimo.DataEmprestimo, Emprestimo.DataDevolucao FROM Emprestimo INNER JOIN Pessoa ON Emprestimo.Id_Pessoa = Pessoa.Id_Pessoa INNER JOIN Album ON Emprestimo.Id_Album = Album.Id_Album", conexao);
                 leitor = cmdSelecao.ExecuteReader();
 
-                // Carrega os resltados no listview
+                // Carrega os resultados no listview
                 while (leitor.Read())
                 {
                     ListViewItem Pessoa = new ListViewItem();
@@ -53,12 +53,12 @@ namespace acervoMusical
 
                     string dataEmprestimo = leitor["DataEmprestimo"].ToString();
                     
-                    // a variavel daraEmpretimo vem com o formato do banco de dados
-                    // que é: mês-dia-ano
-                    // separando a data para dia-mês-ano
-                    string mes = dataEmprestimo.Remove(2); // pega só o mês, removendo apartir do 2º caracter
-                    string dia = dataEmprestimo.Substring(3, 2); // pega o dia, que está apartir do 3º caracter, pegando 2 digitos 
-                    string ano = dataEmprestimo.Substring(6, 4); // pega o ano, que está apartir do 6º caracter, pegando 4 digitos
+                    // a variavel dataEmprestimo vem com o formato do banco de dados (mês-dia-ano). 
+                    // Aproveita-se somente do trecho que interessa (mês --- dia --- ano)
+                    
+                    string mes = dataEmprestimo.Remove(2);
+                    string dia = dataEmprestimo.Substring(3, 2); 
+                    string ano = dataEmprestimo.Substring(6, 4); 
 
                     DataEmprestimo.Text = dia+"/"+mes+"/"+ano;
 
@@ -93,7 +93,7 @@ namespace acervoMusical
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Salva os aquivos gerados por relatorio 
+            //Salva os arquivos gerados para relatorio 
             SaveFileDialog SFD = new SaveFileDialog();
 
             //Extensões possíveis de salvar o relatório
@@ -104,14 +104,13 @@ namespace acervoMusical
             {
                 FileStream fs = new FileStream(SFD.FileName, FileMode.Create);
                 StreamWriter writer = new StreamWriter(fs);
-                writer.WriteLine("     Historico");
+                writer.WriteLine("\tHistorico");
                 writer.WriteLine();
                 int i = 0;
                 while (i < listViewHistorico.Items.Count)
                 {
                     //salva os dados que estão no listview
                     writer.Write(listViewHistorico.Items[i].Text + " - ");
-                    // writer.Write(listViewHistorico.Items[i].SubItems[0].Text + "-");
                     writer.Write(listViewHistorico.Items[i].SubItems[1].Text + " - ");
                     writer.Write(listViewHistorico.Items[i].SubItems[2].Text + " - ");
                     writer.Write(listViewHistorico.Items[i].SubItems[3].Text);
