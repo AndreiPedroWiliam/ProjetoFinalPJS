@@ -3,7 +3,6 @@ USE master;
 CREATE DATABASE AcervoMusical;
 GO
 
-
 USE AcervoMusical;
 GO
 
@@ -47,7 +46,6 @@ FOREIGN KEY(Id_Album) REFERENCES Album (Id_Album)
 SET DATEFORMAT dmy
 
 
-
 -- INSERT ALBUM --
 
 INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
@@ -86,6 +84,8 @@ INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, Tip
 
 INSERT INTO Album (Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status) VALUES
 ('Guns N Roses', 'Guns N Roses', 'Nevermind', '16-09-1991', '22-09-1994', 'Bolacha Discos', 'Vinil', '10', '','Disponível');
+
+
 -- INSERT PESSOAS --
 
 INSERT INTO Pessoa (Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF) VALUES 
@@ -112,7 +112,6 @@ INSERT INTO Pessoa(Nome, Telefone, Email, Logradouro, Numero, Bairro, Cidade, UF
 ('Fernado J. S. Melllo','(12)3668-9090', 'fernandojmellllo@live.com','Rua da fortuna','39','jaguaribe','Campos do Jordão','SP');
 
 
-
 -- EMPRESTANDO UM ALBUM --
 
 set dateformat dmy
@@ -124,15 +123,18 @@ INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALU
 
 UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = 3; 
 
+
 -- DEVOLVENDO UM ALBUM --
 
 UPDATE Emprestimo SET DataDevolucao = '22-11-2012' WHERE Id_Emprestimo = 1;
 
 UPDATE Album SET Status = 'Disponível' WHERE Id_Album = 1; 
  
+
 -- SELECT TELA INICIAL --
 
 SELECT Id_Album, Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album;
+
 
 -- SELECT COUNT  TIPO DE MIDIAS, STATUS ALBUM, PESSOAS --
 
@@ -157,8 +159,6 @@ FROM Emprestimo INNER JOIN Pessoa ON
 	Emprestimo.Id_Pessoa = Pessoa.Id_Pessoa
 INNER JOIN Album ON
 	Emprestimo.Id_Album = Album.Id_Album
-
-
 
 
 SELECT *FROM Album;
