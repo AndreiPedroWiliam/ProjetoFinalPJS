@@ -173,7 +173,7 @@ namespace acervoMusical
         }
         private void textBoxNome_TextChanged(object sender, EventArgs e)
         {
-            //atualiza
+            //atualiza//
             mostaRegistros();
         }
         private void pesquisaPessoa_Click(object sender, EventArgs e)
