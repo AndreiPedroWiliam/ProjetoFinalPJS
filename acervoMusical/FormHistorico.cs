@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace acervoMusical
 {
@@ -87,6 +88,39 @@ namespace acervoMusical
             finally
             {
                 conexao.Close();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Salva os aquivos gerados por relatorio 
+            SaveFileDialog SFD = new SaveFileDialog();
+
+            //Extensões possíveis de salvar o relatório
+            SFD.Filter = "Texto|*.txt|Word|*.doc|planilha|*.ods|html|*.html|PDF|*.pdf|Todos os Arquivos|*.*";
+            SFD.FilterIndex = 2;
+            SFD.FileName = "Historico1";
+            if (SFD.ShowDialog() == DialogResult.OK)
+            {
+                FileStream fs = new FileStream(SFD.FileName, FileMode.Create);
+                StreamWriter writer = new StreamWriter(fs);
+                writer.WriteLine("     Historico");
+                writer.WriteLine();
+                int i = 0;
+                while (i < listViewHistorico.Items.Count)
+                {
+                    //salva os dados que estão no listview
+                    writer.Write(listViewHistorico.Items[i].Text + " - ");
+                    // writer.Write(listViewHistorico.Items[i].SubItems[0].Text + "-");
+                    writer.Write(listViewHistorico.Items[i].SubItems[1].Text + " - ");
+                    writer.Write(listViewHistorico.Items[i].SubItems[2].Text + " - ");
+                    writer.Write(listViewHistorico.Items[i].SubItems[3].Text);
+                    writer.WriteLine();
+                    writer.WriteLine();
+                    i++;
+                }
+                writer.Close();
+                SFD.Dispose();
             }
         }
     }

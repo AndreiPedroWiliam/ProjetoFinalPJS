@@ -37,10 +37,9 @@ namespace acervoMusical
         {
             try
             {
-                // Verifica se a conexão está aberta
+                // Verifica se a conexão está aberta. Fecha a conexão, limpa o leitor e limpa a lista, para o novo carregamento 
                 if (conexao.State == ConnectionState.Open)
                 {
-                    // Fecha a conexão, limpa o leitor e limpa a lista, para o novo carregamento 
                     conexao.Close();
                     leitor = null;
                     listViewPesquisa.Items.Clear();
@@ -60,10 +59,10 @@ namespace acervoMusical
 
                 FechaLeitor(); // Metodo que Fecha o leitor
 
-                // Comando que retorna a quantidade de Pessoas
+                // Comando que retorna a quantidade de Pessoas e passa para o label esta informação
                 SqlCommand cmdCountPessoa = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Pessoa;", conexao);
                 leitor = cmdCountPessoa.ExecuteReader();
-                // Passa para o label a quantidade de Pessoas
+                
                 if (leitor.Read())
                     qtdePessoa.Text = leitor["QTD"].ToString();
             }
@@ -137,7 +136,7 @@ namespace acervoMusical
                 listViewPesquisa.Items.Add(idAlbum);
 
 
-                // Verifica se o filme está ou não disponível
+                // Verifica se a mídia está ou não disponível
                 if (Status.Text == "Emprestado")
                     listViewPesquisa.Items[i].ForeColor = Color.Gray;
                 i++;
@@ -154,50 +153,50 @@ namespace acervoMusical
         public void CountTipoDeMidias()
         {
             FechaLeitor();
-            // Comando que retorna a quantidade de mídias
+            // Comandos que retornam a quantidade conforme a mídia, passando esta informação para os respectivos labels
             SqlCommand cmdCountMidias = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album;", conexao);
             leitor = cmdCountMidias.ExecuteReader();
-            // Passa para o label a quantidade de mídias
+            
             if (leitor.Read())
                 qtdeMidia.Text = leitor["QTD"].ToString();
 
             FechaLeitor();
-            // Comando que retorna a quantidade de Albuns do tipo Digital
+            
             SqlCommand cmdCountDigital = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'Digital';", conexao);
             leitor = cmdCountDigital.ExecuteReader();
-            // Passa para o label a quantidade de Albuns do tipo Digital
+            
             if (leitor.Read())
                 qtdeDigital.Text = leitor["QTD"].ToString();
 
             FechaLeitor();
-            // Comando que retorna a quantidade de Albuns do tipo DVD
+            
             SqlCommand cmdCountDVD = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'DVD';", conexao);
             leitor = cmdCountDVD.ExecuteReader();
-            // Passa para o label a quantidade de Albuns do tipo DVD
+            
             if (leitor.Read())
                 qtdeDVD.Text = leitor["QTD"].ToString();
 
             FechaLeitor();
-            // Comando que retorna a quantidade de Albuns do tipo CD
+            
             SqlCommand cmdCountCD = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'CD';", conexao);
             leitor = cmdCountCD.ExecuteReader();
-            // Passa para o label a quantidade de Albuns do tipo CD
+            
             if (leitor.Read())
                 qtdeCD.Text = leitor["QTD"].ToString();
 
             FechaLeitor();
-            // Comando que retorna a quantidade de Albuns do tipo K7
+            
             SqlCommand cmdCountK7 = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'K7';", conexao);
             leitor = cmdCountK7.ExecuteReader();
-            // Passa para o label a quantidade de Albuns do tipo K7
+            
             if (leitor.Read())
                 qtdeK7.Text = leitor["QTD"].ToString();
 
             FechaLeitor();
-            // Comando que retorna a quantidade de Albuns do tipo Vinil
+            
             SqlCommand cmdCountVinil = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'Vinil';", conexao);
             leitor = cmdCountVinil.ExecuteReader();
-            // Passa para o label a quantidade de Albuns do tipo Vinil
+            
             if (leitor.Read())
                 qtdeVinil.Text = leitor["QTD"].ToString();
         }
@@ -208,7 +207,7 @@ namespace acervoMusical
             // Comando que retorna a quantidade de Albuns Emprestados
             SqlCommand cmdCountAlbumEmprestado = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Emprestado';", conexao);
             leitor = cmdCountAlbumEmprestado.ExecuteReader();
-            // Passa para o label a quantidade de Albuns do tipo Vinil
+            
             if (leitor.Read())
                 qtdeEmprestado.Text = leitor["QTD"].ToString();
 
@@ -216,7 +215,7 @@ namespace acervoMusical
             // Comando que retorna a quantidade de Albuns Disponíveis
             SqlCommand cmdCountAlbumDisponivel = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album WHERE Status = 'Disponível' AND TipoMidia!= 'Digital';", conexao);
             leitor = cmdCountAlbumDisponivel.ExecuteReader();
-            // Passa para o label a quantidade de Albuns do tipo Vinil
+            
             if (leitor.Read())
                 qtdeDisponivel.Text = leitor["QTD"].ToString();
         }
@@ -246,8 +245,8 @@ namespace acervoMusical
 
         private void listViewPesquisa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Verifica se algum item foi selecionado
-            // de acordo com o status do filme, muda o botão para 'emprestar' ou 'devolver'
+            // Verifica se algum item foi selecionado, conforme status, muda o botão para 'emprestar' ou 'devolver'
+
             if (listViewPesquisa.SelectedItems.Count == 1)
             {
                 
@@ -289,9 +288,8 @@ namespace acervoMusical
             // Verifica se algum item foi selecionado
             if (listViewPesquisa.SelectedItems.Count == 1)
             {
-                // Verifica se o item é para devolver ou emprestar
-                // Se for para devolver, chama o form de devolução 
-                // senão chama o form de emprestimo
+                // Verifica se o item é para devolver ou emprestar. Se for para devolver, chama o form de devolução. Senão, chama o form para empréstimo
+
                 if (buttonEmprestar.Text == "Devolver")
                 {
                     string idMidia = listViewPesquisa.SelectedItems[0].Text;
@@ -370,16 +368,14 @@ namespace acervoMusical
             // Verifica se algum item foi selecionado
             if (listViewPesquisa.SelectedItems.Count == 1)
             {
-                // Verifica se a conexão está aberta, caso esteja fecha-a
+                // Verifica se a conexão está aberta, se necessário será fechada
                 if (conexao.State == ConnectionState.Open)
                     conexao.Close();
 
                 conexao.Open();
 
-                // Verifica se o item está emprestado
-                // Se tiver mostra um aviso, no label
-                // Caso o album não estiver emprestado, perguanta ao usuário se deseja realmente remover o album,
-                // Se a resposta for sim, remove o item selecionado
+                // Verifica se o item está emprestado. Será apresentada mensagem personalizada para finalização de exclusão do item selecionado
+                
                 if (buttonEmprestar.Text == "Devolver")
                     labelErroRemover.Visible = true;
                 else
@@ -395,11 +391,11 @@ namespace acervoMusical
                     // Verifica se o comando resultou em algum valor
                     if (leitor.Read())
                     {
-                        DialogResult resposta = MessageBox.Show("Esse album está no histórico, deseja realmente remove-lo?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        // Caso o album estiver no histórico mostra a mensagem perguntado se deseja realmente excluir
+                        DialogResult resposta = MessageBox.Show("Ao excluir este album seu histório também será removido.\nDeseja continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        // Se o album estiver no histórico mostra uma mensagem
                         if (resposta == System.Windows.Forms.DialogResult.Yes)
                         {
-                            // Se a resposta for sim, remove o album do histórico e depois remove o album
+                            // Remove o album do histórico e depois remove o album
                             conexao.Close();
                             conexao.Open();
                             // Removendo o album do histórico
@@ -422,7 +418,7 @@ namespace acervoMusical
                     }
                     else
                     {
-                        DialogResult resposta = MessageBox.Show("Deseja realmente remover esse album?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult resposta = MessageBox.Show("Deseja realmente remover este album?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (resposta == System.Windows.Forms.DialogResult.Yes)
                         {
@@ -430,13 +426,13 @@ namespace acervoMusical
                             conexao.Open();
                             int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
 
-                            // Pega o id do album selecionado e o remove 
+                            // Pega o id do album selecionado e remove 
                             SqlCommand cmdDeleteAlbum = new SqlCommand("DELETE FROM Album WHERE Id_Album = @ID_ALBUM", conexao);
                             SqlParameter id_Album = new SqlParameter("@ID_ALBUM", idAlbum);
                             cmdDeleteAlbum.Parameters.Add(id_Album);
                             cmdDeleteAlbum.ExecuteNonQuery();
 
-                            // Fecha a conexão, limpa o ListView, e o atualiza
+                            // Fecha a conexão, limpa o ListView e atualiza
                             conexao.Close();
                             listViewPesquisa.Items.Clear();
                             CarregarListview();
@@ -463,13 +459,11 @@ namespace acervoMusical
 
         private void linkLabelRemoverFiltro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Limpa os último resultado da pesquisa
-            // Carrega novamente o listview com todos os albuns
+            // Limpa o último resultado da pesquisa. Carrega novamente o listview com todos os albuns
             listViewPesquisa.Items.Clear();
             CarregarListview();
 
-            // Percorre os componentes do GroupBoxPesquisa
-            // Verificando o tipo de cada um e assim limpando
+            // Percorre os componentes do GroupBoxPesquisa, verificando o tipo de cada um e limpa
             foreach (Object campo in groupBoxPesquisa.Controls)
             {
                 if (campo is CheckBox)
@@ -488,11 +482,10 @@ namespace acervoMusical
 
         public void AlterarAlbum(int alterar)
         {
-            // se alterar for 0, altera o todos os dados do album, caso contrario altera somente a nota
+            // Se alterar for 0, altera o todos os dados do album, caso contrario altera somente a nota
             if (alterar == 0)
             {
-                // Verifica se foi selecionado algum item do ListViewPesquisa
-                // Caso um item foi selecionado, passa para o formulario de Alteração de Mídia o Id do Album
+                // Verifica se foi selecionado algum item do ListViewPesquisa. Caso um item seja selecionado, passa para o formulario de Alteração de Mídia, o Id do Album
                 if (listViewPesquisa.SelectedItems.Count == 1)
                 {
                     int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
@@ -525,7 +518,7 @@ namespace acervoMusical
 
 
 
-        // Pesquisa
+        // trecho para efetuar a pesquisa por filtros
         private void Pesquisa(object sender, EventArgs e)
         {
 
