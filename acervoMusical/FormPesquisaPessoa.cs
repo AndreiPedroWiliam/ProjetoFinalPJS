@@ -44,12 +44,10 @@ namespace acervoMusical
 
         }
 
-        private void textBoxNome_TextChanged(object sender, EventArgs e)
-        {
-            mostaRegistros();
-        }
+        //funcao de mostar os registros do banco
         public void mostaRegistros()
         {
+            //
             SqlDataReader leitor = null;
             SqlConnection conexao = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=AcervoMusical; Integrated Security=SSPI");
 
@@ -112,21 +110,28 @@ namespace acervoMusical
                     leitor.Close();
             }
         }
+        private void textBoxNome_TextChanged(object sender, EventArgs e)
+        {
+            //atualiza
+            mostaRegistros();
+        }
         private void pesquisaPessoa_Click(object sender, EventArgs e)
         {
+            //atualiza
             mostaRegistros();
         }
 
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
+
             SqlConnection conexao = new SqlConnection("Data Source=.\\SQLEXPRESS; Initial Catalog=AcervoMusical; Integrated Security=SSPI");
             conexao.Open();
-
+            //deleta da tabela emprestimo e da tabela amigos
             SqlCommand cmdDeletePessoa1 = new SqlCommand("DELETE FROM Pessoa WHERE Id_Pessoa = '" + listViewPesquisaPessoa.SelectedItems[0].Text + "'", conexao);
             SqlCommand cmdDeletePessoa2 = new SqlCommand("DELETE FROM Emprestimo WHERE Id_Pessoa = '" + listViewPesquisaPessoa.SelectedItems[0].Text + "'", conexao);
             cmdDeletePessoa2.ExecuteNonQuery();
             cmdDeletePessoa1.ExecuteNonQuery();
-            
+            //atualiza
             mostaRegistros();
             conexao.Close();
         }
