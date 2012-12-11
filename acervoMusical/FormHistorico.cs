@@ -104,7 +104,7 @@ namespace acervoMusical
             {
                 FileStream fs = new FileStream(SFD.FileName, FileMode.Create);
                 StreamWriter writer = new StreamWriter(fs);
-                writer.WriteLine("     Historico");
+                writer.WriteLine("\tHistorico\n\n");
                 writer.WriteLine();
                 int i = 0;
                 while (i < listViewHistorico.Items.Count)

@@ -131,7 +131,7 @@ namespace acervoMusical
             SqlCommand cmdDeletePessoa2 = new SqlCommand("DELETE FROM Emprestimo WHERE Id_Pessoa = '" + listViewPesquisaPessoa.SelectedItems[0].Text + "'", conexao);
             cmdDeletePessoa2.ExecuteNonQuery();
             cmdDeletePessoa1.ExecuteNonQuery();
-            //atualiza
+
             mostaRegistros();
             conexao.Close();
         }
