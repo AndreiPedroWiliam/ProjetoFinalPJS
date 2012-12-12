@@ -40,7 +40,7 @@
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pesquisaPessoa = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAdicionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaPessoa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +61,6 @@
             this.listViewPesquisaPessoa.TabIndex = 0;
             this.listViewPesquisaPessoa.UseCompatibleStateImageBehavior = false;
             this.listViewPesquisaPessoa.View = System.Windows.Forms.View.Details;
-            this.listViewPesquisaPessoa.SelectedIndexChanged += new System.EventHandler(this.listViewPesquisaPessoa_SelectedIndexChanged);
             // 
             // Id
             // 
@@ -132,15 +131,15 @@
             this.pesquisaPessoa.TabStop = false;
             this.pesquisaPessoa.Click += new System.EventHandler(this.pesquisaPessoa_Click);
             // 
-            // button1
+            // buttonAdicionar
             // 
-            this.button1.Location = new System.Drawing.Point(12, 345);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Adicionar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAdicionar.Location = new System.Drawing.Point(12, 345);
+            this.buttonAdicionar.Name = "buttonAdicionar";
+            this.buttonAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdicionar.TabIndex = 1;
+            this.buttonAdicionar.Text = "Adicionar";
+            this.buttonAdicionar.UseVisualStyleBackColor = true;
+            this.buttonAdicionar.Click += new System.EventHandler(this.buttonAdicionar_Click);
             // 
             // FormPesquisaPessoa
             // 
@@ -150,7 +149,7 @@
             this.Controls.Add(this.pesquisaPessoa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxNome);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonAdicionar);
             this.Controls.Add(this.buttonExcluir);
             this.Controls.Add(this.buttonAlterar);
             this.Controls.Add(this.listViewPesquisaPessoa);
@@ -158,6 +157,7 @@
             this.Name = "FormPesquisaPessoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pessoa";
+            this.Activated += new System.EventHandler(this.FormPesquisaPessoa_Activated);
             this.Load += new System.EventHandler(this.FormPesquisaMidia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaPessoa)).EndInit();
             this.ResumeLayout(false);
@@ -176,7 +176,7 @@
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pesquisaPessoa;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAdicionar;
         private System.Windows.Forms.ColumnHeader Id;
 
 
