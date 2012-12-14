@@ -226,6 +226,7 @@ namespace acervoMusical
         {
             FormCadPessoa cadPessoa = new FormCadPessoa();
             cadPessoa.Show();
+            CarregarListview();
         }
 
         private void buttonEmprestar_Click(object sender, EventArgs e)
@@ -235,6 +236,7 @@ namespace acervoMusical
                 int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
                 FormEmprestimo Emprestar = new FormEmprestimo(idAlbum);
                 Emprestar.ShowDialog();
+                CarregarListview();
 
             }
         }
@@ -243,6 +245,7 @@ namespace acervoMusical
         {
             FormCadPessoa cadastroPessoa = new FormCadPessoa();
             cadastroPessoa.ShowDialog();
+            CarregarListview();
         }
 
         private void listViewPesquisa_SelectedIndexChanged(object sender, EventArgs e)
@@ -283,6 +286,7 @@ namespace acervoMusical
         {
             FormPesquisaPessoa Pessoa = new FormPesquisaPessoa();
             Pessoa.ShowDialog();
+            CarregarListview();
         }
 
         private void buttonEmprestar_Click_1(object sender, EventArgs e)
@@ -547,6 +551,16 @@ namespace acervoMusical
                 string DataInicio = dtDataAlbumInicio.Value.ToString().Remove(10);
                 string DataFim = dtDataAlbumFim.Value.ToString().Remove(10);
 
+                string dia = DataInicio.Remove(2);
+                string mes = DataInicio.Substring(3, 2);
+                string ano = DataInicio.Substring(6, 4);
+                DataInicio = ano + "/" + mes + "/" + dia;
+
+                dia = DataFim.Remove(2);
+                mes = DataFim.Substring(3, 2);
+                ano = DataFim.Substring(6, 4);
+                DataFim = ano + "/" + mes + "/" + dia;
+  
                 if (i > 0)
                     pesquisa += " AND Data >= '" + DataInicio + "' AND Data <= '" + DataFim + "'";
                 else
@@ -557,6 +571,16 @@ namespace acervoMusical
             {
                 string DataInicio = dtDataCompraInicio.Value.ToString().Remove(10);
                 string DataFim = dtDataCompraFim.Value.ToString().Remove(10);
+
+                string dia = DataInicio.Remove(2);
+                string mes = DataInicio.Substring(3, 2);
+                string ano = DataInicio.Substring(6, 4);
+                DataInicio = ano + "/" + mes + "/" + dia;
+
+                dia = DataFim.Remove(2);
+                mes = DataFim.Substring(3, 2);
+                ano = DataFim.Substring(6, 4);
+                DataFim = ano + "/" + mes + "/" + dia;
 
                 if (i > 0)
                     pesquisa += " AND DataCompra >= '" + DataInicio + "' AND DataCompra <= '" + DataFim + "'";
@@ -603,18 +627,20 @@ namespace acervoMusical
                     conexao.Close();
 
                 conexao.Open();
+                leitor = null;
 
                 try
                 {
                     // Realiza a pesquisa seja com combinações ou não
-                    SqlCommand cmdPesquisa = new SqlCommand("SELECT Id_Album, Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album WHERE " + pesquisa + " ;", conexao);
+                    SqlCommand cmdPesquisa = new SqlCommand("SELECT Id_Album, Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoMidia, Nota, Observacao, Status FROM Album WHERE "+ pesquisa +";", conexao);
                     leitor = cmdPesquisa.ExecuteReader();
+
 
                     //Limpa o ListView para o novo resultado
                     listViewPesquisa.Items.Clear();
                     // Chama a função para carregar o resultado da pesquisa no ListView
-                    PreencheListView();
-                }
+                    PreencheListView(); 
+                  }
                 finally
                 {
                     i = 0;
@@ -746,15 +772,15 @@ namespace acervoMusical
             }
         }
 
-        private void Principal_Activated(object sender, EventArgs e)
-        {
-            comboBoxStatus.SelectedIndex = 0;
-            comboBoxMidia.SelectedIndex = 0;
-            comboBoxNota.SelectedIndex = 0;
-            CountTipoDeMidias();
-            CountStatus();
-            CarregarListview();
-        }
+        //private void Principal_Activated(object sender, EventArgs e)
+        //{
+        //    comboBoxStatus.SelectedIndex = 0;
+        //    comboBoxMidia.SelectedIndex = 0;
+        //    comboBoxNota.SelectedIndex = 0;
+        //    CountTipoDeMidias();
+        //    CountStatus();
+        //    //CarregarListview();
+        //}
 
     }
 }

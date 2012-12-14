@@ -79,7 +79,7 @@
             this.textBoxObservacaoEdit.Multiline = true;
             this.textBoxObservacaoEdit.Name = "textBoxObservacaoEdit";
             this.textBoxObservacaoEdit.Size = new System.Drawing.Size(542, 74);
-            this.textBoxObservacaoEdit.TabIndex = 67;
+            this.textBoxObservacaoEdit.TabIndex = 8;
             // 
             // label21
             // 
@@ -159,7 +159,7 @@
             this.dateTimePickerCompraEdit.Location = new System.Drawing.Point(309, 121);
             this.dateTimePickerCompraEdit.Name = "dateTimePickerCompraEdit";
             this.dateTimePickerCompraEdit.Size = new System.Drawing.Size(112, 20);
-            this.dateTimePickerCompraEdit.TabIndex = 58;
+            this.dateTimePickerCompraEdit.TabIndex = 6;
             // 
             // comboBoxNotaEdit
             // 
@@ -179,7 +179,7 @@
             this.comboBoxNotaEdit.Location = new System.Drawing.Point(448, 120);
             this.comboBoxNotaEdit.Name = "comboBoxNotaEdit";
             this.comboBoxNotaEdit.Size = new System.Drawing.Size(63, 21);
-            this.comboBoxNotaEdit.TabIndex = 56;
+            this.comboBoxNotaEdit.TabIndex = 7;
             this.comboBoxNotaEdit.Tag = "nota";
             // 
             // dateTimePickerAlbumEdit
@@ -188,7 +188,7 @@
             this.dateTimePickerAlbumEdit.Location = new System.Drawing.Point(448, 74);
             this.dateTimePickerAlbumEdit.Name = "dateTimePickerAlbumEdit";
             this.dateTimePickerAlbumEdit.Size = new System.Drawing.Size(112, 20);
-            this.dateTimePickerAlbumEdit.TabIndex = 57;
+            this.dateTimePickerAlbumEdit.TabIndex = 4;
             // 
             // comboBoxMidiaEdit
             // 
@@ -203,42 +203,42 @@
             this.comboBoxMidiaEdit.Location = new System.Drawing.Point(309, 74);
             this.comboBoxMidiaEdit.Name = "comboBoxMidiaEdit";
             this.comboBoxMidiaEdit.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxMidiaEdit.TabIndex = 55;
+            this.comboBoxMidiaEdit.TabIndex = 3;
             // 
             // textBoxCompraEdit
             // 
             this.textBoxCompraEdit.Location = new System.Drawing.Point(18, 121);
             this.textBoxCompraEdit.Name = "textBoxCompraEdit";
             this.textBoxCompraEdit.Size = new System.Drawing.Size(251, 20);
-            this.textBoxCompraEdit.TabIndex = 54;
+            this.textBoxCompraEdit.TabIndex = 5;
             // 
             // textBoxAlbumEdit
             // 
             this.textBoxAlbumEdit.Location = new System.Drawing.Point(18, 75);
             this.textBoxAlbumEdit.Name = "textBoxAlbumEdit";
             this.textBoxAlbumEdit.Size = new System.Drawing.Size(251, 20);
-            this.textBoxAlbumEdit.TabIndex = 53;
+            this.textBoxAlbumEdit.TabIndex = 2;
             // 
             // textBoxAutorEdit
             // 
             this.textBoxAutorEdit.Location = new System.Drawing.Point(309, 28);
             this.textBoxAutorEdit.Name = "textBoxAutorEdit";
             this.textBoxAutorEdit.Size = new System.Drawing.Size(251, 20);
-            this.textBoxAutorEdit.TabIndex = 52;
+            this.textBoxAutorEdit.TabIndex = 1;
             // 
             // textBoxInterpreteEdit
             // 
             this.textBoxInterpreteEdit.Location = new System.Drawing.Point(18, 28);
             this.textBoxInterpreteEdit.Name = "textBoxInterpreteEdit";
             this.textBoxInterpreteEdit.Size = new System.Drawing.Size(251, 20);
-            this.textBoxInterpreteEdit.TabIndex = 51;
+            this.textBoxInterpreteEdit.TabIndex = 0;
             // 
             // buttonSalvar
             // 
             this.buttonSalvar.Location = new System.Drawing.Point(485, 248);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
-            this.buttonSalvar.TabIndex = 71;
+            this.buttonSalvar.TabIndex = 9;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
@@ -297,6 +297,7 @@
             this.Controls.Add(this.textBoxAutorEdit);
             this.Controls.Add(this.textBoxInterpreteEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "FormEditaMidia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Mídia";

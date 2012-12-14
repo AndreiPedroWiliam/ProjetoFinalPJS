@@ -139,48 +139,48 @@
             this.excluirToolStripMenuItem});
             this.mídiaToolStripMenuItem.Name = "mídiaToolStripMenuItem";
             this.mídiaToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.mídiaToolStripMenuItem.Text = "Mídia";
+            this.mídiaToolStripMenuItem.Text = "&Mídia";
             // 
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.adicionarToolStripMenuItem.Text = "Adicionar";
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.adicionarToolStripMenuItem.Text = "&Adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.adicionarToolStripMenuItem_Click);
             // 
             // alterarToolStripMenuItem
             // 
             this.alterarToolStripMenuItem.Name = "alterarToolStripMenuItem";
-            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.alterarToolStripMenuItem.Text = "Alterar";
+            this.alterarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alterarToolStripMenuItem.Text = "A&lterar";
             this.alterarToolStripMenuItem.Click += new System.EventHandler(this.alterarToolStripMenuItem_Click);
             // 
             // excluirToolStripMenuItem
             // 
             this.excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
-            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.excluirToolStripMenuItem.Text = "Excluir";
+            this.excluirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.excluirToolStripMenuItem.Text = "E&xcluir";
             this.excluirToolStripMenuItem.Click += new System.EventHandler(this.excluirToolStripMenuItem_Click);
             // 
             // editaToolStripMenuItem
             // 
             this.editaToolStripMenuItem.Name = "editaToolStripMenuItem";
             this.editaToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.editaToolStripMenuItem.Text = "Pessoa";
+            this.editaToolStripMenuItem.Text = "&Pessoa";
             this.editaToolStripMenuItem.Click += new System.EventHandler(this.editaToolStripMenuItem_Click);
             // 
             // históricoToolStripMenuItem
             // 
             this.históricoToolStripMenuItem.Name = "históricoToolStripMenuItem";
             this.históricoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.históricoToolStripMenuItem.Text = "Histórico";
+            this.históricoToolStripMenuItem.Text = "&Histórico";
             this.históricoToolStripMenuItem.Click += new System.EventHandler(this.históricoToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.sobreToolStripMenuItem.Text = "Sobre";
+            this.sobreToolStripMenuItem.Text = "&Sobre";
             this.sobreToolStripMenuItem.Click += new System.EventHandler(this.sobreToolStripMenuItem_Click);
             // 
             // listViewPesquisa
@@ -550,7 +550,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 23);
             this.button1.TabIndex = 80;
-            this.button1.Text = "Remover Filtros";
+            this.button1.Text = "Remover filtros";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -879,7 +879,6 @@
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minha Coleção";
-            this.Activated += new System.EventHandler(this.Principal_Activated);
             this.Load += new System.EventHandler(this.Principal_Load);
             this.Enter += new System.EventHandler(this.Principal_Enter);
             this.menuStrip1.ResumeLayout(false);

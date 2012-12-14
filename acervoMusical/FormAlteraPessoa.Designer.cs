@@ -286,7 +286,7 @@
             // 
             this.errorProvider8.ContainerControl = this;
             // 
-            // AlteraPessoa
+            // FormAlteraPessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,7 +300,9 @@
             this.Controls.Add(this.maskedTextBoxTelefoneAlt);
             this.Controls.Add(this.textBoxNomeAlt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "AlteraPessoa";
+            this.MaximizeBox = false;
+            this.Name = "FormAlteraPessoa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alterar Pessoa";
             this.Load += new System.EventHandler(this.FormAlteraPessoa_Load);
             this.groupBox1.ResumeLayout(false);

@@ -139,6 +139,7 @@
             // 
             this.comboBoxMidia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMidia.Items.AddRange(new object[] {
+            "Selecione...\t",
             "Digital",
             "DVD",
             "CD",
@@ -260,9 +261,11 @@
             this.Controls.Add(this.textBoxAutor);
             this.Controls.Add(this.textBoxInterprete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "FormCadMidia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de mídias";
+            this.Load += new System.EventHandler(this.FormCadMidia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();

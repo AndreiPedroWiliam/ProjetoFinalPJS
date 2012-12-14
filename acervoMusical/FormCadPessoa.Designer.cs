@@ -301,6 +301,7 @@
             this.Controls.Add(this.maskedTextBoxTelefoneCad);
             this.Controls.Add(this.textBoxNomeCad);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "FormCadPessoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de pessoas";

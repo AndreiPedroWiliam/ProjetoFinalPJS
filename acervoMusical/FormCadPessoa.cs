@@ -19,11 +19,13 @@ namespace acervoMusical
         private void Form4_Load(object sender, EventArgs e)
         {
             maskedTextBoxTelefoneCad.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            comboBoxCadUFCad.SelectedIndex = 0;
         }
 
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
             bool []verifica = new bool[8];
+
             if (textBoxNomeCad.Text.Trim() == "")
             {
                 errorProvider1.SetError(label1, "Nome Inválido");

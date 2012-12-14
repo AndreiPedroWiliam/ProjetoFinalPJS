@@ -202,9 +202,9 @@
             this.labelMensagem.AutoSize = true;
             this.labelMensagem.Location = new System.Drawing.Point(12, 254);
             this.labelMensagem.Name = "labelMensagem";
-            this.labelMensagem.Size = new System.Drawing.Size(159, 13);
+            this.labelMensagem.Size = new System.Drawing.Size(171, 13);
             this.labelMensagem.TabIndex = 17;
-            this.labelMensagem.Text = "Selecione um amigo e um álbum";
+            this.labelMensagem.Text = "Selecione uma pessoa e um álbum";
             // 
             // FormEmprestimo
             // 
@@ -225,6 +225,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "FormEmprestimo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empréstimo de Mídias";

@@ -19,7 +19,7 @@ namespace acervoMusical
 
         private void FormPesquisaMidia_Load(object sender, EventArgs e)
         {
-            atualiza();
+            //atualiza();
         }
 
         public void atualiza()
@@ -97,8 +97,9 @@ namespace acervoMusical
                 {
                     int idPessoa = int.Parse(listViewPesquisaPessoa.SelectedItems[0].Text);
                     FormAlteraPessoa alterarPessoa = new FormAlteraPessoa(idPessoa, 0);
-
                     alterarPessoa.ShowDialog();
+                    
+                    atualiza();
                 }
             }
         }
@@ -195,11 +196,6 @@ namespace acervoMusical
 
             mostaRegistros();
             conexao.Close();
-        }
-
-        private void FormPesquisaPessoa_Activated(object sender, EventArgs e)
-        {
-            atualiza();
         }
     }
 }

@@ -97,6 +97,7 @@
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.listViewHistorico);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "FormHistorico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Historico";

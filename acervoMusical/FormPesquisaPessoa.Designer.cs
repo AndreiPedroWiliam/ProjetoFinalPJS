@@ -154,10 +154,10 @@
             this.Controls.Add(this.buttonAlterar);
             this.Controls.Add(this.listViewPesquisaPessoa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "FormPesquisaPessoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pessoa";
-            this.Activated += new System.EventHandler(this.FormPesquisaPessoa_Activated);
             this.Load += new System.EventHandler(this.FormPesquisaMidia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaPessoa)).EndInit();
             this.ResumeLayout(false);

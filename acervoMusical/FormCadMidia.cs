@@ -73,5 +73,10 @@ namespace acervoMusical
             comboBoxMidia.Text = "";
             textBoxObservacao.Text = "";
         }
+
+        private void FormCadMidia_Load(object sender, EventArgs e)
+        {
+            comboBoxMidia.SelectedIndex = 0;
+        }
     }
 }
