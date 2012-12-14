@@ -19,11 +19,68 @@ namespace acervoMusical
 
         private void buttonAdicionar_Click(object sender, EventArgs e)
         {
-            if (comboBoxMidia.Text == "")
-                errorProvider2.SetError(label20, "Mídia inválida");
-            else if (comboBoxMidia.Text != "")
+            bool[] verifica = new bool[6];
+            if (comboBoxMidia.Text == "Selecione...")
+            {
+                errorProvider1.SetError(label20, "Mídia inválida");
+                verifica[0] = false;
+            }
+            else
+            {
+                errorProvider1.Clear();
+                verifica[0] = true;
+            }
+            if (textBoxInterprete.Text == "")
+            {
+                errorProvider2.SetError(label14, "Digite o interprete");
+                verifica[1] = false;
+            }
+            else
+            {
                 errorProvider2.Clear();
-            if (comboBoxMidia.Text != "")
+                verifica[1]=true;
+            }
+            if (textBoxAutor.Text == "")
+            {
+                errorProvider3.SetError(label15, "Digite o Autor");
+                verifica[2] = false;
+            }
+            else
+            {
+                errorProvider3.Clear();
+                verifica[2]=true;
+            }
+            if (textBoxAlbum.Text == "")
+            {
+                errorProvider4.SetError(label16, "Digite o Album");
+                verifica[3] = false;
+            }
+            else
+            {
+                errorProvider4.Clear();
+                verifica[3]=true;
+            }
+            if (textBoxCompra.Text == "")
+            {
+                errorProvider5.SetError(label17, "Digite onde comprou");
+                verifica[4] = false;
+            }
+            else
+            {
+                errorProvider5.Clear();
+                verifica[4]=true;
+            }
+            if (dateTimePickerAlbum.Text == dateTimePickerCompra.Text)
+            {
+                errorProvider6.SetError(label19, "A data da compra e menor que a data do Album");
+                verifica[5] = false;
+            }
+            else
+            {
+                errorProvider6.Clear();
+                verifica[5]=true;
+            }
+            if (verifica[0] == true && verifica[1] == true && verifica[2] == true && verifica[3] == true && verifica[4] == true && verifica[5] == true)
             {
                 SqlConnection conexao = new SqlConnection();
                 conexao.ConnectionString = "Data Source=.\\SQLEXPRESS;initial Catalog=acervoMusical;Integrated Security=SSPI";
