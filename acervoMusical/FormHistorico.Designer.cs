@@ -52,7 +52,7 @@
             this.DataDevolucao});
             this.listViewHistorico.FullRowSelect = true;
             this.listViewHistorico.GridLines = true;
-            this.listViewHistorico.Location = new System.Drawing.Point(13, 12);
+            this.listViewHistorico.Location = new System.Drawing.Point(13, 13);
             this.listViewHistorico.Name = "listViewHistorico";
             this.listViewHistorico.Size = new System.Drawing.Size(841, 467);
             this.listViewHistorico.TabIndex = 1;

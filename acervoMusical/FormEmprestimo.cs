@@ -107,7 +107,8 @@ namespace acervoMusical
                 SqlCommand muda = new SqlCommand("UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = '" + idalbum + "';",conexao);
                 muda.ExecuteNonQuery();
 
-                SqlCommand empresta = new SqlCommand("INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('"+DateTime.Now+"', null , '"+idamigo+"', '"+idalbum+"');",conexao);
+                string data = DateTime.Now.ToString("yyyy-MM-dd");
+      SqlCommand empresta = new SqlCommand("INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('"+data+"', null , '"+idamigo+"', '"+idalbum+"');",conexao);
                 empresta.Connection = conexao;
                 empresta.ExecuteNonQuery();
             }

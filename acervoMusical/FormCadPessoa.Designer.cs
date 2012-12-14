@@ -139,6 +139,7 @@
             this.comboBoxCadUFCad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCadUFCad.FormattingEnabled = true;
             this.comboBoxCadUFCad.Items.AddRange(new object[] {
+            "--",
             "AC",
             "AL",
             "AP",

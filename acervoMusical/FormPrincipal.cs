@@ -152,6 +152,8 @@ namespace acervoMusical
 
         public void CountTipoDeMidias()
         {
+            conexao.Close();
+            conexao.Open();
             FechaLeitor();
             // Comandos que retornam a quantidade conforme a mídia, passando esta informação para os respectivos labels
             SqlCommand cmdCountMidias = new SqlCommand("SELECT COUNT(*) AS 'QTD' FROM Album;", conexao);
@@ -312,7 +314,7 @@ namespace acervoMusical
                         leitor.Close();
 
                         // Pega a data atual do sistema, no formato dia-mês-ano
-                        string dataDevolucao = DateTime.Now.ToString("dd-MM-yyyy");
+                        string dataDevolucao = DateTime.Now.ToString("yyyy-MM-dd");
 
                         // Altera a data de devolução para data atual
                         SqlCommand cmdUpdateEmprestimo = new SqlCommand("UPDATE Emprestimo SET DataDevolucao ='" + dataDevolucao + "' WHERE Id_Emprestimo = @ID_EMPRESTIMO", conexao);
@@ -418,13 +420,15 @@ namespace acervoMusical
                     }
                     else
                     {
+                        int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
+
                         DialogResult resposta = MessageBox.Show("Deseja realmente remover este album?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (resposta == System.Windows.Forms.DialogResult.Yes)
                         {
                             conexao.Close();
                             conexao.Open();
-                            int idAlbum = int.Parse(listViewPesquisa.SelectedItems[0].Text);
+                           
 
                             // Pega o id do album selecionado e remove 
                             SqlCommand cmdDeleteAlbum = new SqlCommand("DELETE FROM Album WHERE Id_Album = @ID_ALBUM", conexao);

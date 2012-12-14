@@ -28,27 +28,93 @@ namespace acervoMusical
         private void FormAlteraPessoa_Load(object sender, EventArgs e)
         {
             Atualiza();
+            maskedTextBoxTelefoneAlt.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
+            bool []verifica = new bool[8];
             if (textBoxNomeAlt.Text.Trim() == "")
+            {
                 errorProvider1.SetError(label1, "Nome Inválido");
-            else if (maskedTextBoxTelefoneAlt.Text.Trim() == "")
-                errorProvider2.SetError(label2, "Telefone Inválido");
-            else if (textBoxEmailAlt.Text.Trim() == "")
-                errorProvider3.SetError(label3, "Email Inválido");
-            else if (textBoxLogradouroAlt.Text.Trim() == "")
-                errorProvider4.SetError(label4, "Logradouro Inválido");
-            else if (textBoxNumeroAlt.Text.Trim() == "")
-                errorProvider5.SetError(label5, "Numero Inválido");
-            else if (textBoxBairroAlt.Text.Trim() == "")
-                errorProvider6.SetError(label6, "Bairro Inválido");
-            else if (textBoxCidadeAlt.Text.Trim() == "")
-                errorProvider7.SetError(label7, "Cidade Inválido");
-            else if (comboBoxCadUFAlt.Text.Trim() == "")
-                errorProvider8.SetError(label8, "UF Inválido");
+                verifica[0] = false;
+            }
             else
+            {
+                errorProvider1.Clear();
+                verifica[0] = true;
+            }
+            if (maskedTextBoxTelefoneAlt.Text.Trim() == "")
+            {
+                errorProvider2.SetError(label2, "Telefone Inválido");
+                verifica[1] = false;
+            }
+            else
+            {
+                errorProvider2.Clear();
+                verifica[1] = true;
+            }
+            if (textBoxEmailAlt.Text.Trim() == "")
+            {
+                errorProvider3.SetError(label3, "Email Inválido");
+                verifica[2] = false;
+            }
+            else
+            {
+                errorProvider3.Clear();
+                verifica[2] = true;
+            }
+            if (textBoxLogradouroAlt.Text.Trim() == "")
+            {
+                errorProvider4.SetError(label4, "Logradouro Inválido");
+                verifica[3] = false;
+            }
+            else
+            {
+                errorProvider4.Clear();
+                verifica[3] = true;
+            }
+            if (textBoxNumeroAlt.Text.Trim() == "")
+            {
+                errorProvider5.SetError(label5, "Numero Inválido");
+                verifica[4] = false;
+            }
+            else
+            {
+                errorProvider5.Clear();
+                verifica[4] = true;
+            }
+            if (textBoxBairroAlt.Text.Trim() == "")
+            {
+                errorProvider6.SetError(label6, "Bairro Inválido");
+                verifica[5] = false;
+            }
+            else
+            {
+                errorProvider6.Clear();
+                verifica[5] = true;
+            }
+            if (textBoxCidadeAlt.Text.Trim() == "")
+            {
+                errorProvider7.SetError(label7, "Cidade Inválido");
+                verifica[6] = false;
+            }
+            else
+            {
+                errorProvider7.Clear();
+                verifica[6] = true;
+            }
+            if (comboBoxCadUFAlt.Text.Trim() == "")
+            {
+                errorProvider8.SetError(label8, "UF Inválido");
+                verifica[7] = false;
+            }
+            else
+            {
+                errorProvider8.Clear();
+                verifica[7] = true;
+            }
+            if (verifica[0] == true && verifica[1] == true && verifica[2] == true && verifica[3] == true && verifica[4] == true && verifica[5] == true && verifica[6] == true && verifica[7] == true) 
             {
                 conexao.Open();
                 SqlCommand cmdUpdate = new SqlCommand("UPDATE Pessoa SET Nome = @NOME, Telefone = @TELEFONE, Email = @EMAIL, Logradouro = @LOGRADOURO, Numero = @NUMERO, Bairro = @BAIRRO, Cidade = @CIDADE, UF = @UF WHERE Id_Pessoa = @ID_PESSOA;", conexao);

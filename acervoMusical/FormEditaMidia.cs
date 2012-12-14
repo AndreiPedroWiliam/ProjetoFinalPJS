@@ -28,30 +28,34 @@ namespace acervoMusical
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            bool erro = false;
-
+            bool []verifica = new bool[8];
             if (textBoxInterpreteEdit.Text.Trim() == "")
             {
-                erro = true;
+                verifica[0] = false;
                 errorProvider.SetError(labelInterprete, "Favor preencher o campo Interprete corretamente");
+            }
+            else
+            {
+                verifica[0] = true;
+                errorProvider1.Clear();
             }
             if (textBoxAutorEdit.Text.Trim() == "")
             {
-                erro = true;
+                verifica[1] = true;
                 errorProvider.SetError(labelAutor, "Favor preencher o campo Autor corretamente");
             }
             if (textBoxAlbumEdit.Text.Trim() == "")
             {
-                erro = true;
+                verifica[1] = true;
                 errorProvider.SetError(labelAlbum, "Favor preencher o campo Album corretamente");
             }
             if (textBoxCompraEdit.Text.Trim() == "")
             {
-                erro = true;
+                verifica[2] = true;
                 errorProvider.SetError(labelOrigemCompra, "Favor preemcher o campo Origem da Compra corretamente");
             }
 
-            if (erro == false)
+            if (verifica[2] == false)
             {
                 try
                 {

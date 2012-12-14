@@ -126,7 +126,7 @@
             this.sobreToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1247, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1242, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -308,7 +308,7 @@
             this.qtdePessoa});
             this.toolStrip1.Location = new System.Drawing.Point(0, 535);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1247, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1242, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -538,7 +538,7 @@
             this.groupBoxPesquisa.Controls.Add(this.textBoxAutor);
             this.groupBoxPesquisa.Location = new System.Drawing.Point(980, 31);
             this.groupBoxPesquisa.Name = "groupBoxPesquisa";
-            this.groupBoxPesquisa.Size = new System.Drawing.Size(255, 463);
+            this.groupBoxPesquisa.Size = new System.Drawing.Size(250, 463);
             this.groupBoxPesquisa.TabIndex = 13;
             this.groupBoxPesquisa.TabStop = false;
             this.groupBoxPesquisa.Tag = "";
@@ -575,7 +575,7 @@
             // buttonPesquisar
             // 
             this.buttonPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPesquisar.Location = new System.Drawing.Point(128, 434);
+            this.buttonPesquisar.Location = new System.Drawing.Point(123, 434);
             this.buttonPesquisar.Name = "buttonPesquisar";
             this.buttonPesquisar.Size = new System.Drawing.Size(97, 23);
             this.buttonPesquisar.TabIndex = 23;
@@ -759,7 +759,6 @@
             this.comboBoxStatus.Enabled = false;
             this.comboBoxStatus.FormattingEnabled = true;
             this.comboBoxStatus.Items.AddRange(new object[] {
-            "Selecione...",
             "Disponível",
             "Emprestado"});
             this.comboBoxStatus.Location = new System.Drawing.Point(128, 335);
@@ -785,7 +784,7 @@
             this.textBoxOrigemCompra.Enabled = false;
             this.textBoxOrigemCompra.Location = new System.Drawing.Point(6, 286);
             this.textBoxOrigemCompra.Name = "textBoxOrigemCompra";
-            this.textBoxOrigemCompra.Size = new System.Drawing.Size(219, 20);
+            this.textBoxOrigemCompra.Size = new System.Drawing.Size(214, 20);
             this.textBoxOrigemCompra.TabIndex = 13;
             // 
             // textBoxAlbum
@@ -795,7 +794,7 @@
             this.textBoxAlbum.Enabled = false;
             this.textBoxAlbum.Location = new System.Drawing.Point(6, 139);
             this.textBoxAlbum.Name = "textBoxAlbum";
-            this.textBoxAlbum.Size = new System.Drawing.Size(219, 20);
+            this.textBoxAlbum.Size = new System.Drawing.Size(214, 20);
             this.textBoxAlbum.TabIndex = 5;
             // 
             // textBoxInterprete
@@ -805,7 +804,7 @@
             this.textBoxInterprete.Enabled = false;
             this.textBoxInterprete.Location = new System.Drawing.Point(6, 41);
             this.textBoxInterprete.Name = "textBoxInterprete";
-            this.textBoxInterprete.Size = new System.Drawing.Size(219, 20);
+            this.textBoxInterprete.Size = new System.Drawing.Size(214, 20);
             this.textBoxInterprete.TabIndex = 1;
             // 
             // textBoxAutor
@@ -815,7 +814,7 @@
             this.textBoxAutor.Enabled = false;
             this.textBoxAutor.Location = new System.Drawing.Point(6, 90);
             this.textBoxAutor.Name = "textBoxAutor";
-            this.textBoxAutor.Size = new System.Drawing.Size(219, 20);
+            this.textBoxAutor.Size = new System.Drawing.Size(214, 20);
             this.textBoxAutor.TabIndex = 3;
             // 
             // buttonEmprestar
@@ -866,7 +865,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1247, 560);
+            this.ClientSize = new System.Drawing.Size(1242, 560);
             this.Controls.Add(this.buttonAtribuirNota);
             this.Controls.Add(this.labelErroEmprestimo);
             this.Controls.Add(this.labelErroRemover);
@@ -876,7 +875,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.toolStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(1022, 521);
+            this.MinimumSize = new System.Drawing.Size(1258, 598);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minha Coleção";

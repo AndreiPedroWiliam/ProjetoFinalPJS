@@ -119,9 +119,9 @@ set dateformat dmy
 select * from Emprestimo
 
 
-INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('14-11-2012', NULL , 2, 3);
+INSERT INTO Emprestimo (DataEmprestimo, DataDevolucao, Id_Pessoa, Id_Album) VALUES ('14-11-2012', NULL , 2, 1);
 
-UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = 3; 
+UPDATE Album SET Status = 'Emprestado' WHERE Id_Album = 1; 
 
 
 -- DEVOLVENDO UM ALBUM --

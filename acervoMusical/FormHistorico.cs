@@ -56,8 +56,8 @@ namespace acervoMusical
                     // a variavel dataEmprestimo vem com o formato do banco de dados (mês-dia-ano). 
                     // Aproveita-se somente do trecho que interessa (mês --- dia --- ano)
                     
-                    string mes = dataEmprestimo.Remove(2);
-                    string dia = dataEmprestimo.Substring(3, 2); 
+                    string dia = dataEmprestimo.Remove(2);
+                    string mes = dataEmprestimo.Substring(3, 2); 
                     string ano = dataEmprestimo.Substring(6, 4); 
 
                     DataEmprestimo.Text = dia+"/"+mes+"/"+ano;
@@ -70,8 +70,8 @@ namespace acervoMusical
                         DataDevolucao.Text = "- - / - - / - - - -";
                     else
                     {
-                        mes = dataDevulocao.Remove(2); 
-                        dia = dataDevulocao.Substring(3, 2);  
+                        dia = dataDevulocao.Remove(2); 
+                        mes = dataDevulocao.Substring(3, 2);  
                         ano = dataDevulocao.Substring(6, 4); 
                         DataDevolucao.Text = dia + "/" + mes + "/" + ano;
                         
@@ -113,7 +113,8 @@ namespace acervoMusical
                     writer.Write(listViewHistorico.Items[i].Text + " - ");
                     writer.Write(listViewHistorico.Items[i].SubItems[1].Text + " - ");
                     writer.Write(listViewHistorico.Items[i].SubItems[2].Text + " - ");
-                    writer.Write(listViewHistorico.Items[i].SubItems[3].Text);
+                    writer.Write(listViewHistorico.Items[i].SubItems[3].Text + " - ");
+                    writer.Write(listViewHistorico.Items[i].SubItems[4].Text);
                     writer.WriteLine();
                     writer.WriteLine();
                     i++;
