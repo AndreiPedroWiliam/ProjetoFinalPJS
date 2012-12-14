@@ -605,7 +605,7 @@ namespace acervoMusical
                     pesquisa = " TipoMidia = '" + comboBoxMidia.SelectedItem.ToString() + "'";
                 i++;
             }
-            if (checkBoxStatus.Checked == true && comboBoxStatus.SelectedIndex != 0)
+            if (checkBoxStatus.Checked == true && comboBoxStatus.SelectedIndex != -1)
             {
                 if (i > 0)
                     pesquisa += " AND Status = '" + comboBoxStatus.SelectedItem.ToString() + "'";

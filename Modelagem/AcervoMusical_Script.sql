@@ -137,7 +137,7 @@ SELECT Id_Album, Interprete, Autor, Album, Data, DataCompra, OrigemCompra, TipoM
 
 
 -- SELECT COUNT  TIPO DE MIDIAS, STATUS ALBUM, PESSOAS --
-
+/*
 SELECT * FROM Pessoa;
 SELECT COUNT(*) AS 'QTD' FROM Album;
 SELECT COUNT(*) AS 'QTD' FROM Album WHERE TipoMidia = 'Digital';
@@ -161,4 +161,4 @@ INNER JOIN Album ON
 	Emprestimo.Id_Album = Album.Id_Album
 
 
-SELECT *FROM Album;
+SELECT *FROM Album;*/

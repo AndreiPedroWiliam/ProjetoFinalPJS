@@ -19,7 +19,7 @@ namespace acervoMusical
 
         private void FormPesquisaMidia_Load(object sender, EventArgs e)
         {
-            //atualiza();
+            atualiza();
         }
 
         public void atualiza()
@@ -197,5 +197,11 @@ namespace acervoMusical
             mostaRegistros();
             conexao.Close();
         }
+
+        private void FormPesquisaPessoa_Activated(object sender, EventArgs e)
+        {
+            atualiza();
+        }
+
     }
 }

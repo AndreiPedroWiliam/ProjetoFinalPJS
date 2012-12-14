@@ -158,6 +158,7 @@
             this.Name = "FormPesquisaPessoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pessoa";
+            this.Activated += new System.EventHandler(this.FormPesquisaPessoa_Activated);
             this.Load += new System.EventHandler(this.FormPesquisaMidia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pesquisaPessoa)).EndInit();
             this.ResumeLayout(false);
